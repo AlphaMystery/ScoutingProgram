@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Scouting Program</string>
+    <string name="portcullis">Portcullis</string>
+    <string name="cheval_de_frise">Cheval de Frise</string>
+    <string name="moat">Moat</string>
+    <string name="ramparts">Ramparts</string>
+    <string name="drawbridge">Drawbridge</string>
+    <string name="sally_port">Sally Port</string>
+    <string name="rock_wall">Rock Wall</string>
+    <string name="rough_terrain">Rough Terrain</string>
+    <string name="low_bar">Low Bar</string>
+    <string name="add">+</string>
+    <string name="sub">-</string>
+
+</resources>
