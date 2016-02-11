@@ -1,43 +1,47 @@
 package falconrobotics.scoutingprogram;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 /**
  * Created by Install on 2/7/2016.
  */
-public class MatchInfo_Fragment extends Fragment implements View.OnClickListener{
+public class MatchInfo_Fragment extends Fragment {
     View rootView;
-    TextView text;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.comments_layout,null);
+        rootView = inflater.inflate(R.layout.match_info,null);
 
-        text = (TextView)rootView.findViewById(R.id.text2);
 
-        text.setOnClickListener(this);
+        final Button submit = (Button)rootView.findViewById(R.id.submit_button);
+        final Spinner alliance = (Spinner)rootView.findViewById(R.id.input_alliance);
+        final EditText team_number = (EditText)rootView.findViewById(R.id.input_team_number);
+        final EditText match_number = (EditText) rootView.findViewById(R.id.input_match_number);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.submit_button:
+                        //to test if it works
+                        submit.setText(team_number.getText() + "\n" + match_number.getText() + "\n" + alliance.getSelectedItem().toString());
+                        // DO SOMETHING
+                        break;
+                }
+
+            }
+        });
+
 
         return rootView;
-    }
-
-    @Override
-    public void onClick(View v) {
-            Toast.makeText(rootView.getApplicationContext(), "Text2 was clicked",
-                    Toast.LENGTH_LONG).show();
-            text.setText("Visit us: http://examples.javacodegeeks.com");
-
-            if(text.getLinksClickable() == true) {
-                text.setLinkTextColor(Color.BLUE);
     }
 }

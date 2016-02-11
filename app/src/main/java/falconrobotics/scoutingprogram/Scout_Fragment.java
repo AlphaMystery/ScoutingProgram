@@ -36,18 +36,43 @@ public class Scout_Fragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        String countString = "";
+        String countString;
         switch (v.getId())
         {
             case R.id.high_goal_make_add:
                 high_goal_y++;
-                countString = high_goal_y + "";
+                countString = " " + high_goal_y;
                 ((TextView)rootView.findViewById(R.id.high_goal_make_score)).setText(countString);
                 break;
             case R.id.high_goal_make_sub:
                 high_goal_y--;
-                countString = high_goal_y + "";
+                countString = " " + high_goal_y;
                 ((TextView)rootView.findViewById(R.id.high_goal_make_score)).setText(countString);
+                break;
+            case R.id.high_goal_miss_add:
+                high_goal_n++;
+                countString = " " + high_goal_n;
+                ((TextView)rootView.findViewById(R.id.high_goal_miss_score)).setText(countString);
+                break;
+            case R.id.high_goal_miss_sub:
+                high_goal_n--;
+                countString = " " + high_goal_n;
+                ((TextView) rootView.findViewById(R.id.high_goal_miss_score)).setText(countString);
+                break;
+            case R.id.low_goal_make_sub:
+                low_goal_y--;
+                countString = " " + low_goal_y;
+                ((TextView) rootView.findViewById(R.id.low_goal_make_score)).setText(countString);
+                break;
+            case R.id.low_goal_make_add:
+                low_goal_y++;
+                countString = " " + low_goal_y;
+                ((TextView) rootView.findViewById(R.id.low_goal_make_score)).setText(countString);
+                break;
+            case R.id.low_goal_miss_sub:
+                low_goal_n--;
+                countString = " " + low_goal_n;
+                ((TextView) rootView.findViewById(R.id.low_goal_miss_score)).setText(countString);
                 break;
         }
     }

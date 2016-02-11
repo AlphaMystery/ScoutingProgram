@@ -5,7 +5,8 @@
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
 
         <TableRow
             android:layout_width="match_parent"
@@ -17,8 +18,8 @@
 
             <TextView
                 android:text="0"
+                android:textAlignment="center"
                 android:id="@+id/high_goal_make_score"
-                android:layout_x="25dp"
                 android:layout_column="1" />
 
             <Button
@@ -32,12 +33,208 @@
                 android:layout_column="3" />
         </TableRow>
 
-        <TextView
-            android:text="High Goal Miss"
-            android:id="@+id/high_goal_miss"/>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:text="0"
-            android:id="@+id/high_goal_miss_score"/>
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"/>
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"/>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="-"
+                android:id="@+id/high_goal_miss_sub"/>
+
+            <TextView
+                android:text="0"
+                android:textAlignment="center"
+                android:id="@+id/high_goal_miss_score"
+                android:layout_column="1" />
+
+            <Button
+                android:text="+"
+                android:id="@+id/high_goal_miss_add"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="High Goal Miss"
+                android:id="@+id/high_goal_miss"
+                android:layout_column="3" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:id="@+id/progressBar" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:id="@+id/progressBar2" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:id="@+id/progressBar3" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:id="@+id/progressBar4" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="-"
+                android:id="@+id/low_goal_make_sub"/>
+
+            <TextView
+                android:text="0"
+                android:textAlignment="center"
+                android:id="@+id/low_goal_make_score"
+                android:layout_column="1" />
+
+            <Button
+                android:text="+"
+                android:id="@+id/low_goal_make_add"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="Low Goal Make"
+                android:id="@+id/low_goal_make"
+                android:layout_column="3" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:id="@+id/progressBar5" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:id="@+id/progressBar6" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:id="@+id/progressBar7" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:id="@+id/progressBar8" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="-"
+                android:id="@+id/low_goal_miss_sub"/>
+
+            <TextView
+                android:text=" 0"
+                android:textAlignment="center"
+                android:id="@+id/low_goal_miss_score"
+                android:layout_column="1"/>
+
+            <Button
+                android:text="+"
+                android:id="@+id/low_goal_miss_add"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="Low Goal Miss"
+                android:id="@+id/low_goal_miss"
+                android:layout_column="3" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:id="@+id/progressBar9" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:id="@+id/progressBar10" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:id="@+id/progressBar11" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:id="@+id/progressBar12" />
+        </TableRow>
+
     </TableLayout>
 </ScrollView>

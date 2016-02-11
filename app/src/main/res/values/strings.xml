@@ -11,5 +11,10 @@
     <string name="low_bar">Low Bar</string>
     <string name="add">+</string>
     <string name="sub">-</string>
+    <string-array name="alliances">
+        <item>Blue</item>
+        <item>Red</item>
+    </string-array>
+    <string name="alliances_prompt">Allience</string>
 
 </resources>
