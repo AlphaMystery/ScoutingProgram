@@ -54,7 +54,7 @@ public class GameScout_TabFragment extends Fragment {
         {
             switch (position){
                 case 0 : return new MatchInfo_Fragment();
-                case 1 : return new Scout_Fragment();
+                case 1 : return new Scout_TabFragment();
                 case 2 : return new Comments_Fragment();
             }
             return null;

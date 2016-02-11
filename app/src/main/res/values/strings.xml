@@ -11,10 +11,38 @@
     <string name="low_bar">Low Bar</string>
     <string name="add">+</string>
     <string name="sub">-</string>
+
     <string-array name="alliances">
         <item>Blue</item>
         <item>Red</item>
     </string-array>
     <string name="alliances_prompt">Allience</string>
+
+    <string-array name="yes_no">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string name="yes_no_prompt">Yes or No</string>
+
+    <string-array name="defences">
+        <item>None</item>
+        <item>Porticullis</item>
+        <item>Cheval</item>
+        <item>Moat</item>
+        <item>Ramparts</item>
+        <item>Drawbridge</item>
+        <item>Sally Port</item>
+        <item>Rough Terrain</item>
+        <item>Low Bar</item>
+    </string-array>
+    <string name="defences_prompt">Defence Crossed</string>
+    
+    <string-array name="partial_yes_no">
+        <item>Yes</item>
+        <item>Partial</item>
+        <item>No</item>
+    </string-array>
+    <string name="partial_yes_no_prompt">Yes, Partially, or No</string>
+
 
 </resources>

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.containerView,new GameScout_TabFragment()).commit();
+        mFragmentTransaction.replace(R.id.containerView,new about_fragment()).commit();
         /**
          * Setup click events on the Navigation View Items.
          */
