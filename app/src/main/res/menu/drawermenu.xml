@@ -2,38 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:id="@+id/group_scouting_id">
-        <item android:title="Scouting">
-            <menu>
-                <item
-                    android:title="Game"
-                    android:id="@+id/nav_item_game_scout"/>
-                <item
-                    android:title="Pit"
-                    android:id="@+id/nav_item_pit_scout"/>
-            </menu>
-        </item>
+        <item android:title=""
+            android:id="@+id/nav_item_hidden"/>
+        <item
+            android:title="Game Scouting"
+            android:id="@+id/nav_item_game_scout"/>
+        <item
+            android:title="Pit Scouting"
+            android:id="@+id/nav_item_pit_scout"/>
     </group>
 
     <group android:id="@+id/group_analysis_id">
-        <item android:title="Analyze">
-            <menu>
-                <item android:title="Stats"/>
-
-            </menu>
-        </item>
+        <item android:title="Scores"/>
     </group>
 
     <group android:id="@+id/group_sharing_id">
-        <item android:title="Share">
-            <menu>
-                <item
-                    android:title="Bluetooth"
-                    android:id="@+id/nav_item_bluetooth_share"/>
-                <item
-                    android:title="Email"
-                    android:id="@+id/nav_item_email_share"/>
-            </menu>
-        </item>
+        <item
+            android:title="Bluetooth Sync"
+            android:id="@+id/nav_item_bluetooth_share"/>
+        <item
+            android:title="Email"
+            android:id="@+id/nav_item_email_share"/>
     </group>
 
 </menu>

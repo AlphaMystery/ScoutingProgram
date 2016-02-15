@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:scrollbarAlwaysDrawHorizontalTrack="true">
 
     <TableLayout
@@ -10,8 +10,8 @@
         android:stretchColumns="*">
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <ToggleButton
                 android:textOn="Yes"
                 android:textOff="No"
@@ -30,8 +30,8 @@
             android:progressDrawable="@drawable/progress_bar_2"/>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <ToggleButton
                 android:textOn="Yes"
                 android:textOff="No"
@@ -50,27 +50,8 @@
             android:progressDrawable="@drawable/progress_bar_2"/>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <Spinner
-                android:id="@+id/def_crossed"
-                android:entries="@array/defences"
-                android:layout_column="0"/>
-            <TextView
-                android:text="Defence Crossed"
-                android:id="@+id/text_def_crossed"
-                android:layout_column="3"/>
-        </TableRow>
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar_2"/>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <Button
                 android:text="-"
                 android:id="@+id/low_goal_auto_sub"/>
@@ -90,8 +71,8 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <Button
                 android:text="-"
                 android:id="@+id/high_goal_auto_sub"/>
@@ -109,6 +90,29 @@
                 android:id="@+id/high_goal_auto"
                 android:layout_column="3" />
         </TableRow>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/progress_bar_2"/>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <Spinner
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/def_crossed"
+                android:entries="@array/defences"
+                android:layout_column="0"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Defence Crossed"
+                android:id="@+id/text_def_crossed"
+                android:layout_column="3"/>
+        </LinearLayout>
 
     </TableLayout>
 

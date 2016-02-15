@@ -67,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
                     xfragmentTransaction.replace(R.id.containerView,new Email_Fragment()).commit();
                 }
+                if (menuItem.getItemId() == R.id.nav_item_hidden) {
+                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+                    xfragmentTransaction.replace(R.id.containerView,new about_fragment()).commit();
+                }
                 return false;
             }
 

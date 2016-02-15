@@ -5,8 +5,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DO NOT WORK ON UNTIL END"
-        android:id="@+id/textView"
+        android:text="syncs the stuff with server"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
