@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <group android:id="@+id/group_scouting_id">
-        <item android:title="Scouting">
-            <menu>
-                <item
-                    android:title="Games"/>
-                <item
-                    android:title="Pits"/>
-            </menu>
-        </item>
-    </group>
-
-    <group android:id="@+id/group_analysis_id">
-        <item android:title="Analyze">
-            <menu>
-                <item android:title="Team"/>
-                <item android:title="Match"/>
-            </menu>
-        </item>
-    </group>
-
-    <group android:id="@+id/group_sharing_id">
-        <item android:title="Share">
-            <menu>
-                <item
-                    android:title="Bluetooth"/>
-                <item
-                    android:title="Excel"/>
-            </menu>
-        </item>
-    </group>
+<menu>
 
 </menu>
+
+<!--junk code? works without it-->
+
+<!--<group android:id="@+id/group_scouting_id">-->
+<!--<item android:title="Scouting">-->
+    <!--<menu>-->
+        <!--<item-->
+            <!--android:title="Games"/>-->
+        <!--<item-->
+            <!--android:title="Pits"/>-->
+    <!--</menu>-->
+<!--</item>-->
+<!--</group>-->
+
+<!--<group android:id="@+id/group_analysis_id">-->
+<!--<item android:title="Analyze"-->
+    <!-->-->
+    <!--<menu>-->
+        <!--<item android:title="Team"/>-->
+        <!--<item android:title="Match"/>-->
+    <!--</menu>-->
+<!--</item>-->
+<!--</group>-->
+
+<!--<group android:id="@+id/group_sharing_id">-->
+<!--<item android:title="Share">-->
+    <!--<menu>-->
+        <!--<item-->
+            <!--android:title="BlueTooth"/>-->
+        <!--<item-->
+            <!--android:title="Excel"/>-->
+    <!--</menu>-->
+<!--</item>-->
+<!--</group>-->
