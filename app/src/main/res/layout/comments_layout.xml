@@ -39,33 +39,33 @@
 
         <TableRow
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:entries="@array/yes_no"
-                android:id="@+id/spinner_stopped"
-                android:layout_column="0"/>
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Did the robot stop working?"
                 android:textAlignment="center"/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/yes_no"
+                android:id="@+id/spinner_stopped"
+                android:layout_column="0"/>
         </TableRow>
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Was the robot carded?"/>
             <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:entries="@array/carded"
                 android:id="@+id/spinner_carded"
                 android:layout_column="0"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Was the robot carded?"/>
         </TableRow>
 
         <ProgressBar
@@ -83,11 +83,7 @@
             android:lines="2"
             android:maxLines="2"/>
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar_2"/>
+        <TextView android:text="\n\n"/>
 
         <Button
             android:layout_width="match_parent"

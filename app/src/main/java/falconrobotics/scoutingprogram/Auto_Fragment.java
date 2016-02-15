@@ -26,10 +26,10 @@ public class Auto_Fragment extends Fragment implements View.OnClickListener {
         rootView = inflater.inflate(R.layout.auto_layout, null);
 
         ToggleButton auto_boulder_start = (ToggleButton) rootView.findViewById(R.id.auto_toggle_boulder_start);
-        auto_boulder_start.setOnClickListener(this);
+//        auto_boulder_start.setOnClickListener(this);
 
         ToggleButton auto_def_reached = (ToggleButton) rootView.findViewById(R.id.auto_toggle_reached_def);
-        auto_def_reached.setOnClickListener(this);
+//        auto_def_reached.setOnClickListener(this);
 
         Button auto_high_goal_miss_add = (Button) rootView.findViewById(R.id.auto_high_goal_miss_add);
         auto_high_goal_miss_add.setOnClickListener(this);
