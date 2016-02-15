@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageButton
+        <RelativeLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pit_image_view_robot"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click here to take a picture of the robot."
+                android:layout_below="@+id/pit_image_view_robot"
+                android:id="@+id/pit_button_robot_cap"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
-            android:layout_column="0"
-            />
-    </TableRow>
+            android:progressDrawable="@drawable/progress_bar"/>
 
-</TableLayout>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="\n"/>
+        </TableRow>
+
+        <TableLayout>
+            <TableRow>
+                <TextView
+                    android:text="Driver Experience:"/>
+                <Spinner
+                    android:layout_height="wrap_content"
+                    android:entries="@array/driver_experience"/>
+                <TextView
+                    android:text="years."/>
+
+            </TableRow>
+        </TableLayout>
+    </TableLayout>
+</ScrollView>

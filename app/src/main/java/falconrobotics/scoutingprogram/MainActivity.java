@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (menuItem.getItemId() == R.id.nav_item_pit_scout) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView,new PitScout_Fragment()).commit();
+                    xfragmentTransaction.replace(R.id.containerView,new PitScout_Frame_Fragment()).commit();
                 }
 
                 if (menuItem.getItemId() == R.id.nav_item_bluetooth_share) {

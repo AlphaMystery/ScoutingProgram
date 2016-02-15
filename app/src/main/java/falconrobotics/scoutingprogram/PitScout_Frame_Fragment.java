@@ -8,23 +8,26 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by Install on 2/7/2016.
  */
-public class PitScout_Fragment extends Fragment {
+public class PitScout_Frame_Fragment extends Fragment {
     View rootView;
-    ImageButton pic1, pic2;
+    TextView capButton;
+    ImageView imageView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         rootView = inflater.inflate(R.layout.frame_pitscout_layout,null);
 
-        pic1 = (ImageButton)rootView.findViewById(R.id.imageButton);
+        imageView = (ImageView)rootView.findViewById(R.id.pit_image_view_robot);
+        capButton = (TextView)rootView.findViewById(R.id.pit_button_robot_cap);
 
-        pic1.setOnClickListener(new View.OnClickListener() {
+        capButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
@@ -36,9 +39,9 @@ public class PitScout_Fragment extends Fragment {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
 
-        Bitmap bp = (Bitmap) data.getExtras().get("data");
-        pic1.setImageBitmap(bp);
+        Bitmap bp = (Bitmap)data.getExtras().get("data");
+        imageView.setImageBitmap(bp);
     }
 }
