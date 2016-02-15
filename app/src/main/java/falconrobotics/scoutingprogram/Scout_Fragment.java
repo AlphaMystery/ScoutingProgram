@@ -33,7 +33,7 @@ public class Scout_Fragment extends Fragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.scout_layout,null);
+        rootView = inflater.inflate(R.layout.tele_layout,null);
 
         //set up buttons
         {

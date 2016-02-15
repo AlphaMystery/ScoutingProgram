@@ -10,11 +10,15 @@ import android.view.ViewGroup;
 /**
  * Created by Install on 2/7/2016.
  */
-public class XL_Fragment extends Fragment {
+public class Email_Fragment extends Fragment {
+    View rootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.xl_layout,null);
+        rootView = inflater.inflate(R.layout.email_layout,null);
+
+
+        return rootView;
     }
 }

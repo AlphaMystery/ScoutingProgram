@@ -5,10 +5,10 @@
         <item android:title="Scouting">
             <menu>
                 <item
-                    android:title="Games"
+                    android:title="Game"
                     android:id="@+id/nav_item_game_scout"/>
                 <item
-                    android:title="Pits"
+                    android:title="Pit"
                     android:id="@+id/nav_item_pit_scout"/>
             </menu>
         </item>
@@ -17,8 +17,7 @@
     <group android:id="@+id/group_analysis_id">
         <item android:title="Analyze">
             <menu>
-                <item android:title="Team"/>
-                <item android:title="Match"/>
+                <item android:title="Stats"/>
 
             </menu>
         </item>
@@ -31,8 +30,8 @@
                     android:title="Bluetooth"
                     android:id="@+id/nav_item_bluetooth_share"/>
                 <item
-                    android:title="Excel"
-                    android:id="@+id/nav_item_excel_share"/>
+                    android:title="Email"
+                    android:id="@+id/nav_item_email_share"/>
             </menu>
         </item>
     </group>

@@ -24,7 +24,7 @@ public class GameScout_TabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View x =  inflater.inflate(R.layout.gamescout_tab_layout,null);
+        View x =  inflater.inflate(R.layout.tab_game_scout_layout,null);
         tabLayout = (TabLayout) x.findViewById(R.id.tabs_scout);
         viewPager = (ViewPager) x.findViewById(R.id.viewpager_scout);
 

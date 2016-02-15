@@ -1,26 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:stretchColumns="*">
-
-    <TableRow
-        android:layout_width="wrap_content"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarAlwaysDrawHorizontalTrack="true">
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/comment_1"
-            android:layout_column="0"
-            android:hint="Example hint. Please replace me."
-            android:maxLines="5"/>
-    </TableRow>
+        <TextView
+            android:text="Alliance Scores"/>
 
-    <RelativeLayout>
-        <RatingBar
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Point Total:"
+            android:inputType="number"
+            android:id="@+id/input_alliance_score_total"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Auto Total:"
+            android:inputType="number"
+            android:id="@+id/input_alliance_score_auto"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Foul Total:"
+            android:inputType="number"
+            android:id="@+id/input_alliance_score_foul"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/team_rating"
-            android:numStars="5"/>
-    </RelativeLayout>
-</TableLayout>
+            android:progressDrawable="@drawable/progress_bar_2"/>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:entries="@array/yes_no"
+                android:id="@+id/spinner_stopped"
+                android:layout_column="0"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Did the robot stop working?"
+                android:textAlignment="center"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:entries="@array/carded"
+                android:id="@+id/spinner_carded"
+                android:layout_column="0"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Was the robot carded?"/>
+        </TableRow>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/progress_bar_2"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Additional Comments:"
+            android:id="@+id/edittext_comments"
+            android:focusableInTouchMode="true"
+            android:lines="2"
+            android:maxLines="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/progress_bar_2"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:id="@+id/button_save"/>
+    </TableLayout>
+</ScrollView>
+
+    <!--<RelativeLayout>-->
+    <!--<RatingBar-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/team_rating"-->
+    <!--android:numStars="5"/>-->
+    <!--</RelativeLayout>-->

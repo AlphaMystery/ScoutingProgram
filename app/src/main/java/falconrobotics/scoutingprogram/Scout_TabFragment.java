@@ -24,7 +24,7 @@ public class Scout_TabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View x =  inflater.inflate(R.layout.scout_tab_fragment,null);
+        View x =  inflater.inflate(R.layout.tab_scout_layout,null);
         tabLayout = (TabLayout) x.findViewById(R.id.tabs_scout_tab);
         viewPager = (ViewPager) x.findViewById(R.id.viewpager_scout_tab);
 
