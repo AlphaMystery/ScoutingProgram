@@ -13,7 +13,7 @@ import android.widget.ToggleButton;
 /**
  * Created by Install on 2/11/2016.
  */
-public class Auto_Fragment extends Fragment implements View.OnClickListener {
+public class Fragment_S_Auto extends Fragment implements View.OnClickListener {
     View rootView;
     private int low_miss = 0;
     private int low_hit = 0;
@@ -23,37 +23,39 @@ public class Auto_Fragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.auto_layout, null);
+        rootView = inflater.inflate(R.layout.layout_s_auto, null);
 
-        ToggleButton auto_boulder_start = (ToggleButton) rootView.findViewById(R.id.auto_toggle_boulder_start);
+        {
+            ToggleButton auto_boulder_start = (ToggleButton) rootView.findViewById(R.id.auto_toggle_boulder_start);
 //        auto_boulder_start.setOnClickListener(this);
 
-        ToggleButton auto_def_reached = (ToggleButton) rootView.findViewById(R.id.auto_toggle_reached_def);
+            ToggleButton auto_def_reached = (ToggleButton) rootView.findViewById(R.id.auto_toggle_reached_def);
 //        auto_def_reached.setOnClickListener(this);
 
-        Button auto_high_goal_miss_add = (Button) rootView.findViewById(R.id.auto_high_goal_miss_add);
-        auto_high_goal_miss_add.setOnClickListener(this);
+            Button auto_high_goal_miss_add = (Button) rootView.findViewById(R.id.auto_high_goal_miss_add);
+            auto_high_goal_miss_add.setOnClickListener(this);
 
-        Button auto_high_goal_miss_sub = (Button) rootView.findViewById(R.id.auto_high_goal_miss_sub);
-        auto_high_goal_miss_sub.setOnClickListener(this);
+            Button auto_high_goal_miss_sub = (Button) rootView.findViewById(R.id.auto_high_goal_miss_sub);
+            auto_high_goal_miss_sub.setOnClickListener(this);
 
-        Button auto_high_goal_hit_add = (Button) rootView.findViewById(R.id.auto_high_goal_hit_add);
-        auto_high_goal_hit_add.setOnClickListener(this);
+            Button auto_high_goal_hit_add = (Button) rootView.findViewById(R.id.auto_high_goal_hit_add);
+            auto_high_goal_hit_add.setOnClickListener(this);
 
-        Button auto_high_goal_hit_sub = (Button) rootView.findViewById(R.id.auto_high_goal_hit_sub);
-        auto_high_goal_hit_sub.setOnClickListener(this);
+            Button auto_high_goal_hit_sub = (Button) rootView.findViewById(R.id.auto_high_goal_hit_sub);
+            auto_high_goal_hit_sub.setOnClickListener(this);
 
-        Button auto_low_goal_miss_add = (Button) rootView.findViewById(R.id.auto_low_goal_miss_add);
-        auto_low_goal_miss_add.setOnClickListener(this);
+            Button auto_low_goal_miss_add = (Button) rootView.findViewById(R.id.auto_low_goal_miss_add);
+            auto_low_goal_miss_add.setOnClickListener(this);
 
-        Button auto_low_goal_miss_sub = (Button) rootView.findViewById(R.id.auto_low_goal_miss_sub);
-        auto_low_goal_miss_sub.setOnClickListener(this);
+            Button auto_low_goal_miss_sub = (Button) rootView.findViewById(R.id.auto_low_goal_miss_sub);
+            auto_low_goal_miss_sub.setOnClickListener(this);
 
-        Button auto_low_goal_hit_add = (Button) rootView.findViewById(R.id.auto_low_goal_hit_add);
-        auto_low_goal_hit_add.setOnClickListener(this);
+            Button auto_low_goal_hit_add = (Button) rootView.findViewById(R.id.auto_low_goal_hit_add);
+            auto_low_goal_hit_add.setOnClickListener(this);
 
-        Button auto_low_goal_hit_sub = (Button) rootView.findViewById(R.id.auto_low_goal_hit_sub);
-        auto_low_goal_hit_sub.setOnClickListener(this);
+            Button auto_low_goal_hit_sub = (Button) rootView.findViewById(R.id.auto_low_goal_hit_sub);
+            auto_low_goal_hit_sub.setOnClickListener(this);
+        }
 
         return rootView;
     }

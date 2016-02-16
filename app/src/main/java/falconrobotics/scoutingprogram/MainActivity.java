@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.containerView,new about_fragment()).commit();
+        mFragmentTransaction.replace(R.id.containerView,new Fragment_About()).commit();
         /**
          * Setup click events on the Navigation View Items.
          */
@@ -49,27 +49,27 @@ public class MainActivity extends AppCompatActivity {
 
                 if (menuItem.getItemId() == R.id.nav_item_game_scout) {
                     FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView,new GameScout_TabFragment()).commit();
+                    fragmentTransaction.replace(R.id.containerView,new Tab_Fragment_GS()).commit();
 
                 }
 
                 if (menuItem.getItemId() == R.id.nav_item_pit_scout) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView,new PitScout_Frame_Fragment()).commit();
+                    xfragmentTransaction.replace(R.id.containerView,new Frame_Fragment_PS()).commit();
                 }
 
                 if (menuItem.getItemId() == R.id.nav_item_bluetooth_share) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView,new Bluetooth_Fragment()).commit();
+                    xfragmentTransaction.replace(R.id.containerView,new Fragment_Bluetooth()).commit();
                 }
 
                 if (menuItem.getItemId() == R.id.nav_item_email_share) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView,new Email_Fragment()).commit();
+                    xfragmentTransaction.replace(R.id.containerView,new Fragment_Email()).commit();
                 }
                 if (menuItem.getItemId() == R.id.nav_item_hidden) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView,new about_fragment()).commit();
+                    xfragmentTransaction.replace(R.id.containerView,new Fragment_About()).commit();
                 }
                 return false;
             }

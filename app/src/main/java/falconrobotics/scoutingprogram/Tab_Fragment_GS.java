@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 /**
  * Created by Install on 2/7/2016.
  */
-public class GameScout_TabFragment extends Fragment {
+public class Tab_Fragment_GS extends Fragment {
 
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
@@ -24,7 +24,7 @@ public class GameScout_TabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View x =  inflater.inflate(R.layout.tab_game_scout_layout,null);
+        View x =  inflater.inflate(R.layout.tab_layout_gs,null);
         tabLayout = (TabLayout) x.findViewById(R.id.tabs_scout);
         viewPager = (ViewPager) x.findViewById(R.id.viewpager_scout);
 
@@ -53,9 +53,9 @@ public class GameScout_TabFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new MatchInfo_Fragment();
-                case 1 : return new Scout_TabFragment();
-                case 2 : return new Comments_Fragment();
+                case 0 : return new Fragment_GS_Pre();
+                case 1 : return new Tab_Fragment_S();
+                case 2 : return new Fragment_GS_Post();
             }
             return null;
         }

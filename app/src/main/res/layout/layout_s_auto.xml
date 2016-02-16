@@ -3,7 +3,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:scrollbarAlwaysDrawHorizontalTrack="true">
-
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -124,15 +123,21 @@
                     android:textOff="No"
                     android:textOn="Yes"/>
             </TableRow>
-            <TableLayout>
-            <TableRow>
-                <TextView android:text="Crossed a defence?"/>
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:entries="@array/defences"
-                    android:id="@+id/auto_spinner_def_crossed"/>
-            </TableRow>
+
+            <TableLayout
+                android:layout_width="match_parent">
+                <TableRow
+                    android:layout_width="match_parent">
+                    <TextView android:text="Crossed a defence?"/>
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:entries="@array/defences"
+                        android:id="@+id/auto_spinner_def_crossed"/>
+                </TableRow>
             </TableLayout>
+
         </TableLayout>
+
     </TableLayout>
+
 </ScrollView>

@@ -14,7 +14,7 @@ import android.widget.TextView;
 /**
  * Created by Install on 2/7/2016.
  */
-public class PitScout_Frame_Fragment extends Fragment {
+public class Frame_Fragment_PS extends Fragment {
     View rootView;
     TextView capButton;
     ImageView imageView;
@@ -22,7 +22,7 @@ public class PitScout_Frame_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        rootView = inflater.inflate(R.layout.frame_pitscout_layout,null);
+        rootView = inflater.inflate(R.layout.frame_layout_ps,null);
 
         imageView = (ImageView)rootView.findViewById(R.id.pit_image_view_robot);
         capButton = (TextView)rootView.findViewById(R.id.pit_button_robot_cap);

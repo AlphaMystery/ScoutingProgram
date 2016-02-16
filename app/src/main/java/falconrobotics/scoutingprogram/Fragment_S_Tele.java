@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 /**
  * Created by Install on 2/7/2016.
  */
-public class Scout_Fragment extends Fragment implements View.OnClickListener{
+public class Fragment_S_Tele extends Fragment implements View.OnClickListener{
     private View rootView;
     private int high_goal_y = 0;
     private int high_goal_n = 0;
@@ -31,7 +31,7 @@ public class Scout_Fragment extends Fragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.tele_layout,null);
+        rootView = inflater.inflate(R.layout.layout_s_tele,null);
 
         //set up buttons
 //        {

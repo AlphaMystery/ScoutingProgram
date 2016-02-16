@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 /**
  * Created by Install on 2/7/2016.
  */
-public class Comments_Fragment  extends Fragment {
+public class Fragment_GS_Post extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.comments_layout,null);
+        return inflater.inflate(R.layout.layout_gs_post,null);
     }
 }

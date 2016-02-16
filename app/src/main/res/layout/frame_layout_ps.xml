@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:stretchColumns="*">
+
+        <RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:text="842"
+                android:id="@+id/pit_title_number"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25dip"/>
+        </RelativeLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout android:layout_column="0">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Click here to take a picture of the robot.\nCamera view is in horizontal position."
+                    android:textAlignment="center"
+                    android:id="@+id/pit_button_robot_cap"
+                    android:layout_centerHorizontal="true"/>
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_below="@+id/pit_button_robot_cap"
+                    android:id="@+id/pit_image_view_robot"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+        </TableRow>
+
+        <TableLayout android:layout_column="0">
+            <TableRow>
+                <TextView
+                    android:text="Driver Experience:"/>
+                <Spinner
+                    android:layout_height="wrap_content"
+                    android:entries="@array/driver_experience"/>
+                <TextView
+                    android:text="years"/>
+
+            </TableRow>
+        </TableLayout>
+
+
+
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:id="@+id/pit_save"
+            android:layout_column="0" />
+
+    </TableLayout>
+</ScrollView>

@@ -13,13 +13,13 @@ import android.widget.Spinner;
 /**
  * Created by Install on 2/7/2016.
  */
-public class MatchInfo_Fragment extends Fragment {
+public class Fragment_GS_Pre extends Fragment {
     View rootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.match_info,null);
+        rootView = inflater.inflate(R.layout.layout_gs_pre,null);
 
 
         final Button submit = (Button)rootView.findViewById(R.id.submit_button);

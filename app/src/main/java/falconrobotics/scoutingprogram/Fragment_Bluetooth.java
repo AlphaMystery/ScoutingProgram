@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 /**
  * Created by Install on 2/7/2016.
  */
-public class Bluetooth_Fragment extends Fragment {
+public class Fragment_Bluetooth extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.bluetooth_layout,null);
+        return inflater.inflate(R.layout.layout_bluetooth,null);
     }
 }
