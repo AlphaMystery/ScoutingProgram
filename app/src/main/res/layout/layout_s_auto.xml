@@ -9,6 +9,7 @@
         android:stretchColumns="*">
 
         <TableRow
+            android:background="@color/blue2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
@@ -103,7 +104,7 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar"/>
+            android:progressDrawable="@drawable/progress_bar_2"/>
 
         <TableLayout
             android:layout_width="wrap_content"

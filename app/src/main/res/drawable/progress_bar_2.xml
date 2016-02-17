@@ -3,7 +3,7 @@
         <shape>
             <size android:height="1dp"/>
             <corners android:radius="90dip" />
-            <solid android:color="#37cdcdcd"/>
+            <solid android:color="@color/colorPrimaryDark"/>
         </shape>
     </item>
     <item android:id="@android:id/progress">
@@ -13,7 +13,7 @@
                     android:height="1dp"
                     android:width="1dp"/>
                 <corners android:radius="90dip" />
-                <solid android:color="#37cdcdcd"/>
+                <solid android:color="@color/colorPrimaryDark"/>
             </shape>
         </clip>
     </item>
