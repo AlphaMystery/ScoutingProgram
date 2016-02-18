@@ -14,7 +14,7 @@ import android.widget.TextView;
 /**
  * Created by Francisco Martinez on 2/7/2016.
  * DESCRIPTION: basically displayed in pit scouting and will add the
- *              team information to show in the data viewing fragment part
+ *              team information to show in the data viewing fragment part.
  */
 public class Frame_Fragment_PS extends Fragment {
     View rootView;
