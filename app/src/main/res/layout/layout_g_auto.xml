@@ -23,6 +23,7 @@
         </TableRow>
 
         <TableRow
+            android:background="@color/colorPrimaryDark2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <Button
@@ -104,7 +105,7 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar_2"/>
+            android:progressDrawable="@drawable/divider_bar"/>
 
 
         <TableRow
@@ -323,20 +324,22 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar_2"/>
+            android:progressDrawable="@drawable/divider_bar"/>
 
         <TableLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:stretchColumns="*">
             <TableRow>
-                <TextView android:text="Started with boulder?"/>
+                <TextView
+                    android:text="Started with boulder?"/>
                 <ToggleButton
                     android:id="@+id/auto_toggle_boulder_start"
                     android:textOff="No"
                     android:textOn="Yes"/>
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:background="@color/colorPrimaryDark2">
                 <TextView android:text="Reached a defence?"/>
                 <ToggleButton
                     android:id="@+id/auto_toggle_reached_def"

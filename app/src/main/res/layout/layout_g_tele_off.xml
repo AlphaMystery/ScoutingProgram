@@ -24,6 +24,7 @@
         </TableRow>
 
         <TableRow
+            android:background="@color/colorPrimaryDark2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <Button
@@ -105,7 +106,7 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar_2"/>
+            android:progressDrawable="@drawable/divider_bar"/>
 
         <TableRow
             android:background="@color/blue2"
@@ -323,7 +324,7 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar_2"/>
+            android:progressDrawable="@drawable/divider_bar"/>
 
         <TableRow
             android:background="@color/blue2"

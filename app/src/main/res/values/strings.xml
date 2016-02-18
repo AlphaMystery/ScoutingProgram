@@ -93,5 +93,18 @@
         <item>16&#8211;30</item>
         <item>31&#8211;45</item>
     </string-array>
-    
+
+
+    <string-array name="default_team_numbers">
+        <item>842</item>
+        <item>8</item>
+        <item>4</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="default_match_numbers">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

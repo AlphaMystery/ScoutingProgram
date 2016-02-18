@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by Install on 2/11/2016.
+ * Created by Francisco Martinez on 2/11/2016.
+ * DESCRIPTION: This fragment intentionally left blank.
  */
 public class Fragment_About extends Fragment {
 

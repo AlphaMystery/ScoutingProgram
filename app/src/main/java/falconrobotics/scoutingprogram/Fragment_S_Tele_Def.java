@@ -8,21 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by
- *          Francisco Martinez
- *          >> <<
- *
- *          on 2/7/2016.
- * DESCRIPTION: This fragment displays email fragment and will enable the user to send
- *              certain files such as for outside of the app analyzing through email.
+ * Created by Francisco Martinez on 2/17/2016.
+ * DESCRIPTION: Displays tele defense layout and stores input for retrieval
  */
-public class Fragment_Email extends Fragment {
+public class Fragment_S_Tele_Def extends Fragment {
     View rootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.layout_email,null);
+        rootView = inflater.inflate(R.layout.layout_g_tele_def, null);
 
 
         return rootView;

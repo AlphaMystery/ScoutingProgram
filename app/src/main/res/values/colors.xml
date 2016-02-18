@@ -4,9 +4,10 @@
     <color name="colorPrimaryDark">#c8000000</color>
     <color name="colorPrimaryDark2">#0f000000</color>
     <color name="blue">#0000ff</color>
+    <color name="blue2">#640000ff</color>
     <color name="yellow">#ffff00</color>
+    <color name="yellow2">#64ffff00</color>
     <color name="carbon_black">#252626</color>
     <color name="carbon_black2">#252626</color>
     <color name="carbon_black3">#777378</color>
-    <color name="blue2">#640000ff</color>
 </resources>

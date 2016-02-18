@@ -8,15 +8,14 @@
         android:stretchColumns="*">
 
         <RelativeLayout>
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:textAlignment="center"
-                android:hint="Team Number"
-                android:id="@+id/pit_title_number"
+                android:text="TEAM NUMBER"
+                android:id="@+id/pit_view_title_number"
                 android:textColor="@color/carbon_black3"
-                android:inputType="number"
                 android:textSize="25dip"/>
         </RelativeLayout>
 
@@ -28,15 +27,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Click here to take a picture of the robot.\nCamera view is in horizontal position."
+                    android:text="Image of the robot."
                     android:textAlignment="center"
-                    android:id="@+id/pit_button_robot_cap"
+                    android:id="@+id/pit_view_robot_cap"
                     android:layout_centerHorizontal="true"/>
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:layout_below="@+id/pit_button_robot_cap"
-                    android:id="@+id/pit_image_view_robot"
+                    android:layout_below="@+id/pit_view_robot_cap"
+                    android:id="@+id/pit_view_image_view_robot"
                     android:layout_centerHorizontal="true"/>
             </RelativeLayout>
         </TableRow>
@@ -45,16 +44,16 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar_2"/>
+            android:progressDrawable="@drawable/divider_bar"/>
 
         <TableLayout
             android:background="@color/colorPrimaryDark2">
             <TableRow>
                 <TextView
                     android:text="Driver Experience:"/>
-                <Spinner
-                    android:entries="@array/driver_experience"
-                    android:id="@+id/pit_spinner_driver_xp"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_driver_xp"/>
                 <TextView
                     android:text="years"/>
 
@@ -65,9 +64,9 @@
             <TableRow>
                 <TextView
                     android:text="Wheel type:"/>
-                <Spinner
-                    android:entries="@array/wheels"
-                    android:id="@+id/pit_spinner_wheel_type"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_wheel_type"/>
             </TableRow>
         </TableLayout>
 
@@ -76,9 +75,9 @@
             <TableRow>
                 <TextView
                     android:text="Climbs tower:"/>
-                <Spinner
-                    android:entries="@array/yes_no"
-                    android:id="@+id/pit_spinner_tower_climb"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_tower_climb"/>
             </TableRow>
         </TableLayout>
 
@@ -86,9 +85,9 @@
             <TableRow>
                 <TextView
                     android:text="Climb speed:"/>
-                <Spinner
-                    android:entries="@array/speed"
-                    android:id="@+id/pit_spinner_climb_speed"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_climb_speed"/>
             </TableRow>
 
             <TableLayout
@@ -97,18 +96,15 @@
                 <TableRow>
                     <TextView
                         android:text="Robot Dimensions:"/>
-                    <EditText
-                        android:hint="Length"
-                        android:inputType="numberDecimal"
-                        android:id="@+id/pit_input_robot_width"/>
-                    <EditText
-                        android:hint="Width"
-                        android:inputType="numberDecimal"
-                        android:id="@+id/pit_input_robot_length"/>
-                    <EditText
-                        android:hint="Height"
-                        android:inputType="numberDecimal"
-                        android:id="@+id/pit_input_robot_height"/>
+                    <TextView
+                        android:text="LENGTH"
+                        android:id="@+id/pit_view_robot_length"/>
+                    <TextView
+                        android:text="WIDTH"
+                        android:id="@+id/pit_view_robot_width"/>
+                    <TextView
+                        android:text="HEIGHT"
+                        android:id="@+id/pit_view_robot_height"/>
                 </TableRow>
             </TableLayout>
         </TableLayout>
@@ -117,26 +113,29 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/progress_bar_2"/>
+            android:progressDrawable="@drawable/divider_bar"/>
 
-        <TextView android:text="Defence Climb"/>
+        <TextView
+            android:background="@color/blue2"
+            android:textAlignment="center"
+            android:text="Defence Climb"/>
 
         <TableLayout>
             <TableRow
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/portcullis"/>
-                <Spinner
-                    android:entries="@array/no_auto_tele_both"
-                    android:id="@+id/pit_spinner_portcullis"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_portcullis"/>
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow>
                 <TextView android:text="@string/cheval_de_frise"/>
-                <Spinner
-                    android:entries="@array/no_auto_tele_both"
-                    android:id="@+id/pit_spinner_cheval_de_frise"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_cheval_de_frise"/>
             </TableRow>
         </TableLayout>
 
@@ -144,18 +143,18 @@
             <TableRow
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/moat"/>
-                <Spinner
-                    android:entries="@array/no_auto_tele_both"
-                    android:id="@+id/pit_spinner_moat"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_moat"/>
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow>
                 <TextView android:text="@string/ramparts"/>
-                <Spinner
-                    android:entries="@array/no_auto_tele_both"
-                    android:id="@+id/pit_spinner_ramparts"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_ramparts"/>
             </TableRow>
         </TableLayout>
 
@@ -163,18 +162,18 @@
             <TableRow
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/drawbridge"/>
-                <Spinner
-                    android:entries="@array/no_auto_tele_both"
-                    android:id="@+id/pit_spinner_drawbridge"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_drawbridge"/>
             </TableRow>
         </TableLayout>
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent">
                 <TextView android:text="@string/sally_port"/>
-                <Spinner
-                    android:entries="@array/no_auto_tele_both"
-                    android:id="@+id/pit_spinner_sally_port"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_sally_port"/>
             </TableRow>
         </TableLayout>
         <TableLayout>
@@ -182,18 +181,18 @@
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/rock_wall"/>
-                <Spinner
-                    android:entries="@array/no_auto_tele_both"
-                    android:id="@+id/pit_spinner_rock_wall"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_rock_wall"/>
             </TableRow>
         </TableLayout>
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent">
                 <TextView android:text="@string/rough_terrain"/>
-                <Spinner
-                    android:entries="@array/no_auto_tele_both"
-                    android:id="@+id/pit_spinner_rough_terrain"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_rough_terrain"/>
             </TableRow>
         </TableLayout>
         <TableLayout>
@@ -201,9 +200,9 @@
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/low_bar"/>
-                <Spinner
-                    android:entries="@array/no_auto_tele_both"
-                    android:id="@+id/pit_spinner_low_bar"/>
+                <TextView
+                    android:text="REPLACE"
+                    android:id="@+id/pit_view_low_bar"/>
             </TableRow>
         </TableLayout>
 
@@ -212,8 +211,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SAVE"
-            android:id="@+id/pit_save"
+            android:text="SUBMIT TEAM"
+            android:id="@+id/pit_view_save"
             android:layout_column="0" />
 
     </TableLayout>

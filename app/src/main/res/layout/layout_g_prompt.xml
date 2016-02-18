@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:stretchColumns="*">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id ="@+id/input_team_number"
-        android:layout_width ="match_parent"
-        android:layout_height ="wrap_content"
-        android:hint ="Team Number"
-        android:inputType="number" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/input_match_number"
-        android:hint="Match Number"
-        android:inputType="number"/>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Spinner
+    <RelativeLayout
+        android:background="@color/blue2">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/input_alliance"
-            android:entries="@array/alliances"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pre-Match Input"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <TableRow>
         <TextView
+            android:text="Team Number:"/>
+        <Spinner
+            android:id ="@+id/pre_match_spinner_team_number"
+            android:layout_width ="match_parent"
+            android:layout_height ="wrap_content"
+            android:entries="@array/default_team_numbers"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="Match Number:"/>
+        <Spinner
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Alliance"/>
+            android:id="@+id/pre_match_spinner_game_number"
+            android:entries="@array/default_match_numbers"/>
     </TableRow>
 
 </TableLayout>
