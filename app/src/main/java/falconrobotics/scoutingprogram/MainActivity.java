@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (menuItem.getItemId() == R.id.nav_item_game_scout) {
                     FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView,new Tab_Fragment_GS()).commit();
+                    fragmentTransaction.replace(R.id.containerView,new Tab_Fragment_S_Tele()).commit();
 
                 }
 

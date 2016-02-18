@@ -23,7 +23,7 @@ public class Fragment_S_Auto extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.layout_s_auto, null);
+        rootView = inflater.inflate(R.layout.layout_g_auto, null);
 
         {
             ToggleButton auto_boulder_start = (ToggleButton) rootView.findViewById(R.id.auto_toggle_boulder_start);

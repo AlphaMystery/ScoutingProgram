@@ -31,10 +31,4 @@
             android:text="Alliance"/>
     </TableRow>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:id="@+id/submit_button"/>
-
 </TableLayout>

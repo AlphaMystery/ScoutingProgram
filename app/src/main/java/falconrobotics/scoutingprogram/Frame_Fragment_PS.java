@@ -22,7 +22,7 @@ public class Frame_Fragment_PS extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        rootView = inflater.inflate(R.layout.frame_layout_ps,null);
+        rootView = inflater.inflate(R.layout.frame_layout_p,null);
 
         imageView = (ImageView)rootView.findViewById(R.id.pit_image_view_robot);
         capButton = (TextView)rootView.findViewById(R.id.pit_button_robot_cap);

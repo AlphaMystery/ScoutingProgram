@@ -24,9 +24,9 @@ public class Tab_Fragment_S extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View x =  inflater.inflate(R.layout.tab_layout_s,null);
-        tabLayout = (TabLayout) x.findViewById(R.id.tabs_scout_tab);
-        viewPager = (ViewPager) x.findViewById(R.id.viewpager_scout_tab);
+        View x =  inflater.inflate(R.layout.tab_layout_g,null);
+        tabLayout = (TabLayout) x.findViewById(R.id.tabs_g);
+        viewPager = (ViewPager) x.findViewById(R.id.viewpager_g);
 
         viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
 

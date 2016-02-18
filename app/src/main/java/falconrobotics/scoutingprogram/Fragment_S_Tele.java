@@ -27,7 +27,7 @@ public class Fragment_S_Tele extends Fragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.layout_s_tele,null);
+        rootView = inflater.inflate(R.layout.layout_g_tele_off,null);
 
         {
             Button lowHitAdd = (Button) rootView.findViewById(R.id.tele_low_goal_hit_add);

@@ -81,11 +81,3 @@
             android:id="@+id/button_save"/>
     </TableLayout>
 </ScrollView>
-
-    <!--<RelativeLayout>-->
-    <!--<RatingBar-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:id="@+id/team_rating"-->
-    <!--android:numStars="5"/>-->
-    <!--</RelativeLayout>-->
