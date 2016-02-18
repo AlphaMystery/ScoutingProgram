@@ -16,17 +16,4 @@
         android:layout_gravity="center"
         android:text="somewhat"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_gravity="center"
-        android:text="\n\nINFO:"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_gravity="center"
-        android:text="-To start a new match:\n   click Game Scouting menu option again."/>
-
 </LinearLayout>

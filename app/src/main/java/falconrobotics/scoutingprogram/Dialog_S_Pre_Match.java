@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
  * DESCRIPTION: builds pre match dialog
  */
 public class Dialog_S_Pre_Match extends DialogFragment {
+    LayoutInflater inflater;
+
     /* The activity that creates an instance of this dialog fragment must
  * implement this interface in order to receive event callbacks.
  * Each method passes the DialogFragment in case the host needs to query it. */
@@ -45,7 +47,7 @@ public class Dialog_S_Pre_Match extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Get the layout inflater
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        inflater = getActivity().getLayoutInflater();
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout

@@ -106,6 +106,5 @@ public class Tab_Fragment_S extends Fragment implements Dialog_S_Pre_Match.Notic
 
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
-
     }
 }

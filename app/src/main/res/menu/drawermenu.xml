@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group>
-        <item android:title="help!"
-            android:id="@+id/nav_item_hidden"/>
-    </group>
-
     <group android:id="@+id/group_scouting_id">
+        <item
+            android:title=""
+            android:id="@+id/nav_item_hidden"/>
         <item
             android:title="Game Scouting"
             android:id="@+id/nav_item_game_scout"/>
