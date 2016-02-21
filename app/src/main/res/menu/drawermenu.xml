@@ -22,7 +22,7 @@
         <item
             android:title="Bluetooth Sync"
             android:id="@+id/nav_item_bluetooth_share"/>
-        <item
+            <item
             android:title="Email"
             android:id="@+id/nav_item_email_share"/>
     </group>

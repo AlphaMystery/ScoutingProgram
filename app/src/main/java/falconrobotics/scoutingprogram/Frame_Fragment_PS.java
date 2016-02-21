@@ -2,14 +2,20 @@ package falconrobotics.scoutingprogram;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Francisco Martinez on 2/7/2016.
@@ -20,6 +26,7 @@ public class Frame_Fragment_PS extends Fragment {
     View rootView;
     TextView capButton;
     ImageView imageView;
+    EditText teamNumberInput;
 
 
     @Nullable
@@ -29,6 +36,7 @@ public class Frame_Fragment_PS extends Fragment {
 
         imageView = (ImageView)rootView.findViewById(R.id.pit_image_view_robot);
         capButton = (TextView)rootView.findViewById(R.id.pit_button_robot_cap);
+        teamNumberInput = (EditText)rootView.findViewById(R.id.pit_robot_number);
 
         capButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,8 +53,31 @@ public class Frame_Fragment_PS extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         Bitmap bp;
         if (resultCode != 0) {
-            bp = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(bp);
+            bp = (Bitmap)data.getExtras().get("data");
+
         }
+    }
+
+    public static Bitmap rotateImage(Bitmap source, float angle) {
+        Bitmap retVal;
+
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        retVal = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
+
+        return retVal;
+    }
+
+    private File createImageFile(int teamNumber) throws IOException {
+        // Create an image file name
+        String imageFileName = teamNumber + "";
+        File storageDir = new File(Fragment_About.picDir);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".png",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        return image;
     }
 }

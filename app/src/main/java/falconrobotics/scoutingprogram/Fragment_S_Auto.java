@@ -16,14 +16,14 @@ import android.widget.ToggleButton;
  */
 public class Fragment_S_Auto extends Fragment implements View.OnClickListener{
     View rootView;
-    private int low_miss = 0;
-    private int low_hit = 0;
-    private int high_miss = 0;
-    private int high_hit = 0;
+    public static int low_miss = 0;
+    public static int low_hit = 0;
+    public static int high_miss = 0;
+    public static int high_hit = 0;
 
     @Nullable
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.layout_g_auto, null);
+        rootView = inflater.inflate(R.layout.layout_s_auto, null);
 
         {
             ToggleButton auto_boulder_start = (ToggleButton) rootView.findViewById(R.id.auto_toggle_boulder_start);

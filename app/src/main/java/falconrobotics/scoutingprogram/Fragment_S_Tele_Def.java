@@ -17,7 +17,7 @@ public class Fragment_S_Tele_Def extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.layout_g_tele_def, null);
+        rootView = inflater.inflate(R.layout.layout_s_tele_def, null);
 
 
         return rootView;

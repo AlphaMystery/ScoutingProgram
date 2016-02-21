@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Event Code:"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/event_text"
+        android:layout_alignParentTop="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/event_text"
+        android:textAlignment="center"
+        android:hint="azch"
+        android:id="@+id/event_code"/>
+
+</RelativeLayout>

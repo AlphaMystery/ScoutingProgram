@@ -11,16 +11,18 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 
 /**
  * Created by Francisco Martinez on 2/7/2016.
  */
-public class Tab_Fragment_S extends Fragment implements Dialog_S_Pre_Match.NoticeDialogListener{
+public class Tab_Fragment_S extends Fragment implements Dialog_Helper.NoticeDialogListener{
 
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
     public static int int_items = 4;
-    DialogFragment df = new DialogFragment();
+    private DialogFragment dialogFragment = new DialogFragment();
+    private static Spinner teamNumSpinner;
 
     @Nullable
     @Override
@@ -29,6 +31,7 @@ public class Tab_Fragment_S extends Fragment implements Dialog_S_Pre_Match.Notic
         View x =  inflater.inflate(R.layout.tab_layout_g,null);
         tabLayout = (TabLayout) x.findViewById(R.id.tabs_g);
         viewPager = (ViewPager) x.findViewById(R.id.viewpager_g);
+        teamNumSpinner = (Spinner)x.findViewById(R.id.pre_match_spinner_team_number);
 
         viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
 
@@ -39,7 +42,7 @@ public class Tab_Fragment_S extends Fragment implements Dialog_S_Pre_Match.Notic
             }
         });
 
-        DialogFragment dialogFragment = new Dialog_S_Pre_Match();
+        dialogFragment = new Dialog_Helper(R.layout.prompt_layout_s);
         dialogFragment.show(Tab_Fragment_S.this.getFragmentManager(), "Pre-Match");
 
         return x;
@@ -60,7 +63,7 @@ public class Tab_Fragment_S extends Fragment implements Dialog_S_Pre_Match.Notic
             switch (position){
                 case 0 : return new Fragment_S_Auto();
                 case 1 : return new Fragment_S_Tele_Off();
-                case 2: return new Fragment_S_Tele_Def();
+                case 2 : return new Fragment_S_Tele_Def();
                 case 3 : return new Fragment_S_Post();
             }
             return null;
@@ -91,12 +94,6 @@ public class Tab_Fragment_S extends Fragment implements Dialog_S_Pre_Match.Notic
             }
             return null;
         }
-    }
-
-    public void showNoticeDialog() {
-        // Create an instance of the dialog fragment and show it
-        DialogFragment dialog = new Dialog_S_Pre_Match();
-        dialog.show(df.getFragmentManager(), "Pre-Match");
     }
 
     @Override

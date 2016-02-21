@@ -16,19 +16,19 @@ import android.widget.TextView;
 public class Fragment_S_Tele_Off extends Fragment implements View.OnClickListener{
     private View rootView;
 
-    private int high_goal_h = 0;
-    private int high_goal_m = 0;
-    private int low_goal_h = 0;
-    private int low_goal_m = 0;
-    private int boulder_h = 0;
-    private int boulder_m = 0;
-    private int def_push = 0;
-    private int def_block = 0;
+    public static int high_goal_h = 0;
+    public static int high_goal_m = 0;
+    public static int low_goal_h = 0;
+    public static int low_goal_m = 0;
+    public static int boulder_h = 0;
+    public static int boulder_m = 0;
+    public static int def_push = 0;
+    public static int def_block = 0;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.layout_g_tele_off,null);
+        rootView = inflater.inflate(R.layout.layout_s_tele_off,null);
 
         {
             Button lowHitAdd = (Button) rootView.findViewById(R.id.tele_low_goal_hit_add);
