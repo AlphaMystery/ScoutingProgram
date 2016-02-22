@@ -13,7 +13,7 @@
         android:background="@color/carbon_black"
         android:id="@+id/toolbar"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="842 Scouting App"
+        app:title="@string/app_name"
         android:titleTextAppearance="@color/colorPrimary"/>
 
     <android.support.v4.widget.DrawerLayout

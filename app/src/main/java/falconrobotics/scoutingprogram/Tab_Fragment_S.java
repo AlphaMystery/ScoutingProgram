@@ -21,7 +21,7 @@ public class Tab_Fragment_S extends Fragment implements Dialog_Helper.NoticeDial
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
     public static int int_items = 4;
-    private DialogFragment dialogFragment = new DialogFragment();
+    private DialogFragment dialogFragment;
     private static Spinner teamNumSpinner;
 
     @Nullable

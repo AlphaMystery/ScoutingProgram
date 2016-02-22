@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">842 Scouting</string>
-    <string name="dir_path">falconrobotics2016</string>
 
     <string name="portcullis">Portcullis</string>
     <string name="cheval_de_frise">Cheval de Frise</string>

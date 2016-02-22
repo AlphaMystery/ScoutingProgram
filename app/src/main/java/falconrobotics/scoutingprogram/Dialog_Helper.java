@@ -56,7 +56,7 @@ public class Dialog_Helper extends DialogFragment {
                 })
                 .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
+                        //do smoething
                     }
                 });
         return builder.create();

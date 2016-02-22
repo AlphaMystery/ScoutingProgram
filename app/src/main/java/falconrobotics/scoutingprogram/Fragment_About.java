@@ -1,14 +1,11 @@
 package falconrobotics.scoutingprogram;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import java.io.File;
 
@@ -16,55 +13,54 @@ import java.io.File;
  * Created by Francisco Martinez on 2/11/2016.
  * DESCRIPTION: This fragment intentionally left blank.
  */
-public class Fragment_About extends Fragment implements Dialog_Helper.NoticeDialogListener{
-    public static EditText eventCode;
+public class Fragment_About extends Fragment{
     private static View rootView;
-    private DialogFragment dialogFragment;
+    private static String eventCode = "TEST_CODE";
+    private static String mainDirPath = System.getenv("EXTERNAL_STORAGE") + "/falconrobotics2016/" + eventCode;
+    private static String picDirPath = mainDirPath + "/pictures";
+    private static String dbDirPath = mainDirPath + "/databases";
 
-    public static String mainDir;
-    public static String picDir;
-    public static String dbDir;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.layout_about, null);
 
-        /**
-         * prompts for event code, necessary for storing data acquired
-         */
-        dialogFragment = new Dialog_Helper(R.layout.prompt_layout_event);
-        dialogFragment.show(this.getFragmentManager(), "Event Code");
+        setup();
 
         return rootView;
     }
 
-
-    @Override
-    public void onDialogPositiveClick(DialogFragment dialog) {
-        eventCode = (EditText)dialog.getDialog().findViewById(R.id.event_code);
-        mainDir = Environment.getExternalStorageDirectory()
-                + File.separator + R.string.dir_path
-                + File.separator + eventCode.getText().toString();
-        picDir = mainDir + File.separator + "pictures";
-        dbDir = mainDir + File.separator + "database";
-
-        File main = new File(mainDir);
-        if (!main.exists())
-            main.mkdirs();
-
-        File pics = new File(picDir);
-        if (!pics.exists())
-            pics.mkdirs();
-
-        File db = new File(dbDir);
-        if (!db.exists())
-            db.mkdirs();
+    private void setup()
+    {
+        try
+        {
+            File mainDir = new File(mainDirPath);
+            if (!mainDir.exists())
+                if (!mainDir.mkdirs())
+                    System.exit(0);
+            File picDir = new File(picDirPath);
+            if (!picDir.exists())
+                if (!picDir.mkdirs())
+                    System.exit(0);
+            File dbDir = new File(dbDirPath);
+            if (!dbDir.exists())
+                if (!dbDir.mkdirs())
+                    System.exit(0);
+        }catch(Exception e){}
     }
 
-    @Override
-    public void onDialogNegativeClick(DialogFragment dialog) {
-
+    public static String getMainPath()
+    {
+        return mainDirPath;
+    }
+    public static String getPicDirPath()
+    {
+        return picDirPath;
+    }
+    public static String getDbDirPath()
+    {
+        return dbDirPath;
     }
 
 }
