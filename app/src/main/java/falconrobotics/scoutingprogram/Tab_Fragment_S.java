@@ -16,7 +16,7 @@ import android.widget.Spinner;
 /**
  * Created by Francisco Martinez on 2/7/2016.
  */
-public class Tab_Fragment_S extends Fragment implements Dialog_Helper.NoticeDialogListener{
+public class Tab_Fragment_S extends Fragment {
 
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
@@ -94,14 +94,5 @@ public class Tab_Fragment_S extends Fragment implements Dialog_Helper.NoticeDial
             }
             return null;
         }
-    }
-
-    @Override
-    public void onDialogPositiveClick(DialogFragment dialog) {
-
-    }
-
-    @Override
-    public void onDialogNegativeClick(DialogFragment dialog) {
     }
 }
