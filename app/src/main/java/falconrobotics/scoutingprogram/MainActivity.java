@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
                     xfragmentTransaction.replace(R.id.containerView, new Fragment_Email()).commit();
                 }
+
+                DBHelper.makeDirectories();
+
                 return false;
             }
 
