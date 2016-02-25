@@ -16,46 +16,30 @@ import android.widget.ToggleButton;
  */
 public class Fragment_S_Auto extends Fragment implements View.OnClickListener{
     View rootView;
-    public static int low_miss = 0;
-    public static int low_hit = 0;
-    public static int high_miss = 0;
-    public static int high_hit = 0;
+    private int
+            low_miss = 0,
+            low_hit = 0,
+            high_miss = 0,
+            high_hit = 0;
+    private Button
+            auto_high_goal_miss_add,
+            auto_high_goal_miss_sub,
+            auto_high_goal_hit_add,
+            auto_high_goal_hit_sub,
+            auto_low_goal_miss_add,
+            auto_low_goal_miss_sub,
+            auto_low_goal_hit_add,
+            auto_low_goal_hit_sub;
+    private ToggleButton
+            auto_boulder_start,
+            auto_def_reached;
+
 
     @Nullable
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.layout_s_auto, null);
 
-        {
-            ToggleButton auto_boulder_start = (ToggleButton) rootView.findViewById(R.id.auto_toggle_boulder_start);
-//        auto_boulder_start.setOnClickListener(this);
-
-            ToggleButton auto_def_reached = (ToggleButton) rootView.findViewById(R.id.auto_toggle_reached_def);
-//        auto_def_reached.setOnClickListener(this);
-
-            Button auto_high_goal_miss_add = (Button) rootView.findViewById(R.id.auto_high_goal_miss_add);
-            auto_high_goal_miss_add.setOnClickListener(this);
-
-            Button auto_high_goal_miss_sub = (Button) rootView.findViewById(R.id.auto_high_goal_miss_sub);
-            auto_high_goal_miss_sub.setOnClickListener(this);
-
-            Button auto_high_goal_hit_add = (Button) rootView.findViewById(R.id.auto_high_goal_hit_add);
-            auto_high_goal_hit_add.setOnClickListener(this);
-
-            Button auto_high_goal_hit_sub = (Button) rootView.findViewById(R.id.auto_high_goal_hit_sub);
-            auto_high_goal_hit_sub.setOnClickListener(this);
-
-            Button auto_low_goal_miss_add = (Button) rootView.findViewById(R.id.auto_low_goal_miss_add);
-            auto_low_goal_miss_add.setOnClickListener(this);
-
-            Button auto_low_goal_miss_sub = (Button) rootView.findViewById(R.id.auto_low_goal_miss_sub);
-            auto_low_goal_miss_sub.setOnClickListener(this);
-
-            Button auto_low_goal_hit_add = (Button) rootView.findViewById(R.id.auto_low_goal_hit_add);
-            auto_low_goal_hit_add.setOnClickListener(this);
-
-            Button auto_low_goal_hit_sub = (Button) rootView.findViewById(R.id.auto_low_goal_hit_sub);
-            auto_low_goal_hit_sub.setOnClickListener(this);
-        }
+        initButtons();
 
         return rootView;
     }
@@ -65,36 +49,72 @@ public class Fragment_S_Auto extends Fragment implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.auto_high_goal_miss_add:
                 high_miss++;
-                ((TextView) rootView.findViewById(R.id.auto_high_goal_miss_score)).setText(high_miss + "");
+                setText(R.id.auto_high_goal_miss_score, high_miss);
                 break;
             case R.id.auto_high_goal_miss_sub:
                 high_miss--;
-                ((TextView) rootView.findViewById(R.id.auto_high_goal_miss_score)).setText(high_miss + "");
+                setText(R.id.auto_high_goal_miss_score, high_miss);
                 break;
             case R.id.auto_high_goal_hit_add:
                 high_hit++;
-                ((TextView) rootView.findViewById(R.id.auto_high_goal_hit_score)).setText(high_hit + "");
+                setText(R.id.auto_high_goal_hit_score, high_hit);
                 break;
             case R.id.auto_high_goal_hit_sub:
                 high_hit--;
-                ((TextView) rootView.findViewById(R.id.auto_high_goal_hit_score)).setText(high_hit + "");
+                setText(R.id.auto_high_goal_hit_score, high_hit);
                 break;
             case R.id.auto_low_goal_miss_add:
                 low_miss++;
-                ((TextView) rootView.findViewById(R.id.auto_low_goal_miss_score)).setText(low_miss + "");
+                setText(R.id.auto_low_goal_miss_score, low_miss);
                 break;
             case R.id.auto_low_goal_miss_sub:
                 low_miss--;
-                ((TextView) rootView.findViewById(R.id.auto_low_goal_miss_score)).setText(low_miss + "");
+                setText(R.id.auto_low_goal_miss_score, low_miss);
                 break;
             case R.id.auto_low_goal_hit_add:
                 low_hit++;
-                ((TextView) rootView.findViewById(R.id.auto_low_goal_hit_score)).setText(low_hit + "");
+                setText(R.id.auto_low_goal_hit_score, low_hit);
                 break;
             case R.id.auto_low_goal_hit_sub:
                 low_hit--;
-                ((TextView) rootView.findViewById(R.id.auto_low_goal_hit_score)).setText(low_hit + "");
+                setText(R.id.auto_low_goal_hit_score, low_hit);
                 break;
         }
+    }
+
+    public void setText(int id, int score)
+    {
+        ((TextView)rootView.findViewById(id)).setText(score + "");
+    }
+
+    private void initButtons()
+    {
+        auto_boulder_start = (ToggleButton) rootView.findViewById(R.id.auto_toggle_boulder_start);
+
+        auto_def_reached = (ToggleButton) rootView.findViewById(R.id.auto_toggle_reached_def);
+
+        auto_high_goal_miss_add = (Button) rootView.findViewById(R.id.auto_high_goal_miss_add);
+        auto_high_goal_miss_add.setOnClickListener(this);
+
+        auto_high_goal_miss_sub = (Button) rootView.findViewById(R.id.auto_high_goal_miss_sub);
+        auto_high_goal_miss_sub.setOnClickListener(this);
+
+        auto_high_goal_hit_add = (Button) rootView.findViewById(R.id.auto_high_goal_hit_add);
+        auto_high_goal_hit_add.setOnClickListener(this);
+
+        auto_high_goal_hit_sub = (Button) rootView.findViewById(R.id.auto_high_goal_hit_sub);
+        auto_high_goal_hit_sub.setOnClickListener(this);
+
+        auto_low_goal_miss_add = (Button) rootView.findViewById(R.id.auto_low_goal_miss_add);
+        auto_low_goal_miss_add.setOnClickListener(this);
+
+        auto_low_goal_miss_sub = (Button) rootView.findViewById(R.id.auto_low_goal_miss_sub);
+        auto_low_goal_miss_sub.setOnClickListener(this);
+
+        auto_low_goal_hit_add = (Button) rootView.findViewById(R.id.auto_low_goal_hit_add);
+        auto_low_goal_hit_add.setOnClickListener(this);
+
+        auto_low_goal_hit_sub = (Button) rootView.findViewById(R.id.auto_low_goal_hit_sub);
+        auto_low_goal_hit_sub.setOnClickListener(this);
     }
 }
