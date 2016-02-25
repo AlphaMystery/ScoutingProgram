@@ -74,7 +74,7 @@ public class Fragment_S_Tele_Off extends Fragment implements View.OnClickListene
                 ((TextView)rootView.findViewById(R.id.tele_high_goal_miss_score)).setText(high_goal_m + "");
                 break;
             case R.id.tele_high_goal_miss_add:
-                high_goal_m--;
+                high_goal_m++;
                 ((TextView)rootView.findViewById(R.id.tele_high_goal_miss_score)).setText(high_goal_m + "");
                 break;
         }

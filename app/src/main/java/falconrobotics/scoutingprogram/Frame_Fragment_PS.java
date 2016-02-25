@@ -2,16 +2,18 @@ package falconrobotics.scoutingprogram;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +21,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * Created by Francisco Martinez on 2/7/2016.
@@ -37,8 +34,9 @@ public class Frame_Fragment_PS extends Fragment {
     TextView capButton;
     ImageView imageView;
     EditText teamNumberInput;
-    String teamName = "842";
-    Intent intent;
+    String teamNum;
+    EditText teamNumInput;
+    File photoFile;
 
 
     @Nullable
@@ -50,11 +48,45 @@ public class Frame_Fragment_PS extends Fragment {
         capButton = (TextView)rootView.findViewById(R.id.pit_button_robot_cap);
         teamNumberInput = (EditText)rootView.findViewById(R.id.pit_robot_number);
 
+        LayoutInflater li = LayoutInflater.from(rootView.getContext());
+        View promptsView = li.inflate(R.layout.prompt_layout_team_number, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                rootView.getContext());
+
+        // set prompts.xml to alertdialog builder
+        alertDialogBuilder.setView(promptsView);
+
+        teamNumInput = (EditText) promptsView
+                .findViewById(R.id.pit_robot_number);
+
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("SUBMIT",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                teamNum = teamNumInput.getText().toString();
+                            }
+                        })
+                .setNegativeButton("CANCEL",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+
+
         capButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, 0);
+                dispatchTakePictureIntent();
             }
         });
 
@@ -63,14 +95,43 @@ public class Frame_Fragment_PS extends Fragment {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bitmap photo;
-        if (resultCode != 0) {
-            photo = rotateImageIfRequired(rootView.getContext(), (Bitmap)data.getExtras().get("data"));
+        imageView.setImageBitmap(
+                rotateImageIfRequired(rootView.getContext(),
+                Bitmap.createScaledBitmap(BitmapFactory.decodeFile(photoFile.getAbsolutePath()), 1920, 1080, true)));
+    }
 
-            imageView.setImageBitmap(photo);
+    static final int REQUEST_TAKE_PHOTO = 1;
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(rootView.getContext().getPackageManager()) != null) {
+            // Create the File where the photo should go
+            photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                        Uri.fromFile(photoFile));
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
         }
     }
 
+    private File createImageFile() throws IOException {
+        String imageFileName = teamNum;
+        File storageDir = new File(DBHelper.picDirPath);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        return image;
+    }
 
     /**
      * Rotate an image if required.

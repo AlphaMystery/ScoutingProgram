@@ -1,16 +1,18 @@
 package falconrobotics.scoutingprogram;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 /**
@@ -21,17 +23,19 @@ public class Tab_Fragment_S extends Fragment {
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
     public static int int_items = 4;
-    private DialogFragment dialogFragment;
-    private static Spinner teamNumSpinner;
+    private static View rootView;
+    private static EditText teamNumInput;
+    private static int matchNum;
+    private static Spinner teams;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View x =  inflater.inflate(R.layout.tab_layout_g,null);
-        tabLayout = (TabLayout) x.findViewById(R.id.tabs_g);
-        viewPager = (ViewPager) x.findViewById(R.id.viewpager_g);
-        teamNumSpinner = (Spinner)x.findViewById(R.id.pre_match_spinner_team_number);
+        rootView =  inflater.inflate(R.layout.tab_layout_g,null);
+        tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_g);
+        viewPager = (ViewPager) rootView.findViewById(R.id.viewpager_g);
+        teams = (Spinner) rootView.findViewById(R.id.pre_match_spinner_teams);
 
         viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
 
@@ -42,9 +46,38 @@ public class Tab_Fragment_S extends Fragment {
             }
         });
 
-//        dialogFragment =
 
-        return x;
+        // get prompts.xml view
+        LayoutInflater li = LayoutInflater.from(rootView.getContext());
+        View promptsView = li.inflate(R.layout.prompt_layout_s, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                rootView.getContext());
+        // set prompts.xml to alertdialog builder
+        alertDialogBuilder.setView(promptsView);
+        teamNumInput = (EditText) promptsView
+                .findViewById(R.id.pre_match_team_number);
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("SUBMIT",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                matchNum = Integer.parseInt(teamNumInput.getText().toString());
+                            }
+                        })
+                .setNegativeButton("CANCEL",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        // show it
+        alertDialog.show();
+
+
+        return rootView;
     }
 
     class MyAdapter extends FragmentPagerAdapter {

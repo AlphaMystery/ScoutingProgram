@@ -16,8 +16,8 @@
     <TableRow>
         <TextView
             android:text="Team Number:"/>
-        <Spinner
-            android:id ="@+id/pre_match_spinner_team_number"
+        <EditText
+            android:id ="@+id/pre_match_team_number"
             android:layout_width ="match_parent"
             android:layout_height ="wrap_content"
             android:entries="@array/default_team_numbers"/>
@@ -29,7 +29,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/pre_match_spinner_game_number"
+            android:id="@+id/pre_match_spinner_teams"
             android:entries="@array/default_match_numbers"/>
     </TableRow>
 

@@ -10,7 +10,7 @@ import java.io.File;
  * Created by 842 on 2/22/2016.
  */
 public class DBHelper extends SQLiteOpenHelper {
-    public static String eventCode = "TEST_CODE";
+    private static String eventCode = "TEST_CODE";
     public static String mainDirPath = System.getenv("EXTERNAL_STORAGE") + "/falconrobotics2016/" + eventCode;
     public static String picDirPath = mainDirPath + "/pictures";
     public static String dbDirPath = mainDirPath + "/databases";
@@ -246,5 +246,14 @@ public class DBHelper extends SQLiteOpenHelper {
                 if (!dbDir.mkdirs())
                     System.exit(0);
         }catch(Exception e){}
+    }
+
+    public static void setEventCode(String newCode)
+    {
+        eventCode = newCode;
+    }
+    public static String getEventCode()
+    {
+        return eventCode;
     }
 }
