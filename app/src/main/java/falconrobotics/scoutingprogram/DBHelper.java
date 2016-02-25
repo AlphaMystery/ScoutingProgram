@@ -11,7 +11,7 @@ import java.io.File;
  */
 public class DBHelper extends SQLiteOpenHelper {
     private static String eventCode = "TEST_CODE";
-    public static String mainDirPath = System.getenv("EXTERNAL_STORAGE") + "/falconrobotics2016/" + eventCode;
+    public static String mainDirPath = System.getenv("EXTERNAL_STORAGE") + "/falconrobotics2016";
     public static String picDirPath = mainDirPath + "/pictures";
     public static String dbDirPath = mainDirPath + "/databases";
 
@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     //name
-    private static final String DATABASE_NAME = "AppData";
+    private static final String DATABASE_NAME = "AppData.db";
 
     //path
     public static final String  DATABASE_FILE_PATH = dbDirPath;
@@ -250,6 +250,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static void setEventCode(String newCode)
     {
+        mainDirPath += "/" + newCode;
         eventCode = newCode;
     }
     public static String getEventCode()

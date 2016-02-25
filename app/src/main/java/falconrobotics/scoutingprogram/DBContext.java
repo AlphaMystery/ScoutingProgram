@@ -19,8 +19,7 @@ public class DBContext extends ContextWrapper{
     @Override
     public File getDatabasePath(String name)
     {
-        File sdcard = new File(DBHelper.dbDirPath);
-        String dbfile = sdcard.getAbsolutePath() + File.separator + name;
+        String dbfile = DBHelper.dbDirPath + File.separator + name;
         if (!dbfile.endsWith(".db"))
         {
             dbfile += ".db" ;
@@ -38,7 +37,8 @@ public class DBContext extends ContextWrapper{
 
 //    this version is called for android devices >= api-11. thank to @damccull for fixing this.
     @Override
-    public SQLiteDatabase openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory, DatabaseErrorHandler errorHandler) {
+    public SQLiteDatabase openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory, DatabaseErrorHandler errorHandler)
+    {
         return openOrCreateDatabase(name,mode, factory);
     }
 
@@ -46,8 +46,6 @@ public class DBContext extends ContextWrapper{
     @Override
     public SQLiteDatabase openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory)
     {
-        SQLiteDatabase result = SQLiteDatabase.openOrCreateDatabase(getDatabasePath(name), null);
-
-        return result;
+        return SQLiteDatabase.openOrCreateDatabase(getDatabasePath(name), null);
     }
 }
