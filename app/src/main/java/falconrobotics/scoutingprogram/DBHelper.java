@@ -10,110 +10,110 @@ import java.io.File;
  * Created by 842 on 2/22/2016.
  */
 public class DBHelper extends SQLiteOpenHelper {
-    private static String eventCode = "TEST_CODE";
+    public static String eventCode = "TEST_CODE";
     public static String mainDirPath = System.getenv("EXTERNAL_STORAGE") + "/falconrobotics2016";
     public static String picDirPath = mainDirPath + "/pictures";
     public static String dbDirPath = mainDirPath + "/databases";
 
     //version
-    private static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 1;
 
     //name
-    private static final String DATABASE_NAME = "AppData.db";
+    public static final String DATABASE_NAME = "AppData.db";
 
     //path
     public static final String  DATABASE_FILE_PATH = dbDirPath;
 
     //tables in the Google Sheet
-    private static final String TABLE_MATCH = "match";
-    private static final String TABLE_PIT = "pit";
-    private static final String TABLE_SCHEDULE = "schedule";
-    private static final String TABLE_TEAMS = "teams";
+    public static final String TABLE_MATCH = "match";
+    public static final String TABLE_PIT = "pit";
+    public static final String TABLE_SCHEDULE = "schedule";
+    public static final String TABLE_TEAMS = "teams";
 
     //Match, Pit, Schedule - common key, won't be included in every table
-    private static final String KEY_SYNCNUM = "syncNum"; // not sure if this is correct
+    public static final String KEY_SYNCNUM = "syncNum"; // not sure if this is correct
 
-    private static final String INTEGER = " INTEGER,";
-    private static final String TEXT = " TEXT,";
+    public static final String INTEGER = " INTEGER,";
+    public static final String TEXT = " TEXT,";
 
     //Match Table - keys
-    private static final String KEY_MATCH_MATCHNUM = "matchNum";
-    private static final String KEY_MATCH_TEAMNUM = "teamNum";
-    private static final String KEY_MATCH_AUTODEF1 = "autoDef1";
-    private static final String KEY_MATCH_AUTODEF2 = "autoDef2";
-    private static final String KEY_MATCH_AUTODEF3 = "autoDef3";
-    private static final String KEY_MATCH_AUTODEF4 = "autoDef4";
-    private static final String KEY_MATCH_AUTODEF5 = "autoDef5";
-    private static final String KEY_MATCH_AUTOBOULDER = "autoBoulder";
-    private static final String KEY_MATCH_AUTOLOWMISS = "autoLowMiss";
-    private static final String KEY_MATCH_AUTOLOWMAKE = "autoLowMake";
-    private static final String KEY_MATCH_AUTOHIGHMISS = "autoHighMiss";
-    private static final String KEY_MATCH_AUTOHIGHMAKE = "autoHighMake";
-    private static final String KEY_MATCH_TELEDEF1MISS = "teleDef1Miss";
-    private static final String KEY_MATCH_TELEDEF1MAKE = "teleDef1Make";
-    private static final String KEY_MATCH_TELEDEF2MISS = "teleDef2Miss";
-    private static final String KEY_MATCH_TELEDEF2MAKE = "teleDef2Make";
-    private static final String KEY_MATCH_TELEDEF3MISS = "teleDef3Miss";
-    private static final String KEY_MATCH_TELEDEF3MAKE = "teleDef3Make";
-    private static final String KEY_MATCH_TELEDEF4MISS = "teleDef4Miss";
-    private static final String KEY_MATCH_TELEDEF4MAKE = "teleDef4Make";
-    private static final String KEY_MATCH_TELEDEF5MISS = "teleDef5Miss";
-    private static final String KEY_MATCH_TELEDEF5MAKE = "teleDef5Make";
-    private static final String KEY_MATCH_TELELOWMISS = "teleLowMiss";
-    private static final String KEY_MATCH_TELELOWMAKE = "teleLowMake";
-    private static final String KEY_MATCH_TELEHIGHMISS = "teleHighMiss";
-    private static final String KEY_MATCH_TELEHIGHMAKE = "teleHighMake";
-    //    private static final String KEY_MATCH_TELEPUSH = "telePush";  not used, depends on scouter
-    private static final String KEY_MATCH_TELEBLOCK1 = "teleBlock1";
-    private static final String KEY_MATCH_TELEBLOCK2 = "teleBlock2";
-    private static final String KEY_MATCH_TELEBLOCK3 = "teleBlock3";
-    private static final String KEY_MATCH_CLIMB = "climb";
-    private static final String KEY_MATCH_CHALLENGED = "challenged";
-    private static final String KEY_MATCH_BOULDERPASS = "boulderPass";
-    private static final String KEY_MATCH_SCORETOTAL = "scoreTotal";
-    private static final String KEY_MATCH_SCOREAUTO = "scoreAuto";
-    private static final String KEY_MATCH_SCOREFOUL = "scoreFoul";
-    private static final String KEY_MATCH_CARDED = "carded";
-    private static final String KEY_MATCH_STOPPED = "stopped";
-    private static final String KEY_MATCH_COMMENTS = "comments";
+    public static final String KEY_MATCH_MATCHNUM = "matchNum";
+    public static final String KEY_MATCH_TEAMNUM = "teamNum";
+    public static final String KEY_MATCH_AUTODEF1 = "autoDef1";
+    public static final String KEY_MATCH_AUTODEF2 = "autoDef2";
+    public static final String KEY_MATCH_AUTODEF3 = "autoDef3";
+    public static final String KEY_MATCH_AUTODEF4 = "autoDef4";
+    public static final String KEY_MATCH_AUTODEF5 = "autoDef5";
+    public static final String KEY_MATCH_AUTOBOULDER = "autoBoulder";
+    public static final String KEY_MATCH_AUTOLOWMISS = "autoLowMiss";
+    public static final String KEY_MATCH_AUTOLOWMAKE = "autoLowMake";
+    public static final String KEY_MATCH_AUTOHIGHMISS = "autoHighMiss";
+    public static final String KEY_MATCH_AUTOHIGHMAKE = "autoHighMake";
+    public static final String KEY_MATCH_TELEDEF1MISS = "teleDef1Miss";
+    public static final String KEY_MATCH_TELEDEF1MAKE = "teleDef1Make";
+    public static final String KEY_MATCH_TELEDEF2MISS = "teleDef2Miss";
+    public static final String KEY_MATCH_TELEDEF2MAKE = "teleDef2Make";
+    public static final String KEY_MATCH_TELEDEF3MISS = "teleDef3Miss";
+    public static final String KEY_MATCH_TELEDEF3MAKE = "teleDef3Make";
+    public static final String KEY_MATCH_TELEDEF4MISS = "teleDef4Miss";
+    public static final String KEY_MATCH_TELEDEF4MAKE = "teleDef4Make";
+    public static final String KEY_MATCH_TELEDEF5MISS = "teleDef5Miss";
+    public static final String KEY_MATCH_TELEDEF5MAKE = "teleDef5Make";
+    public static final String KEY_MATCH_TELELOWMISS = "teleLowMiss";
+    public static final String KEY_MATCH_TELELOWMAKE = "teleLowMake";
+    public static final String KEY_MATCH_TELEHIGHMISS = "teleHighMiss";
+    public static final String KEY_MATCH_TELEHIGHMAKE = "teleHighMake";
+    //    public static final String KEY_MATCH_TELEPUSH = "telePush";  not used, depends on scouter
+    public static final String KEY_MATCH_TELEBLOCK1 = "teleBlock1";
+    public static final String KEY_MATCH_TELEBLOCK2 = "teleBlock2";
+    public static final String KEY_MATCH_TELEBLOCK3 = "teleBlock3";
+    public static final String KEY_MATCH_CLIMB = "climb";
+    public static final String KEY_MATCH_CHALLENGED = "challenged";
+    public static final String KEY_MATCH_BOULDERPASS = "boulderPass";
+    public static final String KEY_MATCH_SCORETOTAL = "scoreTotal";
+    public static final String KEY_MATCH_SCOREAUTO = "scoreAuto";
+    public static final String KEY_MATCH_SCOREFOUL = "scoreFoul";
+    public static final String KEY_MATCH_CARDED = "carded";
+    public static final String KEY_MATCH_STOPPED = "stopped";
+    public static final String KEY_MATCH_COMMENTS = "comments";
 
     //Pit Table - keys
-    private static final String KEY_PIT_TEAMNUM = "teamNum";
-    private static final String KEY_PIT_YEARDRIVER = "yearDriver";
-    private static final String KEY_PIT_WHEELS = "wheels";
-    private static final String KEY_PIT_WEIGHT = "weight";
-    private static final String KEY_PIT_SHOOTER = "shooter";
-    private static final String KEY_PIT_CANCLIMB = "canClimb";
-    private static final String KEY_PIT_CLIMBSPEED = "climbSpeed";
-    private static final String KEY_PIT_ROBOTDIMENSIONS = "robotDimensions";
-    private static final String KEY_PIT_PORTCULLIS = "portcullis";
-    private static final String KEY_PIT_CHEVALDEFRISE = "chevalDeFrise";
-    private static final String KEY_PIT_MOAT = "moat";
-    private static final String KEY_PIT_RAMPARTS = "ramparts";
-    private static final String KEY_PIT_DRAWBRIDGE = "drawbridge";
-    private static final String KEY_PIT_SALLYPORT = "drawbridge";
-    private static final String KEY_PIT_ROCKWALL = "rockWall";
-    private static final String KEY_PIT_ROUGHTERRAIN = "roughTerrain";
-    private static final String KEY_PIT_LOWBAR = "lowBar";
-    private static final String KEY_PIT_COMMENTS = "comments";
-    private static final String KEY_PIT_ROBOTPHOTO = "robotPhoto";
+    public static final String KEY_PIT_TEAMNUM = "teamNum";
+    public static final String KEY_PIT_YEARDRIVER = "yearDriver";
+    public static final String KEY_PIT_WHEELS = "wheels";
+    public static final String KEY_PIT_WEIGHT = "weight";
+    public static final String KEY_PIT_SHOOTER = "shooter";
+    public static final String KEY_PIT_CANCLIMB = "canClimb";
+    public static final String KEY_PIT_CLIMBSPEED = "climbSpeed";
+    public static final String KEY_PIT_ROBOTDIMENSIONS = "robotDimensions";
+    public static final String KEY_PIT_PORTCULLIS = "portcullis";
+    public static final String KEY_PIT_CHEVALDEFRISE = "chevalDeFrise";
+    public static final String KEY_PIT_MOAT = "moat";
+    public static final String KEY_PIT_RAMPARTS = "ramparts";
+    public static final String KEY_PIT_DRAWBRIDGE = "drawbridge";
+    public static final String KEY_PIT_SALLYPORT = "drawbridge";
+    public static final String KEY_PIT_ROCKWALL = "rockWall";
+    public static final String KEY_PIT_ROUGHTERRAIN = "roughTerrain";
+    public static final String KEY_PIT_LOWBAR = "lowBar";
+    public static final String KEY_PIT_COMMENTS = "comments";
+    public static final String KEY_PIT_ROBOTPHOTO = "robotPhoto";
 
     //Schedule Table - keys
-    private static final String KEY_SCHEDULE_MATCHLEVEL = "matchLevel";
-    private static final String KEY_SCHEDULE_MATCHNUM = "matchNum";
-    private static final String KEY_SCHEDULE_BLUEROBOT1 = "blueRobot1";
-    private static final String KEY_SCHEDULE_BLUEROBOT2 = "blueRobot2";
-    private static final String KEY_SCHEDULE_BLUEROBOT3 = "blueRobot3";
-    private static final String KEY_SCHEDULE_REDROBOT1 = "redRobot1";
-    private static final String KEY_SCHEDULE_REDROBOT2 = "redRobot2";
-    private static final String KEY_SCHEDULE_REDROBOT3 = "redRobot3";
+    public static final String KEY_SCHEDULE_MATCHLEVEL = "matchLevel";
+    public static final String KEY_SCHEDULE_MATCHNUM = "matchNum";
+    public static final String KEY_SCHEDULE_BLUEROBOT1 = "blueRobot1";
+    public static final String KEY_SCHEDULE_BLUEROBOT2 = "blueRobot2";
+    public static final String KEY_SCHEDULE_BLUEROBOT3 = "blueRobot3";
+    public static final String KEY_SCHEDULE_REDROBOT1 = "redRobot1";
+    public static final String KEY_SCHEDULE_REDROBOT2 = "redRobot2";
+    public static final String KEY_SCHEDULE_REDROBOT3 = "redRobot3";
 
     //Teams Table - keys
-    private static final String KEY_TEAMS_TEAMNUM = "teamNum";
-    private static final String KEY_TEAMS_SHORTNAME = "shortName";
+    public static final String KEY_TEAMS_TEAMNUM = "teamNum";
+    public static final String KEY_TEAMS_SHORTNAME = "shortName";
 
     //Match Table - create statement
-    private static final String CREATE_TABLE_MATCH =
+    public static final String CREATE_TABLE_MATCH =
             "CREATE TABLE "
                     + TABLE_MATCH + "("
                     + KEY_MATCH_MATCHNUM + INTEGER
@@ -158,7 +158,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     + ")";
 
     //Pit Table - create statement
-    private static final String CREATE_TABLE_PIT =
+    public static final String CREATE_TABLE_PIT =
             "CREATE TABLE "
                     + TABLE_PIT + "("
                     + KEY_PIT_TEAMNUM + INTEGER
@@ -184,7 +184,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     + ")";
 
     //Schedule Table - create statement
-    private static final String CREATE_TABLE_SCHEDULE =
+    public static final String CREATE_TABLE_SCHEDULE =
             "CREATE TABLE "
                     + TABLE_SCHEDULE + "("
                     + KEY_SCHEDULE_MATCHLEVEL + INTEGER
@@ -199,7 +199,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     + ")";
 
     //Team Table - create statement
-    private static final String CREATE_TABLE_TEAMS =
+    public static final String CREATE_TABLE_TEAMS =
             "CREATE TABLE "
                     + TABLE_TEAMS + "("
                     + KEY_TEAMS_TEAMNUM + INTEGER
