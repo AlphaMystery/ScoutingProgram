@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 /**
  * Created by Francisco Martinez on 2/7/2016.
  * DESCRIPTION: Displays the post match fragment prompting the user more questions
- *              about the robot performance during the match.
+ *              about the robot performance during the atch.
  */
 public class Fragment_S_Post extends Fragment {
 
