@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DBHelper.makeDirectories();
+        DBHelper db = new DBHelper(getApplicationContext());
+
         /**
          *Setup the DrawerLayout and NavigationView
          */
@@ -78,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
                     xfragmentTransaction.replace(R.id.containerView, new Fragment_Email()).commit();
                 }
 
-                DBHelper.makeDirectories();
 
                 return false;
             }

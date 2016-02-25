@@ -42,8 +42,7 @@ public class Tab_Fragment_S extends Fragment {
             }
         });
 
-        dialogFragment = new Dialog_Helper(R.layout.prompt_layout_s);
-        dialogFragment.show(Tab_Fragment_S.this.getFragmentManager(), "Pre-Match");
+//        dialogFragment =
 
         return x;
     }

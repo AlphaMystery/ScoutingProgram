@@ -63,7 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String KEY_MATCH_TELELOWMAKE = "teleLowMake";
     private static final String KEY_MATCH_TELEHIGHMISS = "teleHighMiss";
     private static final String KEY_MATCH_TELEHIGHMAKE = "teleHighMake";
-//    private static final String KEY_MATCH_TELEPUSH = "telePush";  not used, depends on scouter
+    //    private static final String KEY_MATCH_TELEPUSH = "telePush";  not used, depends on scouter
     private static final String KEY_MATCH_TELEBLOCK1 = "teleBlock1";
     private static final String KEY_MATCH_TELEBLOCK2 = "teleBlock2";
     private static final String KEY_MATCH_TELEBLOCK3 = "teleBlock3";
@@ -115,117 +115,122 @@ public class DBHelper extends SQLiteOpenHelper {
     //Match Table - create statement
     private static final String CREATE_TABLE_MATCH =
             "CREATE TABLE "
-            + TABLE_MATCH + "("
-            + KEY_MATCH_MATCHNUM + INTEGER
-            + KEY_MATCH_TEAMNUM + INTEGER
-            + KEY_MATCH_AUTODEF1 + INTEGER
-            + KEY_MATCH_AUTODEF2 + INTEGER
-            + KEY_MATCH_AUTODEF3 + INTEGER
-            + KEY_MATCH_AUTODEF4 + INTEGER
-            + KEY_MATCH_AUTODEF5 + INTEGER
-            + KEY_MATCH_AUTOBOULDER + INTEGER
-            + KEY_MATCH_AUTOLOWMISS + INTEGER
-            + KEY_MATCH_AUTOLOWMAKE + INTEGER
-            + KEY_MATCH_AUTOHIGHMISS + INTEGER
-            + KEY_MATCH_AUTOHIGHMAKE + INTEGER
-            + KEY_MATCH_TELEDEF1MISS + INTEGER
-            + KEY_MATCH_TELEDEF1MAKE + INTEGER
-            + KEY_MATCH_TELEDEF2MISS + INTEGER
-            + KEY_MATCH_TELEDEF2MAKE + INTEGER
-            + KEY_MATCH_TELEDEF3MISS + INTEGER
-            + KEY_MATCH_TELEDEF3MAKE + INTEGER
-            + KEY_MATCH_TELEDEF4MISS + INTEGER
-            + KEY_MATCH_TELEDEF4MAKE + INTEGER
-            + KEY_MATCH_TELEDEF5MISS + INTEGER
-            + KEY_MATCH_TELEDEF5MAKE + INTEGER
-            + KEY_MATCH_TELELOWMISS + INTEGER
-            + KEY_MATCH_TELELOWMAKE + INTEGER
-            + KEY_MATCH_TELEHIGHMISS + INTEGER
-            + KEY_MATCH_TELEHIGHMAKE + INTEGER
-            + KEY_MATCH_BOULDERPASS + INTEGER
-            + KEY_MATCH_TELEBLOCK1 + INTEGER
-            + KEY_MATCH_TELEBLOCK2 + INTEGER
-            + KEY_MATCH_TELEBLOCK3 + INTEGER
-            + KEY_MATCH_CLIMB + INTEGER
-            + KEY_MATCH_CHALLENGED + INTEGER
-            + KEY_MATCH_SCORETOTAL + INTEGER
-            + KEY_MATCH_SCOREAUTO + INTEGER
-            + KEY_MATCH_SCOREFOUL + INTEGER
-            + KEY_MATCH_CARDED + INTEGER
-            + KEY_MATCH_STOPPED + INTEGER
-            + KEY_MATCH_COMMENTS + TEXT
-            + KEY_SYNCNUM + INTEGER
-            + ")";
+                    + TABLE_MATCH + "("
+                    + KEY_MATCH_MATCHNUM + INTEGER
+                    + KEY_MATCH_TEAMNUM + INTEGER
+                    + KEY_MATCH_AUTODEF1 + INTEGER
+                    + KEY_MATCH_AUTODEF2 + INTEGER
+                    + KEY_MATCH_AUTODEF3 + INTEGER
+                    + KEY_MATCH_AUTODEF4 + INTEGER
+                    + KEY_MATCH_AUTODEF5 + INTEGER
+                    + KEY_MATCH_AUTOBOULDER + INTEGER
+                    + KEY_MATCH_AUTOLOWMISS + INTEGER
+                    + KEY_MATCH_AUTOLOWMAKE + INTEGER
+                    + KEY_MATCH_AUTOHIGHMISS + INTEGER
+                    + KEY_MATCH_AUTOHIGHMAKE + INTEGER
+                    + KEY_MATCH_TELEDEF1MISS + INTEGER
+                    + KEY_MATCH_TELEDEF1MAKE + INTEGER
+                    + KEY_MATCH_TELEDEF2MISS + INTEGER
+                    + KEY_MATCH_TELEDEF2MAKE + INTEGER
+                    + KEY_MATCH_TELEDEF3MISS + INTEGER
+                    + KEY_MATCH_TELEDEF3MAKE + INTEGER
+                    + KEY_MATCH_TELEDEF4MISS + INTEGER
+                    + KEY_MATCH_TELEDEF4MAKE + INTEGER
+                    + KEY_MATCH_TELEDEF5MISS + INTEGER
+                    + KEY_MATCH_TELEDEF5MAKE + INTEGER
+                    + KEY_MATCH_TELELOWMISS + INTEGER
+                    + KEY_MATCH_TELELOWMAKE + INTEGER
+                    + KEY_MATCH_TELEHIGHMISS + INTEGER
+                    + KEY_MATCH_TELEHIGHMAKE + INTEGER
+                    + KEY_MATCH_BOULDERPASS + INTEGER
+                    + KEY_MATCH_TELEBLOCK1 + INTEGER
+                    + KEY_MATCH_TELEBLOCK2 + INTEGER
+                    + KEY_MATCH_TELEBLOCK3 + INTEGER
+                    + KEY_MATCH_CLIMB + INTEGER
+                    + KEY_MATCH_CHALLENGED + INTEGER
+                    + KEY_MATCH_SCORETOTAL + INTEGER
+                    + KEY_MATCH_SCOREAUTO + INTEGER
+                    + KEY_MATCH_SCOREFOUL + INTEGER
+                    + KEY_MATCH_CARDED + INTEGER
+                    + KEY_MATCH_STOPPED + INTEGER
+                    + KEY_MATCH_COMMENTS + TEXT
+                    + KEY_SYNCNUM + INTEGER
+                    + ")";
 
     //Pit Table - create statement
     private static final String CREATE_TABLE_PIT =
             "CREATE TABLE "
-            + TABLE_PIT + "("
-            + KEY_PIT_TEAMNUM + INTEGER
-            + KEY_PIT_YEARDRIVER + INTEGER
-            + KEY_PIT_WHEELS + INTEGER
-            + KEY_PIT_WEIGHT + INTEGER
-            + KEY_PIT_SHOOTER + INTEGER
-            + KEY_PIT_CANCLIMB + INTEGER
-            + KEY_PIT_CLIMBSPEED + INTEGER
-            + KEY_PIT_ROBOTDIMENSIONS + INTEGER
-            + KEY_PIT_PORTCULLIS + INTEGER
-            + KEY_PIT_CHEVALDEFRISE + INTEGER
-            + KEY_PIT_MOAT + INTEGER
-            + KEY_PIT_RAMPARTS + INTEGER
-            + KEY_PIT_DRAWBRIDGE + INTEGER
-            + KEY_PIT_SALLYPORT + INTEGER
-            + KEY_PIT_ROCKWALL + INTEGER
-            + KEY_PIT_ROUGHTERRAIN + INTEGER
-            + KEY_PIT_LOWBAR + INTEGER
-            + KEY_PIT_COMMENTS + TEXT
-            + KEY_PIT_ROBOTPHOTO + INTEGER
-            + KEY_SYNCNUM + INTEGER
-            + ")";
+                    + TABLE_PIT + "("
+                    + KEY_PIT_TEAMNUM + INTEGER
+                    + KEY_PIT_YEARDRIVER + INTEGER
+                    + KEY_PIT_WHEELS + INTEGER
+                    + KEY_PIT_WEIGHT + INTEGER
+                    + KEY_PIT_SHOOTER + INTEGER
+                    + KEY_PIT_CANCLIMB + INTEGER
+                    + KEY_PIT_CLIMBSPEED + INTEGER
+                    + KEY_PIT_ROBOTDIMENSIONS + INTEGER
+                    + KEY_PIT_PORTCULLIS + INTEGER
+                    + KEY_PIT_CHEVALDEFRISE + INTEGER
+                    + KEY_PIT_MOAT + INTEGER
+                    + KEY_PIT_RAMPARTS + INTEGER
+                    + KEY_PIT_DRAWBRIDGE + INTEGER
+                    + KEY_PIT_SALLYPORT + INTEGER
+                    + KEY_PIT_ROCKWALL + INTEGER
+                    + KEY_PIT_ROUGHTERRAIN + INTEGER
+                    + KEY_PIT_LOWBAR + INTEGER
+                    + KEY_PIT_COMMENTS + TEXT
+                    + KEY_PIT_ROBOTPHOTO + INTEGER
+                    + KEY_SYNCNUM + INTEGER
+                    + ")";
 
     //Schedule Table - create statement
     private static final String CREATE_TABLE_SCHEDULE =
             "CREATE TABLE "
-            + TABLE_SCHEDULE + "("
-            + KEY_SCHEDULE_MATCHLEVEL + INTEGER
-            + KEY_SCHEDULE_MATCHNUM + INTEGER
-            + KEY_SCHEDULE_BLUEROBOT1 + INTEGER
-            + KEY_SCHEDULE_BLUEROBOT2 + INTEGER
-            + KEY_SCHEDULE_BLUEROBOT3 + INTEGER
-            + KEY_SCHEDULE_REDROBOT1 + INTEGER
-            + KEY_SCHEDULE_REDROBOT2 + INTEGER
-            + KEY_SCHEDULE_REDROBOT3 + INTEGER
-            + KEY_SYNCNUM + INTEGER
-            + ")";
+                    + TABLE_SCHEDULE + "("
+                    + KEY_SCHEDULE_MATCHLEVEL + INTEGER
+                    + KEY_SCHEDULE_MATCHNUM + INTEGER
+                    + KEY_SCHEDULE_BLUEROBOT1 + INTEGER
+                    + KEY_SCHEDULE_BLUEROBOT2 + INTEGER
+                    + KEY_SCHEDULE_BLUEROBOT3 + INTEGER
+                    + KEY_SCHEDULE_REDROBOT1 + INTEGER
+                    + KEY_SCHEDULE_REDROBOT2 + INTEGER
+                    + KEY_SCHEDULE_REDROBOT3 + INTEGER
+                    + KEY_SYNCNUM + INTEGER
+                    + ")";
 
     //Team Table - create statement
     private static final String CREATE_TABLE_TEAMS =
             "CREATE TABLE "
-            + TABLE_TEAMS + "("
-            + KEY_TEAMS_TEAMNUM + INTEGER
-            + KEY_TEAMS_SHORTNAME + TEXT
-            + KEY_SYNCNUM + INTEGER
-            + ")";
+                    + TABLE_TEAMS + "("
+                    + KEY_TEAMS_TEAMNUM + INTEGER
+                    + KEY_TEAMS_SHORTNAME + TEXT
+                    + KEY_SYNCNUM + INTEGER
+                    + ")";
 
-    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DBHelper(Context context) {
+        super(new DBContext(context), DATABASE_NAME, /*factory (examples show this as null)*/ null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-
+        db.execSQL(CREATE_TABLE_MATCH);
+        db.execSQL(CREATE_TABLE_PIT);
+        db.execSQL(CREATE_TABLE_SCHEDULE);
+        db.execSQL(CREATE_TABLE_TEAMS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + CREATE_TABLE_MATCH);
+        db.execSQL("DROP TABLE IF EXISTS " + CREATE_TABLE_PIT);
+        db.execSQL("DROP TABLE IF EXISTS " + CREATE_TABLE_SCHEDULE);
+        db.execSQL("DROP TABLE IF EXISTS " + CREATE_TABLE_TEAMS);
 
         onCreate(db);
     }
 
     public static void makeDirectories()
     {
-
         try
         {
             File mainDir = new File(mainDirPath);
