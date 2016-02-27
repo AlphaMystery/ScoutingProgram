@@ -1,5 +1,6 @@
 package falconrobotics.scoutingprogram;
 
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.TextView;
+import java.io.IOException;
 
 /**
  * Main class
@@ -20,10 +30,29 @@ public class MainActivity extends AppCompatActivity {
     FragmentTransaction mFragmentTransaction;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        DBHelper myDbHelper = new DBHelper(this);
+        try {
+            myDbHelper.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database");
+        }
+
+        try{
+            myDbHelper.openDataBase();
+        }catch (SQLiteException sqle)
+        {
+            throw sqle;
+        }
+
+
+
 
         /**
          *Setup the DrawerLayout and NavigationView
@@ -35,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
          * Lets inflate the very first fragment
          * Here , we are inflating the TabFragment as the first Fragment
          */
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.containerView, new Fragment_About()).commit();
+//        mFragmentManager = getSupportFragmentManager();
+//        mFragmentTransaction = mFragmentManager.beginTransaction();
+//        mFragmentManager.beginTransaction();
+        //mFragmentTransaction.replace(R.id.containerView, new Fragment_About()).commit();
 
         /**
          * Setup click events on the Navigation View Items.
@@ -57,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (menuItem.getItemId() == R.id.nav_item_pit_scout) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView, new Frame_Fragment_PS()).commit();
+//                    xfragmentTransaction.replace(R.id.containerView, new Frame_Fragment_PS()).commit();
                 }
 
                 if (menuItem.getItemId() == R.id.nav_item_bluetooth_share) {

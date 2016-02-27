@@ -53,11 +53,12 @@ public class Fragment_About extends Fragment{
         // show it
         alertDialog.show();
 
-        DBHelper.setEventCode(code);
-
-        DBHelper.makeDirectories();
-        DBHelper db = new DBHelper(rootView.getContext());
+//        DBHelper.setEventCode(code);
+//
+//        DBHelper.makeDirectories();
+//        DBHelper db = new DBHelper(rootView.getContext());
 
         return rootView;
+
     }
 }
