@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -123,7 +124,7 @@ public class Frame_Fragment_PS extends Fragment {
 
     private File createImageFile() throws IOException {
         String imageFileName = teamNum;
-        File storageDir = new File(DBHelper.picDirPath);
+        File storageDir = new File(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
