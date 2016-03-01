@@ -8,13 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by
- *          Francisco Martinez
- *          >> <<
- *
- *          on 2/7/2016.
- * DESCRIPTION: This fragment displays email fragment and will enable the user to send
- *              certain files such as for outside of the app analyzing through email.
+ * Created on 2/7/2016.
  */
 public class Fragment_Email extends Fragment {
     View rootView;

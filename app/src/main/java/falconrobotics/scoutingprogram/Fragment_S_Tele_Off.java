@@ -10,8 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by Francisco Martinez on 2/7/2016.
- * DESCRIPTION: Displays the scouting tele offense layout and stores data for retrieval.
+ * Created on 2/7/2016.
  */
 public class Fragment_S_Tele_Off extends Fragment implements View.OnClickListener{
     private View rootView;

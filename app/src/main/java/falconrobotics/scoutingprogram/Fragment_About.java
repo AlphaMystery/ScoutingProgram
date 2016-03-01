@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 /**
- * Created by Francisco Martinez on 2/11/2016.
- * DESCRIPTION: This fragment intentionally left blank.
+ * Created on 2/11/2016.
  */
 public class Fragment_About extends Fragment{
     private static View rootView;

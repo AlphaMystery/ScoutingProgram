@@ -1,9 +1,7 @@
 package falconrobotics.scoutingprogram;
 
-import java.util.PriorityQueue;
-
 /**
- * Created by 842 on 2/25/2016.
+ * Created on 2/25/2016.
  */
 public enum Enum_SyncNum {
     NOT_YET_SCOUTED (-1),

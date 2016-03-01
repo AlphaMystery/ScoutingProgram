@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by Francisco Martinez on 2/17/2016.
- * DESCRIPTION: Displays tele defense layout and stores input for retrieval
+ * Created on 2/17/2016.
  */
 public class Fragment_S_Tele_Def extends Fragment {
     View rootView;

@@ -12,7 +12,7 @@ import java.io.OutputStream;
 import java.io.File;
 
 /**
- * Created by 842 on 2/22/2016.
+ * Created on 2/22/2016.
  */
 public class DBHelper extends SQLiteOpenHelper
 {

@@ -11,8 +11,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 /**
- * Created by Francisco Martinez on 2/11/2016.
- * DESCRIPTION: Displays scouting auto layout and stores user input data for retrieval.
+ * Created on 2/11/2016.
  */
 public class Fragment_S_Auto extends Fragment implements View.OnClickListener{
     View rootView;

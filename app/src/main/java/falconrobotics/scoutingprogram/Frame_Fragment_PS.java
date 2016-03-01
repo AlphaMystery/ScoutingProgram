@@ -26,9 +26,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by Francisco Martinez on 2/7/2016.
- * DESCRIPTION: basically displayed in pit scouting and will add the
- *              team information to show in the data viewing fragment part.
+ * Created on 2/7/2016.
  */
 public class Frame_Fragment_PS extends Fragment {
     View rootView;

@@ -14,7 +14,6 @@ import java.io.IOException;
 
 /**
  * Main class
- * Starts external storage directory for storing database and pictures.
  */
 public class MainActivity extends AppCompatActivity {
     DrawerLayout mDrawerLayout;
