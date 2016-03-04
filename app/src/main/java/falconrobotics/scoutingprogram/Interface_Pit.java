@@ -3,7 +3,7 @@ package falconrobotics.scoutingprogram;
 /**
  * Created on 2/25/2016.
  */
-public interface Pit {
+public interface Interface_Pit {
     String[] NoAutoTeleBoth =
             {
                     "NO",

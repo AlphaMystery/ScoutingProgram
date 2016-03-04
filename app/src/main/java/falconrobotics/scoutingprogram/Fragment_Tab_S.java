@@ -18,7 +18,7 @@ import android.widget.Spinner;
 /**
  * Created on 2/7/2016.
  */
-public class Tab_Fragment_S extends Fragment {
+public class Fragment_Tab_S extends Fragment {
 
     public static TabLayout tabLayout;
     public static ViewPager viewPager;

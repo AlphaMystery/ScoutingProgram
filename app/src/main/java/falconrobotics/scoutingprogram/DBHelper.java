@@ -18,11 +18,14 @@ import java.io.File;
  */
 public class DBHelper extends SQLiteOpenHelper
 {
-    private static final String DATABASE_NAME = "2016AZFL.db";
+    public static final String DATABASE_NAME = "2016AZFL.db";
+    public static final int DB_VERSION = 1;
     private static final String TABLE_NAME = "game_scouting";
     private static String DB_PATH = "data/data/falconrobotics.scoutingprogram/databases/";
     private final Context context;
     private SQLiteDatabase myDataBase;
+
+
     /**
      * Constructor
      * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
