@@ -1,6 +1,8 @@
 package falconrobotics.scoutingprogram;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -113,7 +115,6 @@ public class DBHelper extends SQLiteOpenHelper
         myOutput.flush();
         myOutput.close();
         myInput.close();
-
     }
 
     public void openDataBase()throws SQLiteException
@@ -122,11 +123,6 @@ public class DBHelper extends SQLiteOpenHelper
         String myPath = DB_PATH + DATABASE_NAME;
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
     }
-
-
-
-
-
 
     @Override
     public synchronized void close()
@@ -137,15 +133,10 @@ public class DBHelper extends SQLiteOpenHelper
         super.close();
     }
 
-
-
-
-
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        // db.execSQL();
-
+//        db.execSQL();
     }
 
     @Override
@@ -155,20 +146,4 @@ public class DBHelper extends SQLiteOpenHelper
         onCreate(db);
     }
 
-//    public boolean insertData(String teamNumber)
-//    {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        //contentValues.put(col_0,teamNumber);
-//        long result=db.insert(TABLE_NAME,null,contentValues);
-//        if(result==1){return false;}
-//        return true;
-//    }
-//
-//    public Cursor getAllData()
-//    {
-//        SQLiteDatabase db =this.getWritableDatabase();
-//        Cursor res = db.rawQuery("select * from"+TABLE_NAME,null);
-//        return res;
-//    }
 }

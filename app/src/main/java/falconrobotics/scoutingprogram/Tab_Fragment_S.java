@@ -25,8 +25,10 @@ public class Tab_Fragment_S extends Fragment {
     public static int int_items = 4;
     private static View rootView;
     private static EditText teamNumInput;
+    private static EditText matchNumInput;
+    private static Spinner matchLevelInput;
+    private static int teamNum;
     private static int matchNum;
-    private static Spinner teams;
 
     @Nullable
     @Override
@@ -35,7 +37,6 @@ public class Tab_Fragment_S extends Fragment {
         rootView =  inflater.inflate(R.layout.tab_layout_g,null);
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_g);
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager_g);
-        teams = (Spinner) rootView.findViewById(R.id.pre_match_spinner_teams);
 
         viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
 
@@ -47,22 +48,25 @@ public class Tab_Fragment_S extends Fragment {
         });
 
 
-        // get prompts.xml view
         LayoutInflater li = LayoutInflater.from(rootView.getContext());
         View promptsView = li.inflate(R.layout.prompt_layout_s, null);
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                rootView.getContext());
-        // set prompts.xml to alertdialog builder
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(rootView.getContext());
         alertDialogBuilder.setView(promptsView);
-        teamNumInput = (EditText) promptsView
-                .findViewById(R.id.pre_match_team_number);
+
+        teamNumInput = (EditText) promptsView.findViewById(R.id.pre_match_team_number);
+        matchNumInput = (EditText) promptsView.findViewById(R.id.pre_match_match_num);
+        matchLevelInput = (Spinner) promptsView.findViewById(R.id.pre_match_match_level);
+
         // set dialog message
         alertDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("SUBMIT",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
-                                matchNum = Integer.parseInt(teamNumInput.getText().toString());
+                                //for simplicity they're not spinners
+                                teamNum = Integer.parseInt(teamNumInput.getText().toString());
+                                matchNum = Integer.parseInt(matchNumInput.getText().toString())
+                                        + (matchLevelInput.getSelectedItem().toString().equals("Playoffs") ? 1000 : 2000);
                             }
                         })
                 .setNegativeButton("CANCEL",

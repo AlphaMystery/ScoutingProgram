@@ -1,4 +1,4 @@
-package falconrobotics.scoutingprogram.Data;
+package falconrobotics.scoutingprogram;
 
 /**
  * Created on 2/25/2016.
