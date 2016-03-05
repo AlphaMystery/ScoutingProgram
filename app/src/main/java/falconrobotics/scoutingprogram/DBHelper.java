@@ -16,6 +16,7 @@ import java.io.File;
  */
 public class DBHelper extends SQLiteOpenHelper
 {
+
     private static final String DATABASE_NAME = "2016AZFL.db";
     private static final String TABLE_NAME = "game_scouting";
     private static String DB_PATH = "data/data/falconrobotics.scoutingprogram/databases/";
