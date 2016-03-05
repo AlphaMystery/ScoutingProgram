@@ -1,8 +1,6 @@
 package falconrobotics.scoutingprogram;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -11,12 +9,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-//import java.io.File;
+import java.io.File;
 
 /**
  * Created on 2/22/2016.
  */
-public class    DBHelper extends SQLiteOpenHelper
+public class DBHelper extends SQLiteOpenHelper
 {
     private static final String DATABASE_NAME = "2016AZFL.db";
     private static final String TABLE_NAME = "game_scouting";
@@ -157,23 +155,20 @@ public class    DBHelper extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    public void insertData(ContentValues contentValues)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        db.insert(TABLE_NAME,null,contentValues);
-
-}
-
-    public Cursor getAllData()
-    {
-        SQLiteDatabase db =this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from" + TABLE_NAME,null);
-        return res;
-    }
-
-
-//        ContentValues values = new ContentValues();
-//        values.put("_id", Match.get_id());
-
+//    public boolean insertData(String teamNumber)
+//    {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        //contentValues.put(col_0,teamNumber);
+//        long result=db.insert(TABLE_NAME,null,contentValues);
+//        if(result==1){return false;}
+//        return true;
+//    }
+//
+//    public Cursor getAllData()
+//    {
+//        SQLiteDatabase db =this.getWritableDatabase();
+//        Cursor res = db.rawQuery("select * from"+TABLE_NAME,null);
+//        return res;
+//    }
 }

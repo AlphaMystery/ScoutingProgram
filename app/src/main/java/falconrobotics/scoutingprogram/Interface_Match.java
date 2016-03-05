@@ -1,9 +1,9 @@
-package falconrobotics.scoutingprogram.Data;
+package falconrobotics.scoutingprogram;
 
 /**
  * Created on 2/25/2016.
  */
-public interface Match {
+public interface Interface_Match {
     String[] NoReachCross =
             {
                     "NO",

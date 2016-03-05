@@ -20,17 +20,27 @@
             android:id ="@+id/pre_match_team_number"
             android:layout_width ="match_parent"
             android:layout_height ="wrap_content"
-            android:entries="@array/default_team_numbers"/>
+            android:inputType="number"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="Match Level:"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pre_match_match_level"
+            android:entries="@array/match_level"/>
     </TableRow>
 
     <TableRow>
         <TextView
             android:text="Match Number:"/>
-        <Spinner
+        <EditText
+            android:id="@+id/pre_match_match_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/pre_match_spinner_teams"
-            android:entries="@array/default_match_numbers"/>
+            android:inputType="number"/>
     </TableRow>
 
 

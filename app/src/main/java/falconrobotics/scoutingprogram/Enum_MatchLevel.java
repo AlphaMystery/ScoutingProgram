@@ -14,6 +14,7 @@ public enum Enum_MatchLevel {
         value = (byte)_value;
     }
 
+
     public String getResult()
     {
         switch (value)
@@ -26,4 +27,5 @@ public enum Enum_MatchLevel {
                 return "UNDEFINED";
         }
     }
+
 }
