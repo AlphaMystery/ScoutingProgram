@@ -104,6 +104,7 @@ public class Model_Match {
     public int getAutoBoulder() {
         return autoBoulder;
     }
+
     public void setAutoBoulder(int autoBoulder) {
         this.autoBoulder = autoBoulder;
     }
@@ -111,6 +112,7 @@ public class Model_Match {
     public int getAutoHighMake() {
         return autoHighMake;
     }
+
     public void setAutoHighMake(int autoHighMake) {
         this.autoHighMake = autoHighMake;
     }
@@ -175,184 +177,184 @@ public class Model_Match {
         return scoreAuto;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
+    public void setScoreAuto(int scoreAuto) {
+        this.scoreAuto = scoreAuto;
     }
 
     public int getScoreFoul() {
         return scoreFoul;
     }
 
-    public void setScoreAuto(int scoreAuto) {
-        this.scoreAuto = scoreAuto;
+    public void setScoreFoul(int scoreFoul) {
+        this.scoreFoul = scoreFoul;
     }
 
     public int getScoreTotal() {
         return scoreTotal;
     }
 
-    public void setScoreFoul(int scoreFoul) {
-        this.scoreFoul = scoreFoul;
+    public void setScoreTotal(int scoreTotal) {
+        this.scoreTotal = scoreTotal;
     }
 
     public int getStopped() {
         return stopped;
     }
 
-    public void setScoreTotal(int scoreTotal) {
-        this.scoreTotal = scoreTotal;
+    public void setStopped(int stopped) {
+        this.stopped = stopped;
     }
 
     public int getSyncNum() {
         return syncNum;
     }
 
-    public void setStopped(int stopped) {
-        this.stopped = stopped;
+    public void setSyncNum(int syncNum) {
+        this.syncNum = syncNum;
     }
 
     public int getTeleBlock1() {
         return teleBlock1;
     }
 
-    public void setSyncNum(int syncNum) {
-        this.syncNum = syncNum;
+    public void setTeleBlock1(int teleBlock1) {
+        this.teleBlock1 = teleBlock1;
     }
 
     public int getTeleBlock2() {
         return teleBlock2;
     }
 
-    public void setTeleBlock1(int teleBlock1) {
-        this.teleBlock1 = teleBlock1;
+    public void setTeleBlock2(int teleBlock2) {
+        this.teleBlock2 = teleBlock2;
     }
 
     public int getTeleBlock3() {
         return teleBlock3;
     }
 
-    public void setTeleBlock2(int teleBlock2) {
-        this.teleBlock2 = teleBlock2;
+    public void setTeleBlock3(int teleBlock3) {
+        this.teleBlock3 = teleBlock3;
     }
 
     public int getTeleDef1Make() {
         return teleDef1Make;
     }
 
-    public void setTeleBlock3(int teleBlock3) {
-        this.teleBlock3 = teleBlock3;
+    public void setTeleDef1Make(int teleDef1Make) {
+        this.teleDef1Make = teleDef1Make;
     }
 
     public int getTeleDef1Miss() {
         return teleDef1Miss;
     }
 
-    public void setTeleDef1Make(int teleDef1Make) {
-        this.teleDef1Make = teleDef1Make;
+    public void setTeleDef1Miss(int teleDef1Miss) {
+        this.teleDef1Miss = teleDef1Miss;
     }
 
     public int getTeleDef2Make() {
         return teleDef2Make;
     }
 
-    public void setTeleDef1Miss(int teleDef1Miss) {
-        this.teleDef1Miss = teleDef1Miss;
+    public void setTeleDef2Make(int teleDef2Make) {
+        this.teleDef2Make = teleDef2Make;
     }
 
     public int getTeleDef2Miss() {
         return teleDef2Miss;
     }
 
-    public void setTeleDef2Make(int teleDef2Make) {
-        this.teleDef2Make = teleDef2Make;
+    public void setTeleDef2Miss(int teleDef2Miss) {
+        this.teleDef2Miss = teleDef2Miss;
     }
 
     public int getTeleDef3Make() {
         return teleDef3Make;
     }
 
-    public void setTeleDef2Miss(int teleDef2Miss) {
-        this.teleDef2Miss = teleDef2Miss;
+    public void setTeleDef3Make(int teleDef3Make) {
+        this.teleDef3Make = teleDef3Make;
     }
 
     public int getTeleDef3Miss() {
         return teleDef3Miss;
     }
 
-    public void setTeleDef3Make(int teleDef3Make) {
-        this.teleDef3Make = teleDef3Make;
+    public void setTeleDef3Miss(int teleDef3Miss) {
+        this.teleDef3Miss = teleDef3Miss;
     }
 
     public int getTeleDef4Make() {
         return teleDef4Make;
     }
 
-    public void setTeleDef3Miss(int teleDef3Miss) {
-        this.teleDef3Miss = teleDef3Miss;
+    public void setTeleDef4Make(int teleDef4Make) {
+        this.teleDef4Make = teleDef4Make;
     }
 
     public int getTeleDef4Miss() {
         return teleDef4Miss;
     }
 
-    public void setTeleDef4Make(int teleDef4Make) {
-        this.teleDef4Make = teleDef4Make;
+    public void setTeleDef4Miss(int teleDef4Miss) {
+        this.teleDef4Miss = teleDef4Miss;
     }
 
     public int getTeleDef5Make() {
         return teleDef5Make;
     }
 
-    public void setTeleDef4Miss(int teleDef4Miss) {
-        this.teleDef4Miss = teleDef4Miss;
+    public void setTeleDef5Make(int teleDef5Make) {
+        this.teleDef5Make = teleDef5Make;
     }
 
     public int getTeleDef5Miss() {
         return teleDef5Miss;
     }
 
-    public void setTeleDef5Make(int teleDef5Make) {
-        this.teleDef5Make = teleDef5Make;
+    public void setTeleDef5Miss(int teleDef5Miss) {
+        this.teleDef5Miss = teleDef5Miss;
     }
 
     public int getTeleHighMake() {
         return teleHighMake;
     }
 
-    public void setTeleDef5Miss(int teleDef5Miss) {
-        this.teleDef5Miss = teleDef5Miss;
+    public void setTeleHighMake(int teleHighMake) {
+        this.teleHighMake = teleHighMake;
     }
 
     public int getTeleHighMiss() {
         return teleHighMiss;
     }
 
-    public void setTeleHighMake(int teleHighMake) {
-        this.teleHighMake = teleHighMake;
+    public void setTeleHighMiss(int teleHighMiss) {
+        this.teleHighMiss = teleHighMiss;
     }
 
     public int getTeleLowMake() {
         return teleLowMake;
     }
 
-    public void setTeleHighMiss(int teleHighMiss) {
-        this.teleHighMiss = teleHighMiss;
+    public void setTeleLowMake(int teleLowMake) {
+        this.teleLowMake = teleLowMake;
     }
 
     public int getTeleLowMiss() {
         return teleLowMiss;
     }
 
-    public void setTeleLowMake(int teleLowMake) {
-        this.teleLowMake = teleLowMake;
+    public void setTeleLowMiss(int teleLowMiss) {
+        this.teleLowMiss = teleLowMiss;
     }
 
     public String getComments() {
         return comments;
     }
 
-    public void setTeleLowMiss(int teleLowMiss) {
-        this.teleLowMiss = teleLowMiss;
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 }
 

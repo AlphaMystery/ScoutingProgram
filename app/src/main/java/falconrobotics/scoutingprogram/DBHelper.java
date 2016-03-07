@@ -4,12 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import java.io.File;
 
 /**
  * Created on 2/22/2016.
@@ -123,11 +122,6 @@ public class DBHelper extends SQLiteOpenHelper
         String myPath = DB_PATH + DATABASE_NAME;
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
     }
-
-
-
-
-
 
     @Override
     public synchronized void close()

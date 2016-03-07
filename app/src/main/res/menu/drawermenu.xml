@@ -3,14 +3,11 @@
 
     <group android:id="@+id/group_scouting_id">
         <item
-            android:title=""
-            android:id="@+id/nav_item_hidden"/>
+            android:id="@+id/nav_item_game_scout"
+            android:title="Game Scouting" />
         <item
-            android:title="Game Scouting"
-            android:id="@+id/nav_item_game_scout"/>
-        <item
-            android:title="Pit Scouting"
-            android:id="@+id/nav_item_pit_scout"/>
+            android:id="@+id/nav_item_pit_scout"
+            android:title="Pit Scouting" />
     </group>
 
     <group android:id="@+id/group_analysis_id">
@@ -20,11 +17,8 @@
 
     <group android:id="@+id/group_sharing_id">
         <item
-            android:title="Bluetooth Sync"
-            android:id="@+id/nav_item_bluetooth_share"/>
-            <item
-            android:title="Email"
-            android:id="@+id/nav_item_email_share"/>
+            android:id="@+id/nav_item_bluetooth_share"
+            android:title="Bluetooth Sync" />
     </group>
 
 </menu>
