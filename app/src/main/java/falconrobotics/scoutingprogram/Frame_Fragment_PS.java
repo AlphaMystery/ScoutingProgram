@@ -1,6 +1,7 @@
 package falconrobotics.scoutingprogram;
 
 import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,7 +11,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +19,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created on 2/7/2016.
@@ -38,7 +40,7 @@ public class Frame_Fragment_PS extends Fragment {
     private EditText teamNumInput;
     private File photoFile;
 
-    private LayoutInflater li;
+    private LayoutInflater dialogLayoutInflator;
 
     private ImageView imageView;
     private TextView capButton;
@@ -55,11 +57,10 @@ public class Frame_Fragment_PS extends Fragment {
             spinner_drawbridge,
             spinner_sallyPort,
             spinner_rockWall,
-            spinner_roughtTerrain,
+            spinner_roughTerrain,
             spinner_lowBar;
-    private EditText editText_width;
 
-    private DBHelper_Pit db;
+    private DBHelper db;
 
     private static Bitmap rotateImageIfRequired(Context context, Bitmap img) {
         int rotation = getRotation(context);
@@ -100,7 +101,7 @@ public class Frame_Fragment_PS extends Fragment {
         initItems();
         dialog();
 
-        db = new DBHelper_Pit(rootView.getContext());
+        db = new DBHelper(rootView.getContext());
 
         capButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,7 +113,7 @@ public class Frame_Fragment_PS extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateLoop();
+                update();
             }
         });
 
@@ -127,24 +128,25 @@ public class Frame_Fragment_PS extends Fragment {
         spinner_wheelType = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_wheel_type);
         spinner_climbsTower = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_tower_climb);
         spinner_climbSpeed = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_climb_speed);
-//        spinner_climbSpeed.setAdapter(new ArrayAdapter<String>(rootView, android.R.layout.simple_spinner_item, Arrays.asList(Interface_Pit.NoYes)).setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item));
-
-        editText_width = (EditText) rootView.findViewById(R.id.pitCreate_input_robot_width);
 
         spinner_portcullis = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_portcullis);
+        spinner_portcullis.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
         spinner_chevalDeFrise = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_cheval_de_frise);
+        spinner_chevalDeFrise.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
         spinner_moat = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_moat);
         spinner_ramparts = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_ramparts);
         spinner_drawbridge = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_drawbridge);
         spinner_sallyPort = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_sally_port);
         spinner_rockWall = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_rock_wall);
-        spinner_roughtTerrain = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_rough_terrain);
+        spinner_roughTerrain = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_rough_terrain);
         spinner_lowBar = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_low_bar);
 
         save = (Button) rootView.findViewById(R.id.pitCreate_save);
     }
 
-    public void updateLoop() {
+    public void update() {
         Spinner[] spinners = new Spinner[]
                 {spinner_driverExperience,
                         spinner_wheelType,
@@ -157,15 +159,21 @@ public class Frame_Fragment_PS extends Fragment {
                         spinner_drawbridge,
                         spinner_sallyPort,
                         spinner_rockWall,
-                        spinner_roughtTerrain,
+                        spinner_roughTerrain,
                         spinner_lowBar};
 
         int count = 0;
+        ContentValues values = new ContentValues();
 
         for (Spinner spinner : spinners) {
-            db.getDB().execSQL("UPDATE " + DBHelper_Pit.DATABASE_TABLE + " SET teamNum=" + teamNum + " WHERE ");
+            values.put(Keys_Pits.keys[count], spinner.getSelectedItemPosition());
             count++;
         }
+
+        db.openDataBase();
+//        db.getDB().update("Pit", values, "_id = "+teamNum, null);
+        db.getDB().execSQL("UPDATE Pit SET portcullis = 4 WHERE _id = " + teamNum);
+        db.close();
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.detach(this).attach(this).commit();
@@ -199,8 +207,7 @@ public class Frame_Fragment_PS extends Fragment {
 
     private File createImageFile() throws IOException {
         String imageFileName = teamNum + "";
-        File storageDir = new File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString());
+        File storageDir = new File(DBHelper.picDirPath);
         File image = File.createTempFile
                 (
                         imageFileName,  /* prefix */
@@ -209,8 +216,7 @@ public class Frame_Fragment_PS extends Fragment {
                 );
 
         File from = new File(image.getPath());
-        File to = new File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString(),
+        File to = new File(new File(DBHelper.picDirPath),
                 teamNum + ".jpg");
         from.renameTo(to);
 
@@ -218,8 +224,8 @@ public class Frame_Fragment_PS extends Fragment {
     }
 
     private void dialog() {
-        li = LayoutInflater.from(rootView.getContext());
-        View promptsView = li.inflate(R.layout.prompt_layout_team_number, null);
+        dialogLayoutInflator = LayoutInflater.from(rootView.getContext());
+        View promptsView = dialogLayoutInflator.inflate(R.layout.prompt_layout_team_number, null);
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 rootView.getContext());

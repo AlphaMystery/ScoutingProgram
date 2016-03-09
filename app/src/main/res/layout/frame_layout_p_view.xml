@@ -85,14 +85,6 @@
                     android:text="REPLACE" />
             </TableRow>
 
-            <TableLayout android:background="@color/colorPrimaryDark2">
-                <TableRow>
-                    <TextView android:text="Robot Dimensions: " />
-                    <TextView
-                        android:id="@+id/pitView_robot_width"
-                        android:text="WIDTH" />
-                </TableRow>
-            </TableLayout>
         </TableLayout>
 
         <ProgressBar

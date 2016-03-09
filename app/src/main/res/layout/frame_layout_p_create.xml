@@ -86,19 +86,6 @@
                     android:text="seconds"/>
             </TableRow>
 
-            <TableLayout android:background="@color/colorPrimaryDark2">
-
-                <TableRow>
-                    <TextView
-                        android:text="Robot Dimensions:"/>
-                    <EditText
-                        android:id="@+id/pitCreate_input_robot_width"
-                        android:hint="Width"
-                        android:inputType="numberDecimal" />
-
-                    <TextView android:text=" inches" />
-                </TableRow>
-            </TableLayout>
         </TableLayout>
 
         <ProgressBar
@@ -113,9 +100,7 @@
             <TableRow
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/portcullis"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_portcullis"
-                    android:entries="@array/no_auto_tele_both" />
+                <Spinner android:id="@+id/pitCreate_spinner_portcullis" />
             </TableRow>
         </TableLayout>
 

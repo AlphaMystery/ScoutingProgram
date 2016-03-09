@@ -6,30 +6,30 @@ package falconrobotics.scoutingprogram;
 public interface Interface_Pit {
     String[] NoAutoTeleBoth =
             {
-                    "NO",
-                    "AUTO",
-                    "TELE",
-                    "BOTH"
+                    "no",
+                    "auto",
+                    "tele",
+                    "both"
             };
     String[] NoYes =
             {
-                    "NO",
-                    "YES"
+                    "no",
+                    "yes"
             };
-    String[] SHOOTER =
+        String[] Shooter =
             {
-                    "UNKNOWN",
-                    "NONE",
-                    "WHEELS",
-                    "CATAPULT",
-                    "TURRET",
-                    "SLINGSHOT",
-                    "OTHER"
+                    "unknown",
+                    "none",
+                    "wheels",
+                    "catapult",
+                    "turret",
+                    "slingshot",
+                    "other"
             };
-    String[] WEIGHT =
+        String[] Weight =
             {
-                    "UNKNOWN",
-                    "SUB 50",
+                    "unkown",
+                    "sub 50",
                     "50-59",
                     "60-69",
                     "70-79",
@@ -39,14 +39,14 @@ public interface Interface_Pit {
                     "110-119",
                     "120"
             };
-    String[] WHEELS =
+        String[] Wheels =
             {
-                    "TRACTION",
-                    "PNEUMATIC",
-                    "MECHANUM",
-                    "SWERVE",
-                    "OMNI",
-                    "TANK",
-                    "HYBRID"
+                    "traction",
+                    "pneumatic",
+                    "mecanum",
+                    "swerve",
+                    "omni",
+                    "tank",
+                    "hybrid"
             };
 }

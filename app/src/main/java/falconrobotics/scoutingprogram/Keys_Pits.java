@@ -1,7 +1,7 @@
 package falconrobotics.scoutingprogram;
 
 /**
- * Created by 842 on 3/7/2016.
+ * Created on 3/7/2016.
  */
 public class Keys_Pits {
     public static final String KEY_PIT_ID = "_id",
@@ -10,7 +10,6 @@ public class Keys_Pits {
             KEY_PIT_SHOOTER = "shooter",
             KEY_PIT_CAN_CLIMB = "canClimb",
             KEY_PIT_CLIMB_SPEED = "climbSpeed",
-            KEY_PIT_ROBOT_DIMENSIONS = "robotDimensions",
             KEY_PIT_PORTCULLIS = "portcullis",
             KEY_PIT_CHEVAL_DE_FRISE = "chevalDeFrise",
             KEY_PIT_MOAT = "moat",
@@ -30,7 +29,6 @@ public class Keys_Pits {
             "shooter",
             "canClimb",
             "climbSpeed",
-            "robotDimensions",
             "portcullis",
             "chevalDeFrise",
             "moat",
@@ -39,8 +37,5 @@ public class Keys_Pits {
             "sallyPort",
             "rockWall",
             "roughTerrain",
-            "lowBar",
-            "comments",
-            "robotPhoto",
-            "syncNum"};
+            "lowBar"};
 }

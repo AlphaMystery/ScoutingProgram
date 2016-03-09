@@ -6,25 +6,25 @@ package falconrobotics.scoutingprogram;
 public interface Interface_Match {
     String[] NoReachCross =
             {
-                    "NO",
-                    "REACH",
-                    "CROSS"
+                    "no",
+                    "reach",
+                    "cross"
             };
     String[] NoTryYes =
             {
-                    "NO",
-                    "TRY",
-                    "YES"
+                    "no",
+                    "try",
+                    "yes"
             };
     String[] NoYellowRed =
             {
-                    "NO",
-                    "YELLOW",
-                    "RED"
+                    "no",
+                    "yellow",
+                    "red"
             };
     String[] NoYes =
             {
-                    "NO",
-                    "YES"
+                    "no",
+                    "yes"
             };
 }
