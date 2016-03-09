@@ -14,6 +14,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,8 @@ public class Frame_Fragment_PS extends Fragment {
     private EditText teamNumInput;
     private File photoFile;
 
+    private LayoutInflater li;
+
     private ImageView imageView;
     private TextView capButton;
     private Button save;
@@ -56,8 +59,9 @@ public class Frame_Fragment_PS extends Fragment {
             spinner_lowBar;
     private EditText editText_width;
 
+    private DBHelper_Pit db;
+
     private static Bitmap rotateImageIfRequired(Context context, Bitmap img) {
-        // Detect rotation
         int rotation = getRotation(context);
 
         if (rotation != 0) {
@@ -74,7 +78,6 @@ public class Frame_Fragment_PS extends Fragment {
     private static int getRotation(Context context) {
         int rotation = 0;
         ContentResolver content = context.getContentResolver();
-
 
         Cursor mediaCursor = content.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                 new String[]{"orientation", "date_added"}, null, null, "date_added desc");
@@ -94,10 +97,10 @@ public class Frame_Fragment_PS extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.frame_layout_p_create, null);
 
-        imageView = (ImageView) rootView.findViewById(R.id.pit_image_view_robot);
-        capButton = (TextView) rootView.findViewById(R.id.pit_button_robot_cap);
-
+        initItems();
         dialog();
+
+        db = new DBHelper_Pit(rootView.getContext());
 
         capButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,25 +108,87 @@ public class Frame_Fragment_PS extends Fragment {
                 dispatchTakePictureIntent();
             }
         });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateLoop();
+            }
+        });
+
         return rootView;
+    }
+
+    private void initItems() {
+        imageView = (ImageView) rootView.findViewById(R.id.pitCreate_image_view_robot);
+        capButton = (TextView) rootView.findViewById(R.id.pitCreate_button_robot_cap);
+
+        spinner_driverExperience = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_driver_xp);
+        spinner_wheelType = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_wheel_type);
+        spinner_climbsTower = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_tower_climb);
+        spinner_climbSpeed = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_climb_speed);
+//        spinner_climbSpeed.setAdapter(new ArrayAdapter<String>(rootView, android.R.layout.simple_spinner_item, Arrays.asList(Interface_Pit.NoYes)).setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item));
+
+        editText_width = (EditText) rootView.findViewById(R.id.pitCreate_input_robot_width);
+
+        spinner_portcullis = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_portcullis);
+        spinner_chevalDeFrise = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_cheval_de_frise);
+        spinner_moat = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_moat);
+        spinner_ramparts = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_ramparts);
+        spinner_drawbridge = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_drawbridge);
+        spinner_sallyPort = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_sally_port);
+        spinner_rockWall = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_rock_wall);
+        spinner_roughtTerrain = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_rough_terrain);
+        spinner_lowBar = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_low_bar);
+
+        save = (Button) rootView.findViewById(R.id.pitCreate_save);
+    }
+
+    public void updateLoop() {
+        Spinner[] spinners = new Spinner[]
+                {spinner_driverExperience,
+                        spinner_wheelType,
+                        spinner_climbsTower,
+                        spinner_climbSpeed,
+                        spinner_portcullis,
+                        spinner_chevalDeFrise,
+                        spinner_moat,
+                        spinner_ramparts,
+                        spinner_drawbridge,
+                        spinner_sallyPort,
+                        spinner_rockWall,
+                        spinner_roughtTerrain,
+                        spinner_lowBar};
+
+        int count = 0;
+
+        for (Spinner spinner : spinners) {
+            db.getDB().execSQL("UPDATE " + DBHelper_Pit.DATABASE_TABLE + " SET teamNum=" + teamNum + " WHERE ");
+            count++;
+        }
+
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(this).attach(this).commit();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         imageView.setImageBitmap(
                 rotateImageIfRequired(rootView.getContext(),
-                        Bitmap.createScaledBitmap(BitmapFactory.decodeFile(photoFile.getAbsolutePath()), 3840, 2160, true)));
+                        Bitmap.createScaledBitmap(
+                                BitmapFactory.decodeFile(
+                                        photoFile.getAbsolutePath()), 2000, 2000, true)));
     }
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
+
         if (takePictureIntent.resolveActivity(rootView.getContext().getPackageManager()) != null) {
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
             }
-            // Continue only if the File was successfully created
+
             if (photoFile != null) {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                         Uri.fromFile(photoFile));
@@ -153,7 +218,7 @@ public class Frame_Fragment_PS extends Fragment {
     }
 
     private void dialog() {
-        LayoutInflater li = LayoutInflater.from(rootView.getContext());
+        li = LayoutInflater.from(rootView.getContext());
         View promptsView = li.inflate(R.layout.prompt_layout_team_number, null);
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
@@ -169,17 +234,13 @@ public class Frame_Fragment_PS extends Fragment {
                 .setPositiveButton("SUBMIT",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
-                                if (teamNumInput.getText() == null) System.exit(0);
-
                                 teamNum = teamNumInput.getText() == null
-                                        ? 0 : Integer.parseInt(teamNumInput.getText().toString());
+                                        ? 1 : Integer.parseInt(teamNumInput.getText().toString());
                             }
                         })
                 .setNegativeButton("CANCEL",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                System.exit(0);
                             }
                         });
 

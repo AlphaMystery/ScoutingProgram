@@ -132,15 +132,10 @@ public class DBHelper extends SQLiteOpenHelper
         super.close();
     }
 
-
-
-
-
     @Override
     public void onCreate(SQLiteDatabase db)
     {
         // db.execSQL();
-
     }
 
     @Override
@@ -149,21 +144,4 @@ public class DBHelper extends SQLiteOpenHelper
         db.execSQL("DROP TABLE IF EXISTS"+TABLE_NAME);
         onCreate(db);
     }
-
-//    public boolean insertData(String teamNumber)
-//    {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        //contentValues.put(col_0,teamNumber);
-//        long result=db.insert(TABLE_NAME,null,contentValues);
-//        if(result==1){return false;}
-//        return true;
-//    }
-//
-//    public Cursor getAllData()
-//    {
-//        SQLiteDatabase db =this.getWritableDatabase();
-//        Cursor res = db.rawQuery("select * from"+TABLE_NAME,null);
-//        return res;
-//    }
 }

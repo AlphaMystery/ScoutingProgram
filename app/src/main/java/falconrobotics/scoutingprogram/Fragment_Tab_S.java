@@ -32,7 +32,7 @@ public class Fragment_Tab_S extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         rootView =  inflater.inflate(R.layout.tab_layout_g,null);
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_g);
@@ -72,7 +72,6 @@ public class Fragment_Tab_S extends Fragment {
                 .setNegativeButton("CANCEL",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
-                                dialog.cancel();
                             }
                         });
         // create alert dialog
@@ -82,6 +81,14 @@ public class Fragment_Tab_S extends Fragment {
 
 
         return rootView;
+    }
+
+    public int getTeamNum() {
+        return teamNum;
+    }
+
+    public int getMatchNum() {
+        return matchNum;
     }
 
     class MyAdapter extends FragmentPagerAdapter {

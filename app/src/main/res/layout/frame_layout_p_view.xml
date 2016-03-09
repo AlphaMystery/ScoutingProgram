@@ -9,12 +9,12 @@
 
         <RelativeLayout>
             <TextView
+                android:id="@+id/pitView_title_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:textAlignment="center"
                 android:text="TEAM NUMBER"
-                android:id="@+id/pit_view_title_number"
+                android:textAlignment="center"
                 android:textColor="@color/carbon_black3"
                 android:textSize="25dip"/>
         </RelativeLayout>
@@ -25,17 +25,17 @@
 
             <RelativeLayout android:layout_column="0">
                 <TextView
+                    android:id="@+id/pitView_robot_cap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:text="Image of the robot."
-                    android:textAlignment="center"
-                    android:id="@+id/pit_view_robot_cap"
-                    android:layout_centerHorizontal="true"/>
+                    android:textAlignment="center" />
                 <ImageView
+                    android:id="@+id/pitView_image_view_robot"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:layout_below="@+id/pit_view_robot_cap"
-                    android:id="@+id/pit_view_image_view_robot"
+                    android:layout_below="@+id/pitView_robot_cap"
                     android:layout_centerHorizontal="true"/>
             </RelativeLayout>
         </TableRow>
@@ -49,62 +49,48 @@
         <TableLayout
             android:background="@color/colorPrimaryDark2">
             <TableRow>
+                <TextView android:text="Driver Experience: " />
                 <TextView
-                    android:text="Driver Experience:"/>
-                <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_driver_xp"/>
-                <TextView
-                    android:text="years"/>
+                    android:id="@+id/pitView_driver_xp"
+                    android:text="REPLACE" />
+                <TextView android:text=" years" />
 
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow>
+                <TextView android:text="Wheel type: " />
                 <TextView
-                    android:text="Wheel type:"/>
-                <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_wheel_type"/>
+                    android:id="@+id/pitView_wheel_type"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
 
         <TableLayout
             android:background="@color/colorPrimaryDark2">
             <TableRow>
+                <TextView android:text="Climbs tower: " />
                 <TextView
-                    android:text="Climbs tower:"/>
-                <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_tower_climb"/>
+                    android:id="@+id/pitView_tower_climb"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow>
+                <TextView android:text="Climb speed: " />
                 <TextView
-                    android:text="Climb speed:"/>
-                <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_climb_speed"/>
+                    android:id="@+id/pitView_climb_speed"
+                    android:text="REPLACE" />
             </TableRow>
 
-            <TableLayout
-                android:background="@color/colorPrimaryDark2"
-                android:stretchColumns="1,2,3">
+            <TableLayout android:background="@color/colorPrimaryDark2">
                 <TableRow>
+                    <TextView android:text="Robot Dimensions: " />
                     <TextView
-                        android:text="Robot Dimensions:"/>
-                    <TextView
-                        android:text="LENGTH"
-                        android:id="@+id/pit_view_robot_length"/>
-                    <TextView
-                        android:text="WIDTH"
-                        android:id="@+id/pit_view_robot_width"/>
-                    <TextView
-                        android:text="HEIGHT"
-                        android:id="@+id/pit_view_robot_height"/>
+                        android:id="@+id/pitView_robot_width"
+                        android:text="WIDTH" />
                 </TableRow>
             </TableLayout>
         </TableLayout>
@@ -117,103 +103,114 @@
 
         <TextView
             android:background="@color/blue2"
-            android:textAlignment="center"
-            android:text="Defence Climb"/>
+            android:text="Defence Climb"
+            android:textAlignment="center" />
 
         <TableLayout>
             <TableRow
                 android:background="@color/colorPrimaryDark2">
-                <TextView android:text="@string/portcullis"/>
+
+                <TextView android:text="Portcullis: " />
                 <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_portcullis"/>
+                    android:id="@+id/pitView_portcullis"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow>
-                <TextView android:text="@string/cheval_de_frise"/>
+
+                <TextView android:text="Cheval de Frise: " />
                 <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_cheval_de_frise"/>
+                    android:id="@+id/pitView_cheval_de_frise"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow
                 android:background="@color/colorPrimaryDark2">
-                <TextView android:text="@string/moat"/>
+
+                <TextView android:text="Moat: " />
                 <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_moat"/>
+                    android:id="@+id/pitView_moat"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow>
-                <TextView android:text="@string/ramparts"/>
+
+                <TextView android:text="Ramparts: " />
                 <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_ramparts"/>
+                    android:id="@+id/pitView_ramparts"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow
                 android:background="@color/colorPrimaryDark2">
-                <TextView android:text="@string/drawbridge"/>
+
+                <TextView android:text="Drawbridge: " />
                 <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_drawbridge"/>
+                    android:id="@+id/pitView_drawbridge"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent">
-                <TextView android:text="@string/sally_port"/>
+
+                <TextView android:text="Sally Port: " />
                 <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_sally_port"/>
+                    android:id="@+id/pitView_sally_port"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimaryDark2">
-                <TextView android:text="@string/rock_wall"/>
+
+                <TextView android:text="Rock Wall: " />
                 <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_rock_wall"/>
+                    android:id="@+id/pitView_rock_wall"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent">
-                <TextView android:text="@string/rough_terrain"/>
+
+                <TextView android:text="Rough Terrain: " />
                 <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_rough_terrain"/>
+                    android:id="@+id/pitView_rough_terrain"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimaryDark2">
-                <TextView android:text="@string/low_bar"/>
+
+                <TextView android:text="Low Bar: " />
                 <TextView
-                    android:text="REPLACE"
-                    android:id="@+id/pit_view_low_bar"/>
+                    android:id="@+id/pitView_low_bar"
+                    android:text="REPLACE" />
             </TableRow>
         </TableLayout>
 
-        <TextView android:text="\n\n"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/divider_bar" />
 
         <Button
+            android:id="@+id/pitView_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SUBMIT TEAM"
-            android:id="@+id/pit_view_save"
-            android:layout_column="0" />
-
+            android:text="SUBMIT TEAM" />
     </TableLayout>
 </ScrollView>

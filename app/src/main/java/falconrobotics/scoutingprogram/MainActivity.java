@@ -86,11 +86,6 @@ public class MainActivity extends AppCompatActivity {
                     xfragmentTransaction.replace(R.id.containerView, new Fragment_Bluetooth()).commit();
                 }
 
-                if (menuItem.getItemId() == R.id.nav_item_email_share) {
-                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView, new Fragment_Email()).commit();
-                }
-
 
                 return false;
             }
