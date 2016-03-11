@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -60,7 +61,7 @@ public class Frame_Fragment_PS extends Fragment {
             spinner_roughTerrain,
             spinner_lowBar;
 
-    private DBHelper db;
+    private SQLiteDatabase db;
 
     private static Bitmap rotateImageIfRequired(Context context, Bitmap img) {
         int rotation = getRotation(context);
@@ -100,8 +101,6 @@ public class Frame_Fragment_PS extends Fragment {
 
         initItems();
         dialog();
-
-        db = new DBHelper(rootView.getContext());
 
         capButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,14 +165,10 @@ public class Frame_Fragment_PS extends Fragment {
         ContentValues values = new ContentValues();
 
         for (Spinner spinner : spinners) {
-            values.put(Keys_Pits.keys[count], spinner.getSelectedItemPosition());
+            values.put(DBHelper.KEYS_PIT_SPINNERS[count], spinner.getSelectedItemPosition());
             count++;
         }
-
-        db.openDataBase();
-//        db.getDB().update("Pit", values, "_id = "+teamNum, null);
-        db.getDB().execSQL("UPDATE Pit SET portcullis = 4 WHERE _id = " + teamNum);
-        db.close();
+        DBHelper.update("Pit", values, "_id = " + teamNum);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.detach(this).attach(this).commit();

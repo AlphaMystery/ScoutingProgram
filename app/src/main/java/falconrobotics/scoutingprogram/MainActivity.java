@@ -1,6 +1,6 @@
 package falconrobotics.scoutingprogram;
 
-import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -10,41 +10,22 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import java.io.IOException;
-
 /**
  * Main class
  */
 public class MainActivity extends AppCompatActivity {
+    public SQLiteDatabase db;
     DrawerLayout mDrawerLayout;
     NavigationView mNavigationView;
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        DBHelper myDbHelper = new DBHelper(this);
-        try {
-            myDbHelper.createDataBase();
-        } catch (IOException ioe) {
-            throw new Error("Unable to create database");
-        }
-
-        try{
-            myDbHelper.openDataBase();
-        }catch (SQLiteException sqle)
-        {
-            throw sqle;
-        }
-
-
-
+        DBHelper.createDir();
 
         /**
          *Setup the DrawerLayout and NavigationView
@@ -81,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     xfragmentTransaction.replace(R.id.containerView, new Frame_Fragment_PS()).commit();
                 }
 
-                if (menuItem.getItemId() == R.id.nav_item_bluetooth_share) {
+                if (menuItem.getItemId() == R.id.nav_item_sync) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
                     xfragmentTransaction.replace(R.id.containerView, new Fragment_Bluetooth()).commit();
                 }
@@ -103,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         mDrawerToggle.syncState();
-
     }
 }
 
