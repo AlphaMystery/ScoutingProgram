@@ -45,9 +45,7 @@
             <TableRow>
                 <TextView
                     android:text="Driver Experience:"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_driver_xp"
-                    android:entries="@array/driver_experience" />
+                <Spinner android:id="@+id/pitCreate_spinner_driver_xp" />
                 <TextView
                     android:text="years"/>
 
@@ -56,37 +54,48 @@
 
         <TableLayout>
             <TableRow>
-                <TextView
-                    android:text="Wheel type:"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_wheel_type"
-                    android:entries="@array/wheels" />
+                <TextView android:text="Wheel Type:" />
+                <Spinner android:id="@+id/pitCreate_spinner_wheel_type" />
             </TableRow>
         </TableLayout>
 
         <TableLayout
             android:background="@color/colorPrimaryDark2">
             <TableRow>
-                <TextView
-                    android:text="Climbs tower:"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_tower_climb"
-                    android:entries="@array/yes_no" />
+                <TextView android:text="Robot Weight:" />
+                <Spinner android:id="@+id/pitCreate_spinner_weight" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+
+            <TableRow>
+
+                <TextView android:text="Shooter Type:" />
+
+                <Spinner android:id="@+id/pitCreate_spinner_shooter" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout android:background="@color/colorPrimaryDark2">
+
+            <TableRow>
+
+                <TextView android:text="Climbs Tower:" />
+
+                <Spinner android:id="@+id/pitCreate_spinner_tower_climb" />
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow>
-                <TextView
-                    android:text="Climb speed:"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_climb_speed"
-                    android:entries="@array/speed" />
+                <TextView android:text="Climb Speed:" />
+                <Spinner android:id="@+id/pitCreate_spinner_climb_speed" />
                 <TextView
                     android:text="seconds"/>
             </TableRow>
-
         </TableLayout>
+
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
@@ -107,9 +116,8 @@
         <TableLayout>
             <TableRow>
                 <TextView android:text="@string/cheval_de_frise"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_cheval_de_frise"
-                    android:entries="@array/no_auto_tele_both" />
+
+                <Spinner android:id="@+id/pitCreate_spinner_cheval_de_frise" />
             </TableRow>
         </TableLayout>
 
@@ -117,18 +125,16 @@
             <TableRow
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/moat"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_moat"
-                    android:entries="@array/no_auto_tele_both" />
+
+                <Spinner android:id="@+id/pitCreate_spinner_moat" />
             </TableRow>
         </TableLayout>
 
         <TableLayout>
             <TableRow>
                 <TextView android:text="@string/ramparts"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_ramparts"
-                    android:entries="@array/no_auto_tele_both" />
+
+                <Spinner android:id="@+id/pitCreate_spinner_ramparts" />
             </TableRow>
         </TableLayout>
 
@@ -136,18 +142,15 @@
             <TableRow
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/drawbridge"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_drawbridge"
-                    android:entries="@array/no_auto_tele_both" />
+                <Spinner android:id="@+id/pitCreate_spinner_drawbridge" />
             </TableRow>
         </TableLayout>
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent">
                 <TextView android:text="@string/sally_port"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_sally_port"
-                    android:entries="@array/no_auto_tele_both" />
+
+                <Spinner android:id="@+id/pitCreate_spinner_sally_port" />
             </TableRow>
         </TableLayout>
         <TableLayout>
@@ -155,19 +158,16 @@
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/rock_wall"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_rock_wall"
-                    android:entries="@array/no_auto_tele_both" />
+
+                <Spinner android:id="@+id/pitCreate_spinner_rock_wall" />
             </TableRow>
         </TableLayout>
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent">
                 <TextView android:text="@string/rough_terrain"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_rough_terrain"
-                    android:layout_width="wrap_content"
-                    android:entries="@array/no_auto_tele_both" />
+
+                <Spinner android:id="@+id/pitCreate_spinner_rough_terrain" />
             </TableRow>
         </TableLayout>
         <TableLayout>
@@ -175,9 +175,8 @@
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimaryDark2">
                 <TextView android:text="@string/low_bar"/>
-                <Spinner
-                    android:id="@+id/pitCreate_spinner_low_bar"
-                    android:entries="@array/no_auto_tele_both" />
+
+                <Spinner android:id="@+id/pitCreate_spinner_low_bar" />
             </TableRow>
         </TableLayout>
 
@@ -186,6 +185,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:progressDrawable="@drawable/divider_bar" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/pitCreate_input_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Comments:" />
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/pitCreate_save"

@@ -4,44 +4,44 @@ package falconrobotics.scoutingprogram;
  * Created on 2/24/2016.
  */
 public class Model_Match {
-    private int matchNum,
-            teamNum,
-            autoDef1,
-            autoDef2,
-            autoDef3,
-            autoDef4,
-            autoDef5,
-            autoBoulder,
-            autoLowMiss,
-            autoLowMake,
-            autoHighMiss,
-            autoHighMake,
-            teleDef1Miss,
-            teleDef1Make,
-            teleDef2Miss,
-            teleDef2Make,
-            teleDef3Miss,
-            teleDef3Make,
-            teleDef4Miss,
-            teleDef4Make,
-            teleDef5Miss,
-            teleDef5Make,
-            teleLowMiss,
-            teleLowMake,
-            teleHighMiss,
-            teleHighMake,
-            boulderPass,
-            teleBlock1,
-            teleBlock2,
-            teleBlock3,
-            climb,
-            challenged,
-            scoreTotal,
-            scoreAuto,
-            scoreFoul,
-            carded,
-            stopped,
-            syncNum;
+    private int _id = 0,
+            teamNum = 0,
+            autoDef1 = 0,
+            autoDef2 = 0,
+            autoDef3 = 0,
+            autoDef4 = 0,
+            autoDef5 = 0,
+            autoBoulder = 0,
+            autoLowMiss = 0,
+            autoLowMake = 0,
+            autoHighMiss = 0,
+            autoHighMake = 0,
+            teleDef1Miss = 0,
+            teleDef1Make = 0,
+            teleDef2Miss = 0,
+            teleDef2Make = 0,
+            teleDef3Miss = 0,
+            teleDef3Make = 0,
+            teleDef4Miss = 0,
+            teleDef4Make = 0,
+            teleDef5Miss = 0,
+            teleDef5Make = 0,
+            teleLowMiss = 0,
+            teleLowMake = 0,
+            teleHighMiss = 0,
+            teleHighMake = 0,
+            boulderPass = 0,
+            teleBlock1 = 0,
+            teleBlock2 = 0,
+            teleBlock3 = 0,
+            climb = 0,
+            challenged = 0,
+            scoreTotal = 0,
+            scoreAuto = 0,
+            scoreFoul = 0,
+            carded = 0,
+            stopped = 0,
+            syncNum = 0;
 
     private String comments;
 
@@ -85,12 +85,12 @@ public class Model_Match {
         this.autoDef5 = autoDef5;
     }
 
-    public int getMatchNum() {
-        return matchNum;
+    public int get_id() {
+        return _id;
     }
 
-    public void setMatchNum(int matchNum) {
-        this.matchNum = matchNum;
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
     public int getTeamNum() {

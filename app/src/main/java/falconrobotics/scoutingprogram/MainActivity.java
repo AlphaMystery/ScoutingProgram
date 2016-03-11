@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DBHelper.createDir();
+        DBHelper.create_DirDb();
 
         /**
          *Setup the DrawerLayout and NavigationView

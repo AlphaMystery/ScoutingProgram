@@ -1,14 +1,18 @@
 package falconrobotics.scoutingprogram;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 
 import java.io.File;
 
 /**
  * Created on 2/22/2016.
  */
-public class DBHelper
+public class DBHelper extends SQLiteOpenHelper
 {
     //tables in the Google Sheet
     public static final String TABLE_MATCHES = " Matches ";
@@ -19,8 +23,8 @@ public class DBHelper
     //Match, Pit, Schedule  common key, won't be included in every table
     public static final String KEY_SYNCNUM = " syncNum "; // not sure if this is correct
 
-    public static final String INTEGER = " INT NOT NULL, ";
-    public static final String TEXT = " CHAR ";
+    public static final String INTEGER = " INTEGER, ";
+    public static final String TEXT = " TEXT ";
 
     //Match Table  keys
     public static final String KEY_MATCH_ID = " _id ";
@@ -193,7 +197,7 @@ public class DBHelper
 
     //Match Table  create statement
     public static final String CREATE_TABLE_MATCH =
-            "CREATE TABLE IF NOT EXISTS "
+            " CREATE TABLE "
                     + TABLE_MATCHES + " ( "
                     + KEY_MATCH_ID + " INT PRIMARY KEY NOT NULL, "
                     + KEY_MATCH_TEAMNUM + INTEGER
@@ -232,12 +236,12 @@ public class DBHelper
                     + KEY_MATCH_SCOREFOUL + INTEGER
                     + KEY_MATCH_CARDED + INTEGER
                     + KEY_MATCH_STOPPED + INTEGER
-                    + KEY_MATCH_COMMENTS + TEXT + "(200), "
+                    + KEY_MATCH_COMMENTS + TEXT + ", "
                     + KEY_SYNCNUM + " INT NOT NULL "
-                    + " );";
+                    + " ) ";
     //Pit Table  create statement
     public static final String CREATE_TABLE_PIT =
-            "CREATE TABLE IF NOT EXISTS "
+            " CREATE TABLE "
                     + TABLE_PIT + " ( "
                     + KEY_PIT_ID + " INT PRIMARY KEY NOT NULL, "
                     + KEY_PIT_YEARDRIVER + INTEGER
@@ -255,16 +259,16 @@ public class DBHelper
                     + KEY_PIT_ROCKWALL + INTEGER
                     + KEY_PIT_ROUGHTERRAIN + INTEGER
                     + KEY_PIT_LOWBAR + INTEGER
-                    + KEY_PIT_COMMENTS + TEXT + "(200), "
+                    + KEY_PIT_COMMENTS + TEXT + ", "
                     + KEY_PIT_ROBOTPHOTO + INTEGER
                     + KEY_SYNCNUM + " INT NOT NULL "
-                    + " );";
+                    + " ) ";
     //Schedule Table  create statement
     public static final String CREATE_TABLE_SCHEDULE =
-            "CREATE TABLE IF NOT EXISTS "
+            " CREATE TABLE "
                     + TABLE_SCHEDULE + "("
                     + KEY_SCHEDULE_ID + " INT PRIMARY KEY NOT NULL, "
-                    + KEY_SCHEDULE_DESCRIPTION + TEXT + "(50), "
+                    + KEY_SCHEDULE_DESCRIPTION + TEXT + ", "
                     + KEY_SCHEDULE_BLUEROBOT1 + INTEGER
                     + KEY_SCHEDULE_BLUEROBOT2 + INTEGER
                     + KEY_SCHEDULE_BLUEROBOT3 + INTEGER
@@ -272,31 +276,27 @@ public class DBHelper
                     + KEY_SCHEDULE_REDROBOT2 + INTEGER
                     + KEY_SCHEDULE_REDROBOT3 + INTEGER
                     + KEY_SYNCNUM + " INT NOT NULL "
-                    + " ); ";
+                    + " ) ";
     //Team Table  create statement
     public static final String CREATE_TABLE_TEAMS =
-            "CREATE TABLE IF NOT EXISTS "
+            " CREATE TABLE "
                     + TABLE_TEAMS + " ( "
                     + KEY_TEAMS_ID + " INT PRIMARY KEY NOT NULL, "
-                    + KEY_TEAMS_SHORTNAME + TEXT + "(100), "
+                    + KEY_TEAMS_SHORTNAME + TEXT + ", "
                     + KEY_SYNCNUM + " INT NOT NULL "
-                    + " ); ";
+                    + " ) ";
 
-    private static final String DATABASE_NAME = "2016AZFL.db";
-    public static String mainDirPath = System.getenv("EXTERNAL_STORAGE") + "/falconrobotics2016";
+    public static final String DATABASE_NAME = "2016AZFL.db";
+    public static String mainDirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/falconrobotics2016";
     public static String picDirPath = mainDirPath + "/pictures";
     public static String dbDirPath = mainDirPath + "/databases";
 
-    private static SQLiteDatabase db;
+    public DBHelper(Context context) {
+        super(context, dbDirPath + DATABASE_NAME, null, 1);
+    }
 
-    public static void createDir() {
+    public static void create_DirDb() {
         try {
-            File mainDir = new File(mainDirPath);
-            if (!mainDir.exists()) {
-                if (!mainDir.mkdirs()) {
-                    System.exit(0);
-                }
-            }
             File picDir = new File(picDirPath);
             if (!picDir.exists()) {
                 if (!picDir.mkdirs()) {
@@ -313,26 +313,65 @@ public class DBHelper
         }
     }
 
-    private static void createTables()
-    {
-        db.execSQL(CREATE_TABLE_MATCH);
-        db.execSQL(CREATE_TABLE_PIT);
-        db.execSQL(CREATE_TABLE_SCHEDULE);
-        db.execSQL(CREATE_TABLE_TEAMS);
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_TABLE_MATCH + CREATE_TABLE_PIT + CREATE_TABLE_SCHEDULE + CREATE_TABLE_TEAMS + ";");
     }
 
-    //need a get method
-
-    public static void update(String tableName, ContentValues contentValues, String whereClause)
-    {
-        db = SQLiteDatabase.openOrCreateDatabase(dbDirPath
-                + File.separator + DATABASE_NAME, null);
-
-        createTables();
-
-        db.update(tableName, contentValues, whereClause, null);
-
-        db.close();
-        db = null;
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // DO NOTHING
     }
+
+    public void closeDB() {
+        SQLiteDatabase db = getWritableDatabase();
+        if (db != null) db.close();
+    }
+
+    public synchronized void pit_Update(Model_Pit pitObject)
+    {
+        SQLiteDatabase db = null;
+        try {
+            db = getWritableDatabase();
+            if (db != null) {
+                ContentValues values = new ContentValues();
+                values.put("_id", pitObject.get_id());
+                values.put("yearDriver", pitObject.getYearDriver());
+                values.put("wheels", pitObject.getWheels());
+                values.put("weight", pitObject.getWeight());
+                values.put("shooter", pitObject.getShooter());
+                values.put("canClimb", pitObject.getCanClimb());
+                values.put("portcullis", pitObject.getPortcullis());
+                values.put("chevalDeFrise", pitObject.getChevalDeFrise());
+                values.put("moat", pitObject.getMoat());
+                values.put("ramparts", pitObject.getRamparts());
+                values.put("drawbridge", pitObject.getDrawbridge());
+                values.put("sallyPort", pitObject.getSallyPort());
+                values.put("rockWall", pitObject.getRockWall());
+                values.put("lowBar", pitObject.getLowBar());
+                values.put("comments", pitObject.getComments());
+                values.put("robotPhoto", pitObject.getRobotPhoto());
+
+                db.insert("Pit", null, values);
+            }
+        } catch (SQLiteException e) {
+            if (db != null) db.close();
+        }
+    }
+
+//    public synchronized void  match_Update(Model_Match matchObject)
+//    {
+//        SQLiteDatabase db;
+//        try
+//        {
+//            db = getWritableDatabase();
+//            if(db != null)
+//            {
+//                ContentValues values = new ContentValues();
+//                values.put("_id", matchObject.get_id());
+//                values.put("teamNum", matchObject.getTeamNum());
+//                values.put("autoDef1", matchObject.getAutoDef1());
+//            }
+//        }
+//    }
 }

@@ -1,12 +1,10 @@
 package falconrobotics.scoutingprogram;
 
 import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -49,8 +47,10 @@ public class Frame_Fragment_PS extends Fragment {
     private Spinner
             spinner_driverExperience,
             spinner_wheelType,
+            spinner_weight,
             spinner_climbsTower,
             spinner_climbSpeed,
+            spinner_shooter,
             spinner_portcullis,
             spinner_chevalDeFrise,
             spinner_moat,
@@ -60,8 +60,8 @@ public class Frame_Fragment_PS extends Fragment {
             spinner_rockWall,
             spinner_roughTerrain,
             spinner_lowBar;
-
-    private SQLiteDatabase db;
+    private EditText comments;
+    private int robotPhoto = 0;
 
     private static Bitmap rotateImageIfRequired(Context context, Bitmap img) {
         int rotation = getRotation(context);
@@ -84,13 +84,15 @@ public class Frame_Fragment_PS extends Fragment {
         Cursor mediaCursor = content.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                 new String[]{"orientation", "date_added"}, null, null, "date_added desc");
 
-        if (mediaCursor != null && mediaCursor.getCount() != 0) {
-            while (mediaCursor.moveToNext()) {
-                rotation = mediaCursor.getInt(0);
-                break;
+        if (mediaCursor != null) {
+            if (mediaCursor.getCount() != 0) {
+                while (mediaCursor.moveToNext()) {
+                    rotation = mediaCursor.getInt(0);
+                    break;
+                }
             }
+            mediaCursor.close();
         }
-        mediaCursor.close();
         return rotation;
     }
 
@@ -124,10 +126,23 @@ public class Frame_Fragment_PS extends Fragment {
         capButton = (TextView) rootView.findViewById(R.id.pitCreate_button_robot_cap);
 
         spinner_driverExperience = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_driver_xp);
+        spinner_driverExperience.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.driverExperience)));
         spinner_wheelType = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_wheel_type);
+        spinner_wheelType.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.Wheels)));
         spinner_climbsTower = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_tower_climb);
+        spinner_climbsTower.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoYes)));
         spinner_climbSpeed = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_climb_speed);
-
+        spinner_climbSpeed.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.climbSpeed)));
+        spinner_weight = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_weight);
+        spinner_weight.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.Weight)));
+        spinner_shooter = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_shooter);
+        spinner_shooter.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.Shooter)));
         spinner_portcullis = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_portcullis);
         spinner_portcullis.setAdapter(new ArrayAdapter<>(
                 rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
@@ -135,40 +150,54 @@ public class Frame_Fragment_PS extends Fragment {
         spinner_chevalDeFrise.setAdapter(new ArrayAdapter<>(
                 rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
         spinner_moat = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_moat);
+        spinner_moat.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
         spinner_ramparts = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_ramparts);
+        spinner_ramparts.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
         spinner_drawbridge = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_drawbridge);
+        spinner_drawbridge.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
         spinner_sallyPort = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_sally_port);
+        spinner_sallyPort.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
         spinner_rockWall = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_rock_wall);
+        spinner_rockWall.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
         spinner_roughTerrain = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_rough_terrain);
+        spinner_roughTerrain.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
         spinner_lowBar = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_low_bar);
+        spinner_lowBar.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Pit.NoAutoTeleBoth)));
+
+        comments = (EditText) rootView.findViewById(R.id.pitCreate_input_comments);
 
         save = (Button) rootView.findViewById(R.id.pitCreate_save);
     }
 
     public void update() {
-        Spinner[] spinners = new Spinner[]
-                {spinner_driverExperience,
-                        spinner_wheelType,
-                        spinner_climbsTower,
-                        spinner_climbSpeed,
-                        spinner_portcullis,
-                        spinner_chevalDeFrise,
-                        spinner_moat,
-                        spinner_ramparts,
-                        spinner_drawbridge,
-                        spinner_sallyPort,
-                        spinner_rockWall,
-                        spinner_roughTerrain,
-                        spinner_lowBar};
+        if (teamNum == 0) return;
 
-        int count = 0;
-        ContentValues values = new ContentValues();
-
-        for (Spinner spinner : spinners) {
-            values.put(DBHelper.KEYS_PIT_SPINNERS[count], spinner.getSelectedItemPosition());
-            count++;
-        }
-        DBHelper.update("Pit", values, "_id = " + teamNum);
+        Model_Pit model = new Model_Pit();
+        model.set_id(teamNum);
+        model.setYearDriver(spinner_driverExperience.getSelectedItemPosition());
+        model.setWheels(spinner_wheelType.getSelectedItemPosition());
+        model.setWeight(spinner_weight.getSelectedItemPosition());
+        model.setShooter(spinner_shooter.getSelectedItemPosition());
+        model.setCanClimb(spinner_climbsTower.getSelectedItemPosition());
+        model.setClimbSpeed(spinner_climbSpeed.getSelectedItemPosition());
+        model.setPortcullis(spinner_portcullis.getSelectedItemPosition());
+        model.setChevalDeFrise(spinner_chevalDeFrise.getSelectedItemPosition());
+        model.setMoat(spinner_moat.getSelectedItemPosition());
+        model.setRamparts(spinner_ramparts.getSelectedItemPosition());
+        model.setDrawbridge(spinner_ramparts.getSelectedItemPosition());
+        model.setSallyPort(spinner_sallyPort.getSelectedItemPosition());
+        model.setRockWall(spinner_rockWall.getSelectedItemPosition());
+        model.setRoughTerrain(spinner_roughTerrain.getSelectedItemPosition());
+        model.setLowBar(spinner_lowBar.getSelectedItemPosition());
+        model.setComments(comments.getText().toString());
+        model.setRobotPhoto(robotPhoto);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.detach(this).attach(this).commit();
@@ -181,6 +210,7 @@ public class Frame_Fragment_PS extends Fragment {
                         Bitmap.createScaledBitmap(
                                 BitmapFactory.decodeFile(
                                         photoFile.getAbsolutePath()), 2000, 2000, true)));
+        if (imageView.getDrawable() != null) robotPhoto = 1;
     }
 
     private void dispatchTakePictureIntent() {
@@ -236,7 +266,7 @@ public class Frame_Fragment_PS extends Fragment {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 teamNum = teamNumInput.getText() == null
-                                        ? 1 : Integer.parseInt(teamNumInput.getText().toString());
+                                        ? 0 : Integer.parseInt(teamNumInput.getText().toString());
                             }
                         })
                 .setNegativeButton("CANCEL",

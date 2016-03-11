@@ -28,7 +28,7 @@ public interface Interface_Pit {
             };
         String[] Weight =
             {
-                    "unkown",
+                    "unknown",
                     "sub 50",
                     "50-59",
                     "60-69",
@@ -49,4 +49,20 @@ public interface Interface_Pit {
                     "tank",
                     "hybrid"
             };
+    String[] driverExperience =
+            {
+                    "<=1",
+                    "<=2",
+                    "<=3",
+                    "<=4"
+            };
+
+    String[] climbSpeed =
+            {
+                    "1-10",
+                    "11-10",
+                    "21-30",
+                    "31-40"
+            };
+
 }
