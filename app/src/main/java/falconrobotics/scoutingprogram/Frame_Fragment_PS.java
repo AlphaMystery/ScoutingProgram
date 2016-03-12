@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -198,6 +199,10 @@ public class Frame_Fragment_PS extends Fragment {
         model.setLowBar(spinner_lowBar.getSelectedItemPosition());
         model.setComments(comments.getText().toString());
         model.setRobotPhoto(robotPhoto);
+        model.setSyncNum(0);
+
+        DBHelper helper = new DBHelper(rootView.getContext());
+        helper.pit_Insert(model);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.detach(this).attach(this).commit();
@@ -272,6 +277,13 @@ public class Frame_Fragment_PS extends Fragment {
                 .setNegativeButton("CANCEL",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                Fragment fragment = new Fragment_About();
+
+                                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                fragmentTransaction.replace(R.id.containerView, fragment);
+                                fragmentTransaction.addToBackStack(null);
+                                fragmentTransaction.commit();
                             }
                         });
 

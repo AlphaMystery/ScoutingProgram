@@ -287,12 +287,12 @@ public class DBHelper extends SQLiteOpenHelper
                     + " ) ";
 
     public static final String DATABASE_NAME = "2016AZFL.db";
-    public static String mainDirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/falconrobotics2016";
-    public static String picDirPath = mainDirPath + "/pictures";
-    public static String dbDirPath = mainDirPath + "/databases";
+    public static String mainDirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "falconrobotics2016";
+    public static String picDirPath = mainDirPath + File.separator + "pictures";
+    public static String dbDirPath = mainDirPath + File.separator + "databases";
 
     public DBHelper(Context context) {
-        super(context, dbDirPath + DATABASE_NAME, null, 1);
+        super(context, dbDirPath + File.separator + DATABASE_NAME, null, 1);
     }
 
     public static void create_DirDb() {
@@ -315,7 +315,10 @@ public class DBHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE_MATCH + CREATE_TABLE_PIT + CREATE_TABLE_SCHEDULE + CREATE_TABLE_TEAMS + ";");
+        db.execSQL(CREATE_TABLE_MATCH);
+        db.execSQL(CREATE_TABLE_PIT);
+        db.execSQL(CREATE_TABLE_SCHEDULE);
+        db.execSQL(CREATE_TABLE_TEAMS);
     }
 
     @Override
@@ -323,12 +326,12 @@ public class DBHelper extends SQLiteOpenHelper
         // DO NOTHING
     }
 
-    public void closeDB() {
-        SQLiteDatabase db = getWritableDatabase();
-        if (db != null) db.close();
-    }
+//    public void closeDB() {
+//        SQLiteDatabase db = getWritableDatabase();
+//        if (db != null) db.close();
+//    }
 
-    public synchronized void pit_Update(Model_Pit pitObject)
+    public synchronized void pit_Insert(Model_Pit pitObject)
     {
         SQLiteDatabase db = null;
         try {
@@ -351,11 +354,16 @@ public class DBHelper extends SQLiteOpenHelper
                 values.put("lowBar", pitObject.getLowBar());
                 values.put("comments", pitObject.getComments());
                 values.put("robotPhoto", pitObject.getRobotPhoto());
+                values.put("syncNum", pitObject.getSyncNum());
 
                 db.insert("Pit", null, values);
+                db.close();
             }
         } catch (SQLiteException e) {
-            if (db != null) db.close();
+            if (db != null) {
+                db.close();
+                db = null;
+            }
         }
     }
 
