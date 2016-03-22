@@ -1,5 +1,6 @@
 package falconrobotics.scoutingprogram;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -19,13 +20,15 @@ public class MainActivity extends AppCompatActivity {
     NavigationView mNavigationView;
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        context = getApplicationContext();
 
-        DBHelper.create_DirDb();
+        DBHelper.create();
 
         /**
          *Setup the DrawerLayout and NavigationView
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.containerView, new Fragment_About()).commit();
+        mFragmentTransaction.replace(R.id.containerView, new Fragment_Bluetooth()).commit();
 
         /**
          * Setup click events on the Navigation View Items.
@@ -50,23 +53,15 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 mDrawerLayout.closeDrawers();
 
-
                 if (menuItem.getItemId() == R.id.nav_item_game_scout) {
                     FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new Fragment_Tab_S()).commit();
-
                 }
 
                 if (menuItem.getItemId() == R.id.nav_item_pit_scout) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
                     xfragmentTransaction.replace(R.id.containerView, new Frame_Fragment_PS()).commit();
                 }
-
-                if (menuItem.getItemId() == R.id.nav_item_sync) {
-                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView, new Fragment_Bluetooth()).commit();
-                }
-
 
                 return false;
             }
@@ -86,6 +81,3 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.syncState();
     }
 }
-
-
-

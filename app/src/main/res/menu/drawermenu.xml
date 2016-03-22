@@ -10,13 +10,13 @@
             android:title="Pit Scouting" />
     </group>
 
-    <group android:id="@+id/group_sharing_id">
-        <item
-            android:id="@+id/nav_item_sync"
-            android:title="Sync" />
+    <group android:id="@+id/group_data_view">
+            <item
+                android:id="@+id/nav_item_game_view"
+                android:title="Game Data"/>
+            <item
+                android:id="@+id/nav_item_pit_view"
+                android:title="Pit Data"/>
     </group>
 
 </menu>
-
-
-    <!--<group android:id="@+id/group_analysis_id">--><!--<item android:title="Game Scouting Data"/>--><!--<item android:title="Pit Scouting Data"/>--><!--</group>-->

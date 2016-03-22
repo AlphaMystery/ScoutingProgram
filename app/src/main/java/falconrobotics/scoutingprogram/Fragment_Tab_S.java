@@ -74,7 +74,7 @@ public class Fragment_Tab_S extends Fragment {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
 
-                                Fragment fragment = new Fragment_About();
+                                Fragment fragment = new Fragment_Bluetooth();
 
                                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

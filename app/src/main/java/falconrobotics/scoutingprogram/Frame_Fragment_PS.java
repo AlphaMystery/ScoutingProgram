@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -179,7 +180,6 @@ public class Frame_Fragment_PS extends Fragment {
 
     public void update() {
         if (teamNum == 0) return;
-
         Model_Pit model = new Model_Pit();
         model.set_id(teamNum);
         model.setYearDriver(spinner_driverExperience.getSelectedItemPosition());
@@ -197,15 +197,18 @@ public class Frame_Fragment_PS extends Fragment {
         model.setRockWall(spinner_rockWall.getSelectedItemPosition());
         model.setRoughTerrain(spinner_roughTerrain.getSelectedItemPosition());
         model.setLowBar(spinner_lowBar.getSelectedItemPosition());
-        model.setComments(comments.getText().toString());
+        if(comments.getText().toString().contains("1") || comments.getText().toString().contains("2"))model.setComments(comments.getText().toString());
+        else model.setComments("NO COMMENT");
         model.setRobotPhoto(robotPhoto);
-        model.setSyncNum(0);
+        model.setSyncNum(1);
 
-        DBHelper helper = new DBHelper(rootView.getContext());
-        helper.pit_Insert(model);
+        DBHelper helper = new DBHelper();
+        helper.pit_InsertReplace(model);
+//        Toast.makeText(MainActivity.context, "Data saved.", Toast.LENGTH_LONG).show();
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.detach(this).attach(this).commit();
+
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -277,7 +280,7 @@ public class Frame_Fragment_PS extends Fragment {
                 .setNegativeButton("CANCEL",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Fragment fragment = new Fragment_About();
+                                Fragment fragment = new Fragment_Bluetooth();
 
                                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
