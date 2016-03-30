@@ -1,53 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:stretchColumns="*">
 
 
-
     <TableLayout>
+
         <TableRow
-            android:background="@color/colorPrimaryDark2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark2">
+
             <Button
-                android:text="-"
                 android:id="@+id/tele_def_push_sub"
-                android:layout_column="0"/>
+                android:layout_column="0"
+                android:text="-" />
+
             <TextView
+                android:id="@+id/tele_def_push_score"
                 android:layout_width="50dp"
                 android:text="0"
-                android:textAlignment="center"
-                android:id="@+id/tele_def_push_score"/>
-            <Button
-                android:text="+"
-                android:id="@+id/tele_def_push_add"/>
+                android:textAlignment="center" />
 
-            <TextView
-                android:text="Defensive Push"/>
+            <Button
+                android:id="@+id/tele_def_push_add"
+                android:text="+" />
+
+            <TextView android:text="Defensive Push" />
         </TableRow>
     </TableLayout>
 
     <TableLayout>
+
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <Button
-                android:text="-"
                 android:id="@+id/tele_def_block_sub"
-                android:layout_column="0"/>
-            <TextView
-                android:layout_width="50dp"
-                android:text="0"
-                android:textAlignment="center"
-                android:id="@+id/tele_def_block_score"/>
-            <Button
-                android:text="+"
-                android:id="@+id/tele_def_block_add"/>
+                android:layout_column="0"
+                android:text="-" />
 
             <TextView
-                android:text="Defensive Block"/>
+                android:id="@+id/tele_def_block_score"
+                android:layout_width="50dp"
+                android:text="0"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/tele_def_block_add"
+                android:text="+" />
+
+            <TextView android:text="Defensive Block" />
         </TableRow>
     </TableLayout>
 

@@ -4,25 +4,22 @@ package falconrobotics.scoutingprogram;
  * Created on 2/25/2016.
  */
 public enum Enum_Shooter {
-    UNKOWN (0),
-    NONE (1),
-    WHEELS (2),
-    CATAPULT (3),
-    TURRET (4),
-    SLINGSHOT (5),
+    UNKOWN(0),
+    NONE(1),
+    WHEELS(2),
+    CATAPULT(3),
+    TURRET(4),
+    SLINGSHOT(5),
     OTHER(6);
 
     private byte value;
 
-    Enum_Shooter(int _value)
-    {
-        value = (byte)_value;
+    Enum_Shooter(int _value) {
+        value = (byte) _value;
     }
 
-    public String getResult()
-    {
-        switch (value)
-        {
+    public String getResult() {
+        switch (value) {
             case 0:
                 return "Unknown";
             case 1:

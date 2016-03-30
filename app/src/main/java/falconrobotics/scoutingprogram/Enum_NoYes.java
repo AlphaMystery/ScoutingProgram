@@ -4,20 +4,17 @@ package falconrobotics.scoutingprogram;
  * Created on 2/25/2016.
  */
 public enum Enum_NoYes {
-    NO (0),
-    YES (1);
+    NO(0),
+    YES(1);
 
     private byte value;
 
-    Enum_NoYes(int _value)
-    {
-        value = (byte)_value;
+    Enum_NoYes(int _value) {
+        value = (byte) _value;
     }
 
-    public String getResult()
-    {
-        switch (value)
-        {
+    public String getResult() {
+        switch (value) {
             case 0:
                 return "No";
             case 1:

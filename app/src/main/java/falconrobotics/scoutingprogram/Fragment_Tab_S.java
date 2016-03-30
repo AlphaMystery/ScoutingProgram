@@ -32,9 +32,9 @@ public class Fragment_Tab_S extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        rootView =  inflater.inflate(R.layout.tab_layout_g,null);
+        rootView = inflater.inflate(R.layout.tab_layout_g, null);
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_g);
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager_g);
 
@@ -62,7 +62,7 @@ public class Fragment_Tab_S extends Fragment {
                 .setCancelable(false)
                 .setPositiveButton("SUBMIT",
                         new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,int id) {
+                            public void onClick(DialogInterface dialog, int id) {
                                 //for simplicity they're not spinners
                                 teamNum = Integer.parseInt(teamNumInput.getText().toString());
                                 matchNum = Integer.parseInt(matchNumInput.getText().toString())
@@ -71,7 +71,8 @@ public class Fragment_Tab_S extends Fragment {
                         })
                 .setNegativeButton("CANCEL",
                         new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,int id) {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
                             }
                         });
         // create alert dialog
@@ -81,14 +82,6 @@ public class Fragment_Tab_S extends Fragment {
 
 
         return rootView;
-    }
-
-    public int getTeamNum() {
-        return teamNum;
-    }
-
-    public int getMatchNum() {
-        return matchNum;
     }
 
     class MyAdapter extends FragmentPagerAdapter {
@@ -101,13 +94,16 @@ public class Fragment_Tab_S extends Fragment {
          * Return fragment with respect to Position .
          */
         @Override
-        public Fragment getItem(int position)
-        {
-            switch (position){
-                case 0 : return new Fragment_S_Auto();
-                case 1 : return new Fragment_S_Tele_Off();
-                case 2 : return new Fragment_S_Tele_Def();
-                case 3 : return new Fragment_S_Post();
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new Fragment_S_Auto();
+                case 1:
+                    return new Fragment_S_Tele_Off();
+                case 2:
+                    return new Fragment_S_Tele_Def();
+                case 3:
+                    return new Fragment_S_Post();
             }
             return null;
         }
@@ -125,14 +121,14 @@ public class Fragment_Tab_S extends Fragment {
         @Override
         public CharSequence getPageTitle(int position) {
 
-            switch (position){
+            switch (position) {
                 case 0:
                     return "Auto";
-                case 1 :
+                case 1:
                     return "Tele - Offensive";
                 case 2:
                     return "Tele - Defensive";
-                case 3 :
+                case 3:
                     return "Post-Match";
             }
             return null;

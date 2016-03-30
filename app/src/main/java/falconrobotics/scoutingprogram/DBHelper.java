@@ -13,17 +13,18 @@ import java.io.OutputStream;
 /**
  * Created on 2/22/2016.
  */
-public class DBHelper extends SQLiteOpenHelper
-{
+public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "2016AZFL.db";
     private static final String TABLE_NAME = "game_scouting";
     private static String DB_PATH = "data/data/falconrobotics.scoutingprogram/databases/";
     private final Context context;
     private SQLiteDatabase myDataBase;
+
     /**
      * Constructor
      * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
+     *
      * @param context
      */
     public DBHelper(Context context) {
@@ -34,14 +35,14 @@ public class DBHelper extends SQLiteOpenHelper
 
     /**
      * Creates a empty database on the system and rewrites it with your own database.
-     * */
-    public void createDataBase() throws IOException{
+     */
+    public void createDataBase() throws IOException {
 
         boolean dbExist = checkDataBase();
 
-        if(dbExist){
+        if (dbExist) {
             //do nothing - database already exist
-        }else{
+        } else {
 
             //By calling this method and empty database will be created into the default system path
             //of your application so we are gonna be able to overwrite that database with our database.
@@ -62,23 +63,25 @@ public class DBHelper extends SQLiteOpenHelper
 
     /**
      * Check if the database already exist to avoid re-copying the file each time you open the application.
+     *
      * @return true if it exists, false if it doesn't
      */
-    private boolean checkDataBase(){
+    private boolean checkDataBase() {
 
         SQLiteDatabase checkDB = null;
 
-        try{
+        try {
             String myPath = DB_PATH + DATABASE_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
-        }catch(SQLiteException e){
+
+        } catch (SQLiteException e) {
 
             //database doesn't exist yet.
 
         }
 
-        if(checkDB != null){
+        if (checkDB != null) {
 
             checkDB.close();
 
@@ -86,12 +89,13 @@ public class DBHelper extends SQLiteOpenHelper
 
         return checkDB != null ? true : false;
     }
+
     /**
      * Copies your database from your local assets-folder to the just created empty database in the
      * system folder, from where it can be accessed and handled.
      * This is done by transfering bytestream.
-     * */
-    private void copyDataBase() throws IOException{
+     */
+    private void copyDataBase() throws IOException {
 
         //Open your local db as the input stream
         InputStream myInput = context.getAssets().open(DATABASE_NAME);
@@ -105,7 +109,7 @@ public class DBHelper extends SQLiteOpenHelper
         //transfer bytes from the inputfile to the outputfile
         byte[] buffer = new byte[1024];
         int length;
-        while ((length = myInput.read(buffer))>0){
+        while ((length = myInput.read(buffer)) > 0) {
             myOutput.write(buffer, 0, length);
         }
 
@@ -116,32 +120,28 @@ public class DBHelper extends SQLiteOpenHelper
 
     }
 
-    public void openDataBase()throws SQLiteException
-    {
+    public void openDataBase() throws SQLiteException {
         //open the database
         String myPath = DB_PATH + DATABASE_NAME;
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
     }
 
     @Override
-    public synchronized void close()
-    {
-        if(myDataBase!=null)
+    public synchronized void close() {
+        if (myDataBase != null)
             myDataBase.close();
 
         super.close();
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db)
-    {
+    public void onCreate(SQLiteDatabase db) {
         // db.execSQL();
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1)
-    {
-        db.execSQL("DROP TABLE IF EXISTS"+TABLE_NAME);
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL("DROP TABLE IF EXISTS" + TABLE_NAME);
         onCreate(db);
     }
 }

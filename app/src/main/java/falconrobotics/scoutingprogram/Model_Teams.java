@@ -5,8 +5,8 @@ package falconrobotics.scoutingprogram;
  */
 public class Model_Teams {
     private int
-    teamNum,
-    syncNum;
+            teamNum,
+            syncNum;
 
     private String shortName;
 
@@ -22,15 +22,15 @@ public class Model_Teams {
         return syncNum;
     }
 
-    public void setShortName(String shortName) {
-        this.shortName = shortName;
+    public void setSyncNum(int syncNum) {
+        this.syncNum = syncNum;
     }
 
     public String getShortName() {
         return shortName;
     }
 
-    public void setSyncNum(int syncNum) {
-        this.syncNum = syncNum;
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 }

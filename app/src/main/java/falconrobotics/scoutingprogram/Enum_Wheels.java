@@ -4,25 +4,22 @@ package falconrobotics.scoutingprogram;
  * Created on 2/25/2016.
  */
 public enum Enum_Wheels {
-    TRACTION (0),
-    PNEUMATIC (1),
-    MECHANUM (2),
-    SWERVE (3),
-    OMNI (4),
-    TANK (5),
-    HYBRID (6);
+    TRACTION(0),
+    PNEUMATIC(1),
+    MECHANUM(2),
+    SWERVE(3),
+    OMNI(4),
+    TANK(5),
+    HYBRID(6);
 
     private byte value;
 
-    Enum_Wheels(int _value)
-    {
-        value = (byte)_value;
+    Enum_Wheels(int _value) {
+        value = (byte) _value;
     }
 
-    public String getResult()
-    {
-        switch (value)
-        {
+    public String getResult() {
+        switch (value) {
             case 0:
                 return "Traction";
             case 1:

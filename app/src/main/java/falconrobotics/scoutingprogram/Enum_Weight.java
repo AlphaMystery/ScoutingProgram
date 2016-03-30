@@ -4,28 +4,25 @@ package falconrobotics.scoutingprogram;
  * Created on 2/25/2016.
  */
 public enum Enum_Weight {
-    ZERO (0),
-    FORTY (1),
-    FIFTY (2),
-    SIXTY (3),
-    SEVENTY (4),
-    EIGHTY (5),
-    NINETY (6),
-    HUNDRED (7),
-    HUNDRED_TEN (8),
-    HUNDRED_TWENTY (9);
+    ZERO(0),
+    FORTY(1),
+    FIFTY(2),
+    SIXTY(3),
+    SEVENTY(4),
+    EIGHTY(5),
+    NINETY(6),
+    HUNDRED(7),
+    HUNDRED_TEN(8),
+    HUNDRED_TWENTY(9);
 
     private byte value;
 
-    Enum_Weight(int _value)
-    {
-        value = (byte)_value;
+    Enum_Weight(int _value) {
+        value = (byte) _value;
     }
 
-    public String getResult()
-    {
-        switch (value)
-        {
+    public String getResult() {
+        switch (value) {
             case 0:
                 return "UNKNOWN";
             case 1:

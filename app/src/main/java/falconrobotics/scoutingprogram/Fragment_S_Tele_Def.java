@@ -20,5 +20,6 @@ public class Fragment_S_Tele_Def extends Fragment {
 
 
         return rootView;
+
     }
 }

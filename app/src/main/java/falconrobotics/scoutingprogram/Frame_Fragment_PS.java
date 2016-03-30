@@ -112,7 +112,7 @@ public class Frame_Fragment_PS extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateLoop();
+//                updateLoop();
             }
         });
 

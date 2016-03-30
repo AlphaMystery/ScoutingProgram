@@ -39,7 +39,7 @@
         <item>Rough Terrain</item>
         <item>Low Bar</item>
     </string-array>
-    
+
     <string-array name="partial_yes_no">
         <item>No</item>
         <item>Partial</item>

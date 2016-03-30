@@ -5,15 +5,15 @@ package falconrobotics.scoutingprogram;
  */
 public class Model_Schedule {
     private int
-    matchLevel,
-    matchNum,
-    blueRobot1,
-    blueRobot2,
-    blueRobot3,
-    redRobot1,
-    redRobot2,
-    redRobot3,
-    syncNum;
+            matchLevel,
+            matchNum,
+            blueRobot1,
+            blueRobot2,
+            blueRobot3,
+            redRobot1,
+            redRobot2,
+            redRobot3,
+            syncNum;
 
     public int getSyncNum() {
         return syncNum;

@@ -8,25 +8,32 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 
 import java.io.IOException;
+import java.util.UUID;
+
 
 /**
  * Main class
  */
 public class MainActivity extends AppCompatActivity {
+    public static final UUID BT_UUID = UUID.fromString("196e8598-e74f-11e5-9730-9a79f06e9478");
+
     DrawerLayout mDrawerLayout;
     NavigationView mNavigationView;
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        Thread thread = new Thread(runnable);
+//        thread.setPriority(Thread.MAX_PRIORITY);
+//        thread.start();
 
 
         DBHelper myDbHelper = new DBHelper(this);
@@ -36,14 +43,11 @@ public class MainActivity extends AppCompatActivity {
             throw new Error("Unable to create database");
         }
 
-        try{
+        try {
             myDbHelper.openDataBase();
-        }catch (SQLiteException sqle)
-        {
+        } catch (SQLiteException sqle) {
             throw sqle;
         }
-
-
 
 
         /**
@@ -86,8 +90,14 @@ public class MainActivity extends AppCompatActivity {
                     xfragmentTransaction.replace(R.id.containerView, new Fragment_Bluetooth()).commit();
                 }
 
+                if (menuItem.getItemId() == R.id.nav_item_email_share) {
+                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+                    xfragmentTransaction.replace(R.id.containerView, new Fragment_Email()).commit();
+                }
+
 
                 return false;
+
             }
 
         });
@@ -100,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name,
                 R.string.app_name);
 
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+                    mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         mDrawerToggle.syncState();
 

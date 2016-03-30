@@ -11,14 +11,18 @@
     </group>
 
     <group android:id="@+id/group_analysis_id">
-        <item android:title="Game Scouting Data"/>
-        <item android:title="Pit Scouting Data"/>
+        <item android:title="Game Scouting Data" />
+        <item android:title="Pit Scouting Data" />
     </group>
 
     <group android:id="@+id/group_sharing_id">
         <item
             android:id="@+id/nav_item_bluetooth_share"
             android:title="Bluetooth Sync" />
+        <item
+            android:id="@+id/nav_item_email_share"
+            android:title="Email Send" />
     </group>
+
 
 </menu>

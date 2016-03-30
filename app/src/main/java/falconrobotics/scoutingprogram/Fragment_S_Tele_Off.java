@@ -12,7 +12,7 @@ import android.widget.TextView;
 /**
  * Created on 2/7/2016.
  */
-public class Fragment_S_Tele_Off extends Fragment implements View.OnClickListener{
+public class Fragment_S_Tele_Off extends Fragment implements View.OnClickListener {
     private View rootView;
 
     private int high_goal_h = 0,
@@ -36,7 +36,7 @@ public class Fragment_S_Tele_Off extends Fragment implements View.OnClickListene
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.layout_s_tele_off,null);
+        rootView = inflater.inflate(R.layout.layout_s_tele_off, null);
 
         initButtons();
 
@@ -46,8 +46,7 @@ public class Fragment_S_Tele_Off extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.tele_high_goal_miss_sub:
                 high_goal_m--;
                 setText(R.id.tele_high_goal_miss_score, high_goal_m);
@@ -59,13 +58,11 @@ public class Fragment_S_Tele_Off extends Fragment implements View.OnClickListene
         }
     }
 
-    public void setText(int id, int score)
-    {
-        ((TextView)rootView.findViewById(id)).setText(score + "");
+    public void setText(int id, int score) {
+        ((TextView) rootView.findViewById(id)).setText(score + "");
     }
 
-    public void initButtons()
-    {
+    public void initButtons() {
         lowHitAdd = (Button) rootView.findViewById(R.id.tele_low_goal_hit_add);
         lowHitAdd.setOnClickListener(this);
 
