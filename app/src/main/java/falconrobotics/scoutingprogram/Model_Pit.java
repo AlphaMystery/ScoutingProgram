@@ -5,14 +5,16 @@ package falconrobotics.scoutingprogram;
  */
 public class Model_Pit {
     private int
-            teamNum,
-            yearDriver,
-            wheels,
-            weight,
-            shooter,
-            canClimb,
+            _id,
+            driverXP,
+            operatorXP,
+            drivetrain,
+            pneumatics,
+            shooterType,
+            shootingType,
+            climb,
             climbSpeed,
-            robotDimensions,
+            weight,
             portcullis,
             chevalDeFrise,
             moat,
@@ -24,7 +26,62 @@ public class Model_Pit {
             lowBar,
             robotPhoto,
             syncNum;
-    private String comments;
+    private String comments,
+            robotDimensions;
+
+    public Model_Pit(
+            int _id,
+            int driverXP,
+            int operatorXP,
+            int drivetrain,
+            int pneumatics,
+            int shooterType,
+            int shootingType,
+            int climb,
+            int climbSpeed,
+            int weight,
+            String robotDimensions,
+            int portcullis,
+            int chevalDeFrise,
+            int moat,
+            int ramparts,
+            int drawbridge,
+            int sallyPort,
+            int rockWall,
+            int roughTerrain,
+            int lowBar,
+            String comments,
+            int robotPhoto,
+            int syncNum)
+    {
+        this._id = _id;
+        this.driverXP = driverXP;
+        this.operatorXP = operatorXP;
+        this.drivetrain = drivetrain;
+        this.pneumatics = pneumatics;
+        this.shooterType = shooterType;
+        this.shootingType = shootingType;
+        this.climb = climb;
+        this.climbSpeed = climbSpeed;
+        this.weight = weight;
+        this.robotDimensions = robotDimensions;
+        this.portcullis = portcullis;
+        this.chevalDeFrise = chevalDeFrise;
+        this.moat = moat;
+        this.ramparts = ramparts;
+        this.drawbridge = drawbridge;
+        this.sallyPort = sallyPort;
+        this.rockWall = rockWall;
+        this.roughTerrain = roughTerrain;
+        this.lowBar = lowBar;
+        this.comments = comments;
+        this.robotPhoto = robotPhoto;
+        this.syncNum = syncNum;
+    }
+
+    public String getRobotDimensions() {
+        return robotDimensions;
+    }
 
     public int getRoughTerrain() {
         return roughTerrain;
@@ -50,12 +107,12 @@ public class Model_Pit {
         this.robotPhoto = robotPhoto;
     }
 
-    public int getCanClimb() {
-        return canClimb;
+    public int getClimb() {
+        return climb;
     }
 
-    public void setCanClimb(int canClimb) {
-        this.canClimb = canClimb;
+    public void setClimb(int climb) {
+        this.climb = climb;
     }
 
     public int getChevalDeFrise() {
@@ -114,14 +171,6 @@ public class Model_Pit {
         this.ramparts = ramparts;
     }
 
-    public int getRobotDimensions() {
-        return robotDimensions;
-    }
-
-    public void setRobotDimensions(int robotDimensions) {
-        this.robotDimensions = robotDimensions;
-    }
-
     public int getSallyPort() {
         return sallyPort;
     }
@@ -130,12 +179,12 @@ public class Model_Pit {
         this.sallyPort = sallyPort;
     }
 
-    public int getShooter() {
-        return shooter;
+    public int getShooterType() {
+        return shooterType;
     }
 
-    public void setShooter(int shooter) {
-        this.shooter = shooter;
+    public void setShooterType(int shooterType) {
+        this.shooterType = shooterType;
     }
 
     public int getSyncNum() {
@@ -146,36 +195,28 @@ public class Model_Pit {
         this.syncNum = syncNum;
     }
 
-    public int getTeamNum() {
-        return teamNum;
+    public int get_id() {
+        return _id;
     }
 
-    public void setTeamNum(int teamNum) {
-        this.teamNum = teamNum;
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
-    public int getWeight() {
-        return weight;
+    public int getDrivetrain() {
+        return drivetrain;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setDrivetrain(int drivetrain) {
+        this.drivetrain = drivetrain;
     }
 
-    public int getWheels() {
-        return wheels;
+    public int getDriverXP() {
+        return driverXP;
     }
 
-    public void setWheels(int wheels) {
-        this.wheels = wheels;
-    }
-
-    public int getYearDriver() {
-        return yearDriver;
-    }
-
-    public void setYearDriver(int yearDriver) {
-        this.yearDriver = yearDriver;
+    public void setDriverXP(int driverXP) {
+        this.driverXP = driverXP;
     }
 
     public String getComments() {
@@ -184,5 +225,41 @@ public class Model_Pit {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public int getOperatorXP() {
+        return operatorXP;
+    }
+
+    public void setOperatorXP(int operatorXP) {
+        this.operatorXP = operatorXP;
+    }
+
+    public int getPneumatics() {
+        return pneumatics;
+    }
+
+    public void setPneumatics(int pneumatics) {
+        this.pneumatics = pneumatics;
+    }
+
+    public int getShootingType() {
+        return shootingType;
+    }
+
+    public void setRobotDimensions(String robotDimensions) {
+        this.robotDimensions = robotDimensions;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setShootingType(int shootingType) {
+        this.shootingType = shootingType;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 }

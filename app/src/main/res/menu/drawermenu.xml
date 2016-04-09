@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:id="@+id/group_scouting_id">
+    <group android:id="@+id/group_scouting">
         <item
             android:id="@+id/nav_item_game_scout"
             android:title="Game Scouting" />
@@ -10,18 +10,15 @@
             android:title="Pit Scouting" />
     </group>
 
-    <group android:id="@+id/group_analysis_id">
-        <item android:title="Game Scouting Data" />
-        <item android:title="Pit Scouting Data" />
+    <group android:id="@+id/group_scouting_data">
+        <item android:title="Game Data" />
+        <item android:title="Pit Data" />
     </group>
 
-    <group android:id="@+id/group_sharing_id">
+    <group android:id="@+id/group_sharing">
         <item
             android:id="@+id/nav_item_bluetooth_share"
-            android:title="Bluetooth Sync" />
-        <item
-            android:id="@+id/nav_item_email_share"
-            android:title="Email Send" />
+            android:title="Share" />
     </group>
 
 

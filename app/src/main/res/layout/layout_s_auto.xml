@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:scrollbarAlwaysDrawHorizontalTrack="true">
+    android:scrollbarAlwaysDrawHorizontalTrack="true"
+    android:fillViewport="false">
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -252,7 +253,7 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/auto_def_3_wall_attempt_add"
+                android:id="@+id/auto_def_3_attempt_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
@@ -263,7 +264,7 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/auto_def_3_wall_cross_sub"
+                android:id="@+id/auto_def_3_cross_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />

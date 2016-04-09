@@ -1,15 +1,21 @@
 package falconrobotics.scoutingprogram;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -20,35 +26,28 @@ import java.util.UUID;
  */
 public class MainActivity extends AppCompatActivity {
     public static final UUID BT_UUID = UUID.fromString("196e8598-e74f-11e5-9730-9a79f06e9478");
+    public static Context context;
 
-    DrawerLayout mDrawerLayout;
-    NavigationView mNavigationView;
-    FragmentManager mFragmentManager;
-    FragmentTransaction mFragmentTransaction;
+    private DrawerLayout mDrawerLayout;
+    private NavigationView mNavigationView;
+    private FragmentManager mFragmentManager;
+    private FragmentTransaction mFragmentTransaction;
+
+    private static String eventName = "champsDATA.db";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        context = getApplicationContext();
 //        Thread thread = new Thread(runnable);
 //        thread.setPriority(Thread.MAX_PRIORITY);
 //        thread.start();
 
+        DBHelper.createDir();
 
-        DBHelper myDbHelper = new DBHelper(this);
-        try {
-            myDbHelper.createDataBase();
-        } catch (IOException ioe) {
-            throw new Error("Unable to create database");
-        }
-
-        try {
-            myDbHelper.openDataBase();
-        } catch (SQLiteException sqle) {
-            throw sqle;
-        }
-
+        DBHelper myDbHelper = new DBHelper(eventName);
 
         /**
          *Setup the DrawerLayout and NavigationView
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.containerView, new Fragment_About()).commit();
+        mFragmentTransaction.replace(R.id.containerView, new Fragment_Sync()).commit();
 
         /**
          * Setup click events on the Navigation View Items.
@@ -87,17 +86,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if (menuItem.getItemId() == R.id.nav_item_bluetooth_share) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView, new Fragment_Bluetooth()).commit();
+                    xfragmentTransaction.replace(R.id.containerView, new Fragment_Sync()).commit();
                 }
-
-                if (menuItem.getItemId() == R.id.nav_item_email_share) {
-                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView, new Fragment_Email()).commit();
-                }
-
-
                 return false;
-
             }
 
         });
@@ -114,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerToggle.syncState();
 
+    }
+
+    public static String getEventName()
+    {
+        return eventName;
     }
 }
 

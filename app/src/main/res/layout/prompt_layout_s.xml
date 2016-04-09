@@ -31,8 +31,7 @@
         <Spinner
             android:id="@+id/pre_match_match_level"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/match_level" />
+            android:layout_height="wrap_content"/>
     </TableRow>
 
     <TableRow>
