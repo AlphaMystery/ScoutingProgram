@@ -2,6 +2,8 @@ package falconrobotics.scoutingprogram;
 
 /**
  * Created on 2/25/2016.
+ *
+ * Structure for how the data is going to be inputted into the schedule table.
  */
 public class Model_Schedule {
     private int
@@ -14,6 +16,28 @@ public class Model_Schedule {
             redRobot2,
             redRobot3,
             syncNum;
+
+    public Model_Schedule(
+            int matchLevel,
+            int matchNum,
+            int blueRobot1,
+            int blueRobot2,
+            int blueRobot3,
+            int redRobot1,
+            int redRobot2,
+            int redRobot3,
+            int syncNum)
+    {
+        this.matchLevel = matchLevel;
+        this.matchNum = matchNum;
+        this.blueRobot1 = blueRobot1;
+        this.blueRobot2 = blueRobot2;
+        this.blueRobot3 = blueRobot3;
+        this.redRobot1 = redRobot1;
+        this.redRobot2 = redRobot2;
+        this.redRobot3 = redRobot3;
+        this.syncNum = syncNum;
+    }
 
     public int getSyncNum() {
         return syncNum;

@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout android:background="@color/blue2">
-
+    <RelativeLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -14,36 +13,26 @@
     </RelativeLayout>
 
     <TableRow>
-
-        <TextView android:text="Team Number:" />
-
-        <EditText
-            android:id="@+id/pre_match_team_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
-    </TableRow>
-
-    <TableRow>
-
-        <TextView android:text="Match Level:" />
-
-        <Spinner
-            android:id="@+id/pre_match_match_level"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </TableRow>
-
-    <TableRow>
-
         <TextView android:text="Match Number:" />
-
         <EditText
-            android:id="@+id/pre_match_match_num"
+            android:id="@+id/prematch_matchNum"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="number"/>
     </TableRow>
 
+    <TableRow>
+        <TextView android:text="Match Level:" />
+        <Spinner
+            android:id="@+id/prematch_level"
+            android:layout_width="match_parent"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView android:text="Team Number:" />
+        <EditText
+            android:id="@+id/prematch_teamNum"
+            android:layout_width="match_parent"
+            android:inputType="number"/>
+    </TableRow>
 
 </TableLayout>

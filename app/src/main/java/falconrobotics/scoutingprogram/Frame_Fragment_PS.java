@@ -1,6 +1,5 @@
 package falconrobotics.scoutingprogram;
 
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,16 +17,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,7 +34,7 @@ import java.util.Arrays;
 /**
  * Created on 2/7/2016.
  */
-public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
+public class Frame_Fragment_PS extends Fragment{
     private static final int REQUEST_TAKE_PHOTO = 1;
     private View rootView;
     private int teamNum = 0;
@@ -68,27 +65,27 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
             spinner_roughTerrain,
             spinner_lowBar,
             spinner_weight;
-
     private EditText comments,
             robotDimensions;
-    private int robotPhoto = 0;
-    private DBHelper helper;
 
-    private static Bitmap rotateImageIfRequired(Context context, Bitmap img) {
+    private int robotPhoto = 0;
+    private Helper helper;
+
+    public static Bitmap rotateImageIfRequired(Context context, Bitmap img) {
         int rotation = getRotation(context);
 
         if (rotation != 0) {
             Matrix matrix = new Matrix();
             matrix.postRotate(rotation);
-            Bitmap rotatedImg = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true);
             img.recycle();
-            return rotatedImg;
+
+            return Bitmap.createBitmap(img, 0, 0, 1080, 720, matrix, true);
         } else {
-            return img;
+            return Bitmap.createScaledBitmap(img, 1080, 720, false);
         }
     }
 
-    private static int getRotation(Context context) {
+    public static int getRotation(Context context) {
         int rotation = 0;
         ContentResolver content = context.getContentResolver();
 
@@ -109,10 +106,10 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.frame_layout_pits, null);
-        helper = new DBHelper(MainActivity.getEventName());
+        helper = new Helper();
 
         dialog();
-        initItems();
+        init();
 
         capButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,10 +127,10 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
         return rootView;
     }
 
-    private void initItems() {
-        imageView = (ImageView) rootView.findViewById(R.id.pitCreate_image_view_robot);
+    private void init() {
+        imageView = (ImageView) rootView.findViewById(R.id.pitCreate_photo_robot);
 
-        capButton = (TextView) rootView.findViewById(R.id.pitCreate_button_robot_cap);
+        capButton = (TextView) rootView.findViewById(R.id.pitCreate_robot_cap);
 
         spinner_driverExperience = (Spinner) rootView.findViewById(R.id.pitCreate_spinner_driver_xp);
         spinner_driverExperience.setAdapter(new ArrayAdapter<>(
@@ -225,7 +222,7 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
     }
 
     public void assignPre() {
-        Model_Pit model_pit = helper.pit_readAll(teamNum);
+        Model_Pit model_pit = helper.pit_readTeam(teamNum);
 
         spinner_driverExperience.setSelection(model_pit.getDriverXP());
         spinner_operatorExperience.setSelection(model_pit.getOperatorXP());
@@ -245,19 +242,17 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
         spinner_roughTerrain.setSelection(model_pit.getRoughTerrain());
         spinner_lowBar.setSelection(model_pit.getLowBar());
 
-        if(model_pit.getRobotPhoto() == 1){
-            File imageFile = new  File(DBHelper.picDirPath + File.separator + teamNum + "team" + ".jpg");
-            if(imageFile.exists()){
-                imageView.setImageBitmap(BitmapFactory.decodeFile(imageFile.getAbsolutePath()));
-            }
-        }
+        try {
+            imageView.setImageURI(Uri.fromFile(new File(Helper.picDirPath + File.separator + teamNum + "team" + ".jpg")));
+        } catch(NullPointerException e) {
+            Toast.makeText(MainActivity.context, "No image available", Toast.LENGTH_LONG).show();}
+
 
         comments.setText(model_pit.getComments());
         robotDimensions.setText(model_pit.getRobotDimensions());
     }
 
     public void update() {
-        if (teamNum == 0) return;
         Model_Pit model = new Model_Pit(
                 teamNum,
                 spinner_driverExperience.getSelectedItemPosition(),
@@ -269,7 +264,7 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
                 spinner_climb.getSelectedItemPosition(),
                 spinner_climbSpeed.getSelectedItemPosition(),
                 spinner_weight.getSelectedItemPosition(),
-                "DATA NOT TAKEN",
+                "",
                 spinner_portcullis.getSelectedItemPosition(),
                 spinner_chevalDeFrise.getSelectedItemPosition(),
                 spinner_moat.getSelectedItemPosition(),
@@ -279,14 +274,14 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
                 spinner_rockWall.getSelectedItemPosition(),
                 spinner_roughTerrain.getSelectedItemPosition(),
                 spinner_lowBar.getSelectedItemPosition(),
-                "DATA NOT TAKEN",
+                "",
                 robotPhoto,
                 1);
         if(!comments.getText().toString().matches(""))model.setComments(comments.getText().toString());
         if(!robotDimensions.getText().toString().matches("")) model.setRobotDimensions(robotDimensions.getText().toString());
 
-        DBHelper helper = new DBHelper(MainActivity.getEventName());
-        helper.pit_InsertReplace(model);
+        Helper helper = new Helper();
+        helper.pit_update(MainActivity.insertOrReplace, model);
 
         teamNum = 0;
 
@@ -298,11 +293,12 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        imageView.setImageBitmap(
-                rotateImageIfRequired(rootView.getContext(),
-                        Bitmap.createScaledBitmap(
-                                BitmapFactory.decodeFile(
-                                        photoFile.getAbsolutePath()), 2000, 2000, true)));
+
+        try {
+            imageView.setImageBitmap(rotateImageIfRequired(rootView.getContext(), BitmapFactory.decodeFile(photoFile.getAbsolutePath())));
+        }catch (Exception e){
+            Toast.makeText(MainActivity.context, "Woops! I didn't receive the picture taken!", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void dispatchTakePictureIntent() {
@@ -311,12 +307,13 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
         if (takePictureIntent.resolveActivity(rootView.getContext().getPackageManager()) != null) {
             try {
                 photoFile = createImageFile();
-            } catch (IOException ex) {
+            } catch (IOException ioException) {
+                Toast.makeText(MainActivity.context, "Woops! I was not able to create the image file!", Toast.LENGTH_LONG).show();
             }
 
             if (photoFile != null) {
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-                        Uri.fromFile(photoFile));
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(photoFile));
+
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
             }
         }
@@ -324,44 +321,42 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
 
     private File createImageFile() throws IOException {
         String imageFileName = teamNum + "team";
-        File storageDir = new File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString());
-        File image = File.createTempFile
-                (
-                        imageFileName,  /* prefix */
-                        ".jpg",         /* suffix */
-                        storageDir      /* directory */
-                );
 
-        File from = new File(image.getPath());
-        File to = new File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString(),
-                teamNum + ".jpg");
-        from.renameTo(to);
-
-        return to;
+        return new File(Helper.picDirPath, imageFileName + ".jpg");
     }
 
     private void dialog() {
         li = LayoutInflater.from(rootView.getContext());
-        View promptsView = li.inflate(R.layout.prompt_layout_team_number, null);
+        View promptsView = li.inflate(R.layout.prompt_layout_team_num, null);
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                rootView.getContext());
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(rootView.getContext());
 
         alertDialogBuilder.setView(promptsView);
 
-        teamNumInput = (EditText) promptsView
-                .findViewById(R.id.pit_robot_number);
+        teamNumInput = (EditText) promptsView.findViewById(R.id.pit_robot_number);
 
         alertDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("SUBMIT",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                teamNum = Integer.parseInt(teamNumInput.getText().toString());
+                                if(teamNumInput.getText().toString().matches("") || teamNumInput.getText().toString().matches("0")) {
+                                    Toast.makeText(MainActivity.context, "Woops! Please enter a valid team number!", Toast.LENGTH_LONG).show();
 
-                                if(helper.CheckIsDataAlreadyInDBorNot(DBHelper.TABLE_PIT, teamNum)) assignPre();
+                                    Fragment fragment = new Frame_Fragment_PS();
+
+                                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                    fragmentTransaction.replace(R.id.containerView, fragment);
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
+                                }
+                                else {
+
+                                    teamNum = Integer.parseInt(teamNumInput.getText().toString());
+
+                                    if (helper.pitDataCheck(teamNum)) assignPre();
+                                }
                             }
                         })
                 .setNegativeButton("CANCEL",
@@ -380,10 +375,5 @@ public class Frame_Fragment_PS extends Fragment implements View.OnClickListener{
         AlertDialog alertDialog = alertDialogBuilder.create();
 
         alertDialog.show();
-    }
-
-    @Override
-    public void onClick(View view) {
-        view.clearFocus();
     }
 }

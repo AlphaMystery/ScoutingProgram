@@ -2,6 +2,8 @@ package falconrobotics.scoutingprogram;
 
 /**
  * Created on 2/25/2016.
+ *
+ * Structure for how the data is going to be inputted into the pit table.
  */
 public class Model_Pit {
     private int

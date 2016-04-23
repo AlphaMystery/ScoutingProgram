@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:touchscreenBlocksFocus="true">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout android:layout_column="0">
+                <TextView
+                    android:id="@+id/pitCreate_robot_cap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/yellow2"
+                    android:text="Click here to take a picture of the robot."
+                    android:textAlignment="center"
+                    android:textColor="@color/blue"
+                    android:textSize="9pt"/>
+                <ImageView
+                    android:id="@+id/pitCreate_photo_robot"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_below="@+id/pitCreate_robot_cap"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"/>
+            </RelativeLayout>
+        </TableRow>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/divider_bar"/>
+
+        <TableLayout android:background="@color/colorPrimaryDark2">
+            <TableRow>
+                <TextView android:text="Driver Experience:"/>
+                <Spinner android:id="@+id/pitCreate_spinner_driver_xp"/>
+                <TextView android:text="years"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow>
+                <TextView android:text="Operator Experience:"/>
+                <Spinner android:id="@+id/pitCreate_spinner_operator_xp"/>
+                <TextView android:text="years"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout android:background="@color/colorPrimaryDark2">
+            <TableRow>
+                <TextView android:text="Drivetrain: "/>
+                <Spinner android:id="@+id/pitCreate_spinner_drivetrain"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow>
+                <TextView android:text="Pneumatics: "/>
+                <Spinner android:id="@+id/pitCreate_pneumatics"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout android:background="@color/colorPrimaryDark2">
+            <TableRow>
+                <TextView android:text="Climbs Tower:"/>
+                <Spinner android:id="@+id/pitCreate_spinner_tower_climb"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow>
+                <TextView android:text="Climb Speed:"/>
+                <Spinner android:id="@+id/pitCreate_spinner_climb_speed"/>
+                <TextView android:text="seconds"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout android:background="@color/colorPrimaryDark2">
+            <TableRow>
+                <TextView android:text="Shooter Type:"/>
+                <Spinner android:id="@+id/pitCreate_shooter_type"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow>
+                <TextView android:text="Shooting Type:"/>
+                <Spinner android:id="@+id/pitCreate_shooting_type"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout android:background="@color/colorPrimaryDark2">
+            <TableRow>
+                <TextView android:text="Weight: "/>
+                <Spinner android:id="@+id/pitCreate_spinner_weight"/>
+                <TextView android:text="pounds"/>
+            </TableRow>
+        </TableLayout>
+
+                <TextView android:text="Robot Dimensions: "/>
+        <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="textNoSuggestions"
+            android:hint="Length x Width x Height"
+            android:id="@+id/pitCreate_robotDimensions"/>
+    </android.support.design.widget.TextInputLayout>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/divider_bar"/>
+
+        <TextView android:text="Defenses"/>
+
+        <TableLayout>
+            <TableRow android:background="@color/colorPrimaryDark2">
+                <TextView android:text="Portcullis"/>
+                <Spinner android:id="@+id/pitCreate_spinner_portcullis"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow>
+                <TextView android:text="Cheval de Frise"/>
+                <Spinner android:id="@+id/pitCreate_spinner_cheval_de_frise"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow android:background="@color/colorPrimaryDark2">
+                <TextView android:text="Moat"/>
+                <Spinner android:id="@+id/pitCreate_spinner_moat"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow>
+                <TextView android:text="Ramparts"/>
+                <Spinner android:id="@+id/pitCreate_spinner_ramparts"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow android:background="@color/colorPrimaryDark2">
+                <TextView android:text="Drawbridge"/>
+                <Spinner android:id="@+id/pitCreate_spinner_drawbridge"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow android:layout_width="match_parent">
+                <TextView android:text="Sally Port"/>
+                <Spinner android:id="@+id/pitCreate_spinner_sally_port"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryDark2">
+                <TextView android:text="Rock Wall"/>
+                <Spinner android:id="@+id/pitCreate_spinner_rock_wall"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow android:layout_width="match_parent">
+                <TextView android:text="Rough Terrain"/>
+                <Spinner android:id="@+id/pitCreate_spinner_rough_terrain"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryDark2">
+                <TextView android:text="Low Bar"/>
+                <Spinner android:id="@+id/pitCreate_spinner_low_bar"/>
+            </TableRow>
+        </TableLayout>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/divider_bar"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/pitCreate_comments"
+                android:hint="Additional Comments:"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/pitCreate_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT TEAM"/>
+
+    </TableLayout>
+</ScrollView>

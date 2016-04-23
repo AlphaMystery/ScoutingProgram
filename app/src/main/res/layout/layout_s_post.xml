@@ -2,46 +2,40 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbarAlwaysDrawHorizontalTrack="true">
+    android:scrollbarAlwaysDrawHorizontalTrack="true"
+    android:padding="1dip">
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dip">
+        android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Did the robot stop working?"
-                android:textAlignment="center" />
-
-            <Spinner
-                android:id="@+id/spinner_stopped"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark2">
-
+        <RelativeLayout>
+            <ImageView
+                android:id="@+id/matchCreate_imageview_safespot"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:background="@mipmap/safespot"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Was the robot carded?" />
-
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:text="Robot&apos;s safe spot for high goals"
+                android:id="@+id/matchCreate_text_safespot"/>
             <Spinner
-                android:id="@+id/spinner_carded"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="0"/>
-        </TableRow>
+                android:id="@+id/matchCreate_spinner_safespot"
+                android:layout_marginLeft="46dp"
+                android:layout_marginStart="46dp"
+                android:layout_below="@+id/matchCreate_text_safespot"
+                android:layout_alignLeft="@+id/matchCreate_text_safespot"
+                android:layout_alignStart="@+id/matchCreate_text_safespot" />
+        </RelativeLayout>
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
@@ -49,24 +43,24 @@
             android:layout_height="wrap_content"
             android:progressDrawable="@drawable/divider_bar" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/edittext_comments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusableInTouchMode="true"
-                android:hint="Additional Comments:"
-                android:lines="2"
-                android:maxLines="2" />
-        </android.support.design.widget.TextInputLayout>
+        <TableLayout>
+            <TableRow>
+                <TextView android:text="Climbing:"/>
+                <Spinner android:id="@+id/matchCreate_climbing"/>
+            </TableRow>
+        </TableLayout>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/divider_bar" />
 
         <Button
-            android:id="@+id/button_save"
+            android:id="@+id/matchCreate_post_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SAVE" />
+
     </TableLayout>
 </ScrollView>

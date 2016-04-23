@@ -3,27 +3,21 @@ package falconrobotics.scoutingprogram;
 mast rob
  */
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import java.io.IOException;
+import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.UUID;
 
 /**
  * Created on 2/7/2016.
@@ -49,7 +43,9 @@ public class Fragment_Sync extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //         rootView =  inflater.inflate(R.layout.layout_sync,container,false);
-//
+
+        rootView =  inflater.inflate(R.layout.layout_sync, null);
+
 //        switchStatus = (TextView) rootView.findViewById(R.id.SeverSwitch);
 //        mySwitch = (Switch) rootView.findViewById(R.id.SeverSwitch);
 //        mButton = (Button) rootView.findViewById(R.id.buttonSyncPit);
@@ -112,10 +108,17 @@ public class Fragment_Sync extends Fragment {
 //        });
 
 
+        Button delete = (Button) rootView.findViewById(R.id.sync_delete_ALL);
 
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper helper = new Helper();
 
-
-
+                helper.doRestart(getActivity().getApplicationContext());
+//                helper.resetData(new File(Helper.mainDirPath), true);
+            }
+        });
 
         return rootView;
     }

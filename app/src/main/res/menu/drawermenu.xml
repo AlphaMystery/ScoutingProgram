@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:id="@+id/group_scouting">
-        <item
-            android:id="@+id/nav_item_game_scout"
-            android:title="Game Scouting" />
-        <item
-            android:id="@+id/nav_item_pit_scout"
-            android:title="Pit Scouting" />
-    </group>
-
-    <group android:id="@+id/group_scouting_data">
-        <item android:title="Game Data" />
-        <item android:title="Pit Data" />
-    </group>
+    <item
+        android:id="@+id/nav_item_game_scout"
+        android:title="Game Scouting" />
+    <item
+        android:id="@+id/nav_item_pit_scout"
+        android:title="Pit Scouting" />
 
     <group android:id="@+id/group_sharing">
         <item
-            android:id="@+id/nav_item_bluetooth_share"
+            android:id="@+id/nav_item_share"
             android:title="Share" />
     </group>
 

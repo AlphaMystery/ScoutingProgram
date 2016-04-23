@@ -31,19 +31,19 @@
             android:background="@color/colorPrimaryDark2">
 
             <Button
-                android:id="@+id/tele_high_goal_miss_sub"
+                android:id="@+id/matchCreate_tele_high_goal_miss_sub"
                 android:layout_width="25dip"
                 android:layout_column="0"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_high_goal_miss_score"
+                android:id="@+id/matchCreate_tele_high_goal_miss_score"
                 android:layout_column="1"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_high_goal_miss_add"
+                android:id="@+id/matchCreate_tele_high_goal_miss_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
@@ -54,19 +54,19 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_high_goal_hit_sub"
+                android:id="@+id/matchCreate_tele_high_goal_hit_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_high_goal_hit_score"
+                android:id="@+id/matchCreate_tele_high_goal_hit_score"
                 android:layout_column="5"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_high_goal_hit_add"
+                android:id="@+id/matchCreate_tele_high_goal_hit_add"
                 android:layout_width="25dip"
                 android:layout_column="6"
                 android:text="+" />
@@ -77,19 +77,19 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/tele_low_goal_miss_sub"
+                android:id="@+id/matchCreate_tele_low_goal_miss_sub"
                 android:layout_width="25dip"
                 android:layout_column="0"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_low_goal_miss_score"
+                android:id="@+id/matchCreate_tele_low_goal_miss_score"
                 android:layout_column="1"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_low_goal_miss_add"
+                android:id="@+id/matchCreate_tele_low_goal_miss_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
@@ -100,19 +100,19 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_low_goal_hit_sub"
+                android:id="@+id/matchCreate_tele_low_goal_hit_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_low_goal_hit_score"
+                android:id="@+id/matchCreate_tele_low_goal_hit_score"
                 android:layout_column="5"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_low_goal_hit_add"
+                android:id="@+id/matchCreate_tele_low_goal_hit_add"
                 android:layout_width="25dip"
                 android:layout_column="6"
                 android:text="+" />
@@ -146,42 +146,42 @@
             android:background="@color/colorPrimaryDark2">
 
             <Button
-                android:id="@+id/tele_def_1_attempt_sub"
+                android:id="@+id/matchCreate_lowbar_attempt_sub"
                 android:layout_width="25dip"
                 android:layout_column="0"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_def_1_attempt_score"
+                android:id="@+id/matchCreate_lowbar_attempt_score"
                 android:layout_column="1"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_def_1_attempt_add"
+                android:id="@+id/matchCreate_lowbar_attempt_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
 
             <TextView
                 android:layout_column="3"
-                android:text="Defence 1"
+                android:text="Low Bar"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_def_1_cross_sub"
+                android:id="@+id/matchCreate_lowbar_cross_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_def_1_cross_score"
+                android:id="@+id/matchCreate_lowbar_cross_score"
                 android:layout_column="5"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_def_1_cross_add"
+                android:id="@+id/matchCreate_lowbar_cross_add"
                 android:layout_width="25dip"
                 android:layout_column="6"
                 android:text="+" />
@@ -192,42 +192,42 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/tele_def_2_attempt_sub"
+                android:id="@+id/matchCreate_drawbridge_attempt_sub"
                 android:layout_width="25dip"
                 android:layout_column="0"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_def_2_attempt_score"
+                android:id="@+id/matchCreate_drawbridge_attempt_score"
                 android:layout_column="1"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_def_2_attempt_add"
+                android:id="@+id/matchCreate_drawbridge_attempt_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
 
             <TextView
                 android:layout_column="3"
-                android:text="Defence 2"
+                android:text="Drawbirdge"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_def_2_cross_sub"
+                android:id="@+id/matchCreate_drawbridge_cross_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_def_2_cross_score"
+                android:id="@+id/matchCreate_drawbridge_cross_score"
                 android:layout_column="5"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_def_2_cross_add"
+                android:id="@+id/matchCreate_drawbridge_cross_add"
                 android:layout_width="25dip"
                 android:layout_column="6"
                 android:text="+" />
@@ -239,207 +239,45 @@
             android:background="@color/colorPrimaryDark2">
 
             <Button
-                android:id="@+id/tele_def_3_attempt_sub"
+                android:id="@+id/matchCreate_sallyport_attempt_sub"
                 android:layout_width="25dip"
                 android:layout_column="0"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_def_3_attempt_score"
+                android:id="@+id/matchCreate_sallyport_attempt_score"
                 android:layout_column="1"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_def_3_wall_attempt_add"
+                android:id="@+id/matchCreate_sallyport_attempt_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
 
             <TextView
                 android:layout_column="3"
-                android:text="Defence 3"
+                android:text="Sally Port"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_def_3_wall_cross_sub"
+                android:id="@+id/matchCreate_sallyport_cross_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/tele_def_3_cross_score"
+                android:id="@+id/matchCreate_sallyport_cross_score"
                 android:layout_column="5"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/tele_def_3_cross_add"
+                android:id="@+id/matchCreate_sallyport_cross_add"
                 android:layout_width="25dip"
                 android:layout_column="6"
                 android:text="+" />
         </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/tele_def_4_attempt_sub"
-                android:layout_width="25dip"
-                android:layout_column="0"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/tele_def_4_attempt_score"
-                android:layout_column="1"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/tele_def_4_attempt_add"
-                android:layout_width="25dip"
-                android:layout_column="2"
-                android:text="+" />
-
-            <TextView
-                android:layout_column="3"
-                android:text="Defence 4"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/tele_def_4_cross_sub"
-                android:layout_width="25dip"
-                android:layout_column="4"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/tele_def_4_cross_score"
-                android:layout_column="5"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/tele_def_4_cross_add"
-                android:layout_width="25dip"
-                android:layout_column="6"
-                android:text="+" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark2">
-
-            <Button
-                android:id="@+id/tele_def_5_attempt_sub"
-                android:layout_width="25dip"
-                android:layout_column="0"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/tele_def_5_attempt_score"
-                android:layout_column="1"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/tele_def_5_attempt_add"
-                android:layout_width="25dip"
-                android:layout_column="2"
-                android:text="+" />
-
-            <TextView
-                android:layout_column="3"
-                android:text="Defence 5"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/tele_def_5_cross_sub"
-                android:layout_width="25dip"
-                android:layout_column="4"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/tele_def_5_cross_score"
-                android:layout_column="5"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/tele_def_5_cross_add"
-                android:layout_width="25dip"
-                android:layout_column="6"
-                android:text="+" />
-        </TableRow>
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:progressDrawable="@drawable/divider_bar" />
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/blue2">
-
-            <TextView
-                android:layout_column="1"
-                android:text="Miss"
-                android:textAlignment="center" />
-
-            <TextView
-                android:layout_column="5"
-                android:text="Hit"
-                android:textAlignment="center" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/tele_boulders_passed_miss_sub"
-                android:layout_width="25dip"
-                android:layout_column="0"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/tele_boulders_passed_miss_score"
-                android:layout_column="1"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/tele_boulders_passed_miss_add"
-                android:layout_width="25dip"
-                android:layout_column="2"
-                android:text="+" />
-
-            <TextView
-                android:layout_column="3"
-                android:text="Boulders\nPassed"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/tele_boulders_passed_hit_sub"
-                android:layout_width="25dip"
-                android:layout_column="4"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/tele_boulders_passed_hit_score"
-                android:layout_column="5"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/tele_boulders_passed_hit_add"
-                android:layout_width="25dip"
-                android:layout_column="6"
-                android:text="+" />
-        </TableRow>
-
     </TableLayout>
 </ScrollView>

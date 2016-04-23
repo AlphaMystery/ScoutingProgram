@@ -1,31 +1,20 @@
 package falconrobotics.scoutingprogram;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-
-import java.io.IOException;
-import java.util.UUID;
 
 
 /**
  * Main class
  */
 public class MainActivity extends AppCompatActivity {
-    public static final UUID BT_UUID = UUID.fromString("196e8598-e74f-11e5-9730-9a79f06e9478");
     public static Context context;
 
     private DrawerLayout mDrawerLayout;
@@ -33,7 +22,15 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager mFragmentManager;
     private FragmentTransaction mFragmentTransaction;
 
-    private static String eventName = "champsDATA.db";
+    public static final String insertOrReplace = "INSERT OR REPLACE",
+            insert = "INSERT",
+            replace = "REPLACE";
+
+    public static String season = "2016",
+            eventCode = "AZFL",
+            tournamentLevel = "qual";	// qual OR playoff
+
+    public static String eventName = "champsDATA.db";
 
 
     @Override
@@ -41,13 +38,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = getApplicationContext();
-//        Thread thread = new Thread(runnable);
-//        thread.setPriority(Thread.MAX_PRIORITY);
-//        thread.start();
 
-        DBHelper.createDir();
+        Helper.createDir();
 
-        DBHelper myDbHelper = new DBHelper(eventName);
+        Helper myHelper = new Helper();
 
         /**
          *Setup the DrawerLayout and NavigationView
@@ -75,8 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (menuItem.getItemId() == R.id.nav_item_game_scout) {
                     FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new Fragment_Tab_S()).commit();
-
+                    fragmentTransaction.replace(R.id.containerView, new Tab_Fragment_S()).commit();
                 }
 
                 if (menuItem.getItemId() == R.id.nav_item_pit_scout) {
@@ -84,10 +77,28 @@ public class MainActivity extends AppCompatActivity {
                     xfragmentTransaction.replace(R.id.containerView, new Frame_Fragment_PS()).commit();
                 }
 
-                if (menuItem.getItemId() == R.id.nav_item_bluetooth_share) {
+                if (menuItem.getItemId() == R.id.nav_item_share) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
                     xfragmentTransaction.replace(R.id.containerView, new Fragment_Sync()).commit();
                 }
+
+//                if(menuItem.getItemId() == R.id.nav_item_schedule)
+//                {
+//                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+//                    xfragmentTransaction.replace(R.id.containerView, new Fragment_View_Schedule()).commit();
+//                }
+//
+//                if(menuItem.getItemId() == R.id.nav_item_view_gameD)
+//                {
+//                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+//                    xfragmentTransaction.replace(R.id.containerView, new Fragment_View_Game()).commit();
+//                }
+//
+//                if(menuItem.getItemId() == R.id.nav_item_view_pitD)
+//                {
+//                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+//                    xfragmentTransaction.replace(R.id.containerView, new Fragment_View_Pit()).commit();
+//                }
                 return false;
             }
 
@@ -101,15 +112,10 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name,
                 R.string.app_name);
 
-                    mDrawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         mDrawerToggle.syncState();
 
-    }
-
-    public static String getEventName()
-    {
-        return eventName;
     }
 }
 

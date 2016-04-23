@@ -10,4 +10,5 @@
     <color name="carbon_black">#252626</color>
     <color name="carbon_black2">#252626</color>
     <color name="carbon_black3">#777378</color>
+    <color name="translucent">#c8ffffff</color>
 </resources>
