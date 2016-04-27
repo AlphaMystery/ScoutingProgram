@@ -33,143 +33,34 @@ public class Tab_Fragment_S extends Fragment {
     private static EditText teamNumInput, matchNumInput;
     private static Spinner matchLevelInput;
 
-    private Model_Match model;
-
     private Helper helper;
 
-
+    private Model_Match model;
 
     private static int teamNum, matchNum;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         helper = new Helper();
-    /*
-    Checks if there's a schedule available
-     */
-//        if(Interface_Spinners.Matches.size() < 1){
-//            Toast.makeText(MainActivity.context, "Woops! No schedule found! Please sync with main device or pull the data from FIRST.", Toast.LENGTH_LONG).show();
-//
-//            Fragment fragment = new Fragment_Sync();
-//
-//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.replace(R.id.containerView, fragment);
-//            fragmentTransaction.addToBackStack(null);
-//            fragmentTransaction.commit();
-//        }else
-        {
-
-            rootView = inflater.inflate(R.layout.tab_layout_g, null);
-            tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_g);
-            viewPager = (ViewPager) rootView.findViewById(R.id.viewpager_g);
-
-            viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
-
-            tabLayout.post(new Runnable() {
-                @Override
-                public void run() {
-                    tabLayout.setupWithViewPager(viewPager);
-                }
-            });
 
 
-            LayoutInflater li = LayoutInflater.from(rootView.getContext());
-            View promptsView = li.inflate(R.layout.prompt_layout_s, null);
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(rootView.getContext());
-            alertDialogBuilder.setView(promptsView);
+        rootView = inflater.inflate(R.layout.tab_layout_g, container, false);
+        tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_g);
+        viewPager = (ViewPager) rootView.findViewById(R.id.viewpager_g);
 
-            teamNumInput = (EditText) promptsView.findViewById(R.id.prematch_teamNum);
-            matchNumInput = (EditText) promptsView.findViewById(R.id.prematch_matchNum);
-            matchLevelInput = (Spinner) promptsView.findViewById(R.id.prematch_level);
-            matchLevelInput.setAdapter(new ArrayAdapter<>(
-                    rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Spinners.MatchLevel)));
+        viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
 
-//            viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//                @Override
-//                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                }
-//
-//                @Override
-//                public void onPageSelected(int position) {
-//                    update();
-//                }
-//
-//                @Override
-//                public void onPageScrollStateChanged(int state) {
-//
-//                }
-//            });
+        dialog(container);
 
-            viewPager.setOffscreenPageLimit(2);
+        tabLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                tabLayout.setupWithViewPager(viewPager);
+            }
+        });
 
-            // set dialog message
-            alertDialogBuilder
-                    .setCancelable(false)
-                    .setPositiveButton("SUBMIT",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    if(teamNumInput.getText().toString().matches("") || matchNumInput.getText().toString().matches(""))
-                                    {
-                                        if(teamNumInput.getText().toString().matches(""))Toast.makeText(MainActivity.context, "Woops! Please enter a valid team number!", Toast.LENGTH_LONG).show();
-                                        else Toast.makeText(MainActivity.context, "Woops! Please enter a valid match number!", Toast.LENGTH_LONG).show();
-
-                                        Fragment fragment = new Tab_Fragment_S();
-
-                                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                        fragmentTransaction.replace(R.id.containerView, fragment);
-                                        fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.commit();
-                                    }
-                                    else
-                                    {
-                                        teamNum = Integer.parseInt(teamNumInput.getText().toString());
-                                        matchNum = Integer.parseInt(matchNumInput.getText().toString() + (matchLevelInput.getSelectedItem().equals(0) ? 1000 : 2000));
-
-                                        if(helper.matchDataCheck(Integer.parseInt(teamNumInput.getText().toString()), Integer.parseInt(matchNumInput.getText().toString() + (matchLevelInput.getSelectedItem().equals(0) ? 1000 : 2000)))){
-                                            Fragment_S_Auto.assignPre();
-                                            Fragment_S_Tele.assignPre();
-                                            Fragment_S_Post.assignPre();
-                                        }
-                                    }
-// else{
-//                                    Toast.makeText(MainActivity.context, "Woops! Please enter a number on the roster!", Toast.LENGTH_LONG).show();
-//
-//                                    Fragment fragment = new Tab_Fragment_S();
-//
-//                                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                                    fragmentTransaction.replace(R.id.containerView, fragment);
-//                                    fragmentTransaction.addToBackStack(null);
-//                                    fragmentTransaction.commit();
-//                                }
-
-
-                                }
-                            })
-                    .setNegativeButton("CANCEL",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    Fragment fragment = new Fragment_Sync();
-
-                                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                    fragmentTransaction.replace(R.id.containerView, fragment);
-                                    fragmentTransaction.addToBackStack(null);
-                                    fragmentTransaction.commit();
-                                }
-                            });
-            // create alert dialog
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            // show it
-            alertDialog.show();
-
-
-            return rootView;}
-//        return null;
+        return rootView;
     }
 
     class MyAdapter extends FragmentPagerAdapter {
@@ -227,14 +118,95 @@ public class Tab_Fragment_S extends Fragment {
         return matchNum;
     }
 
-    private void update()
+    private void dialog(ViewGroup container)
     {
-//        Fragment_S_Auto auto = new Fragment_S_Auto();
-//
-//        model = auto.update(model);
-//        update(model);
-//        update(model);
-//
-//        helper.match_update(MainActivity.insertOrReplace, model);
+
+        LayoutInflater li = LayoutInflater.from(rootView.getContext());
+        View promptsView = li.inflate(R.layout.prompt_layout_s, container, false);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(rootView.getContext());
+        alertDialogBuilder.setView(promptsView);
+
+        teamNumInput = (EditText) promptsView.findViewById(R.id.prematch_teamNum);
+        matchNumInput = (EditText) promptsView.findViewById(R.id.prematch_matchNum);
+        matchLevelInput = (Spinner) promptsView.findViewById(R.id.prematch_level);
+        matchLevelInput.setAdapter(new ArrayAdapter<>(
+                rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList(Interface_Spinners.MatchLevel)));
+
+        viewPager.setOffscreenPageLimit(2);
+
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("SUBMIT",
+                        new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int id)
+                            {
+                                if(teamNumInput.getText().toString().matches("") || matchNumInput.getText().toString().matches(""))
+                                {
+                                    if(teamNumInput.getText().toString().matches(""))Toast.makeText(MainActivity.context, "Woops! Please enter a valid team number!", Toast.LENGTH_LONG).show();
+                                    else Toast.makeText(MainActivity.context, "Woops! Please enter a valid match number!", Toast.LENGTH_LONG).show();
+
+                                    Fragment fragment = new Tab_Fragment_S();
+
+                                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                    fragmentTransaction.replace(R.id.containerView, fragment);
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
+                                }
+                                else
+                                {
+                                    teamNum = Integer.parseInt(teamNumInput.getText().toString());
+                                    matchNum = Integer.parseInt(matchNumInput.getText().toString()) + (matchLevelInput.getSelectedItem().equals(1) ? 1000 : 2000);
+
+                                    if(!helper.matchDataCheck(teamNum, matchNum)){
+                                        Model_Match model_match = helper.match_readTeam(matchNum,teamNum);
+
+                                        Match_Model_Save._id = model_match.get_id();
+                                        Match_Model_Save.teamNum = model_match.getTeamNum();
+                                        Match_Model_Save.autoLowMiss = model_match.getAutoLowMiss();
+                                        Match_Model_Save.autoLowHit = model_match.getAutoLowHit();
+                                        Match_Model_Save.autoHighMiss = model_match.getAutoHighMiss();
+                                        Match_Model_Save.autoHighHit = model_match.getAutoHighHit();
+                                        Match_Model_Save.autoLowBarMiss = model_match.getAutoLowBarMiss();
+                                        Match_Model_Save.autoLowBarHit = model_match.getAutoLowBarHit();
+                                        Match_Model_Save.autoCMiss = model_match.getAutoCMiss();
+                                        Match_Model_Save.autoCHit = model_match.getAutoCHit();
+                                        Match_Model_Save.teleSector1Miss = model_match.getTeleSector1Miss();
+                                        Match_Model_Save.teleSector1Hit = model_match.getTeleSector1Hit();
+                                        Match_Model_Save.teleSector2Miss = model_match.getTeleSector2Miss();
+                                        Match_Model_Save.teleSector2Hit = model_match.getTeleSector2Hit();
+                                        Match_Model_Save.teleSector3Miss = model_match.getTeleSector3Miss();
+                                        Match_Model_Save.teleSector3Hit = model_match.getTeleSector3Hit();
+                                        Match_Model_Save.teleSector4Miss = model_match.getTeleSector4Miss();
+                                        Match_Model_Save.teleSector4Hit = model_match.getTeleSector4Hit();
+                                        Match_Model_Save.teleSector5Miss = model_match.getTeleSector5Miss();
+                                        Match_Model_Save.teleSector5Hit = model_match.getTeleSector5Hit();
+                                        Match_Model_Save.teleSector6Miss = model_match.getTeleSector6Miss();
+                                        Match_Model_Save.teleSector6Hit = model_match.getTeleSector6Hit();
+                                        Match_Model_Save.postClimb = model_match.getPostClimb();
+                                        Match_Model_Save.postComments = model_match.getPostComments();
+                                    }
+                                }
+                            }
+                        })
+                .setNegativeButton("CANCEL",
+                        new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int id)
+                            {
+                                Fragment fragment = new Fragment_Sync();
+
+                                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                fragmentTransaction.replace(R.id.containerView, fragment);
+                                fragmentTransaction.addToBackStack(null);
+                                fragmentTransaction.commit();
+                            }
+                        });
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }

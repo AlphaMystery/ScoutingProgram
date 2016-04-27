@@ -107,4 +107,10 @@ public interface Interface_Spinners {
         ArrayList<Integer> Teams = new ArrayList<Integer>();
         ArrayList<Integer> Matches = new ArrayList<Integer>();
         ArrayList<Integer> MatchesWLevel = new ArrayList<Integer>();
+
+        String[] themes =
+                {
+                        "Default",
+                        "Pink"
+                };
 }

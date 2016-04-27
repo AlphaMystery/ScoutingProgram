@@ -79,9 +79,9 @@ public class Frame_Fragment_PS extends Fragment{
             matrix.postRotate(rotation);
             img.recycle();
 
-            return Bitmap.createBitmap(img, 0, 0, 1080, 720, matrix, true);
+            return Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true);
         } else {
-            return Bitmap.createScaledBitmap(img, 1080, 720, false);
+            return img;
         }
     }
 
@@ -197,7 +197,7 @@ public class Frame_Fragment_PS extends Fragment{
         assignDefault();
     }
 
-    public void assignDefault() {
+    private void assignDefault() {
         spinner_driverExperience.setSelection(0);
         spinner_operatorExperience.setSelection(0);
         spinner_drivetrain.setSelection(0);
@@ -221,7 +221,7 @@ public class Frame_Fragment_PS extends Fragment{
         robotDimensions.setText("");
     }
 
-    public void assignPre() {
+    private void assignPre() {
         Model_Pit model_pit = helper.pit_readTeam(teamNum);
 
         spinner_driverExperience.setSelection(model_pit.getDriverXP());
@@ -252,7 +252,7 @@ public class Frame_Fragment_PS extends Fragment{
         robotDimensions.setText(model_pit.getRobotDimensions());
     }
 
-    public void update() {
+    private void update() {
         Model_Pit model = new Model_Pit(
                 teamNum,
                 spinner_driverExperience.getSelectedItemPosition(),

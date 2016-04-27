@@ -37,61 +37,61 @@ public class Helper extends SQLiteOpenHelper
     //Match Table  keys
     public static final String KEY_MATCH_ID ="_id",
             KEY_MATCH_TEAMNUM ="teamNum",
-            KEY_MATCH_AUTODEF1MISS ="autoDef1Miss",
-            KEY_MATCH_AUTODEF1HIT ="autoDef1Hit",
-            KEY_MATCH_AUTODEF2MISS ="autoDef2Miss",
-            KEY_MATCH_AUTODEF2HIT ="autoDef2Hit",
-            KEY_MATCH_AUTODEF3MISS ="autoDef3Miss",
-            KEY_MATCH_AUTODEF3HIT ="autoDef3Hit",
-            KEY_MATCH_AUTODEF4MISS ="autoDef4Miss",
-            KEY_MATCH_AUTODEF4HIT ="autoDef4Hit",
-            KEY_MATCH_AUTODEF5MISS ="autoDef5Miss",
-            KEY_MATCH_AUTODEF5HIT ="autoDef5Hit",
             KEY_MATCH_AUTOLOWMISS ="autoLowMiss",
             KEY_MATCH_AUTOLOWHIT ="autoLowHit",
             KEY_MATCH_AUTOHIGHMISS ="autoHighMiss",
             KEY_MATCH_AUTOHIGHHIT ="autoHighHit",
-            KEY_MATCH_TELELOWMISS ="teleLowMiss",
-            KEY_MATCH_TELELOWHIT ="teleLowHit",
-            KEY_MATCH_TELEHIGHMISS ="teleHighMiss",
-            KEY_MATCH_TELEHIGHHIT ="teleHighHit",
-            KEY_MATCH_LOWBARMISS = "lowBarMiss",
-            KEY_MATCH_LOWBARHIT = "lowBarHit",
-            KEY_MATCH_DRAWBRIDGEMISS = "drawbridgeMiss",
-            KEY_MATCH_DRAWBRIDGEHIT = "drawbridgeHit",
-            KEY_MATCH_SALLYPORTMISS = "sallyPortMiss",
-            KEY_MATCH_SALLYPORTHIT = "sallyPortHit",
-            KEY_MATCH_SAFESPOT = "safeSpot",
-            KEY_MATCH_CLIMB ="climb";
+            KEY_MATCH_AUTOLOWBARMISS ="autoLowBarMiss",
+            KEY_MATCH_AUTOLOWBARHIT ="autoLowBarHit",
+            KEY_MATCH_AUTOCMISS ="autoCMiss",
+            KEY_MATCH_AUTOCHIT ="autoCHit",
+            KEY_MATCH_TELELOWBARMISS = "teleLowBarMiss",
+            KEY_MATCH_TELELOWBARHIT = "teleLowBarHit",
+            KEY_MATCH_TELECMISS = "teleCMiss",
+            KEY_MATCH_TELECHIT = "teleCHit",
+            KEY_MATCH_TELESECTOR1MISS = "teleSector1Miss",
+            KEY_MATCH_TELESECTOR1HIT = "teleSector1Hit",
+            KEY_MATCH_TELESECTOR2MISS = "teleSector2Miss",
+            KEY_MATCH_TELESECTOR2HIT = "teleSector2Hit",
+            KEY_MATCH_TELESECTOR3MISS = "teleSector3Miss",
+            KEY_MATCH_TELESECTOR3HIT = "teleSector3Hit",
+            KEY_MATCH_TELESECTOR4MISS = "teleSector4Miss",
+            KEY_MATCH_TELESECTOR4HIT = "teleSector4Hit",
+            KEY_MATCH_TELESECTOR5MISS = "teleSector5Miss",
+            KEY_MATCH_TELESECTOR5HIT = "teleSector5Hit",
+            KEY_MATCH_TELESECTOR6MISS = "teleSector6Miss",
+            KEY_MATCH_TELESECTOR6HIT = "teleSector6Hit",
+            KEY_MATCH_POSTCLIMB ="postClimb",
+            KEY_MATCH_POSTCOMMENTS = "postComments";
     public static final String[] ARRAY_MATCH = {
             KEY_MATCH_ID,
             KEY_MATCH_TEAMNUM,
-            KEY_MATCH_AUTODEF1MISS,
-            KEY_MATCH_AUTODEF1HIT,
-            KEY_MATCH_AUTODEF2MISS,
-            KEY_MATCH_AUTODEF2HIT,
-            KEY_MATCH_AUTODEF3MISS,
-            KEY_MATCH_AUTODEF3HIT,
-            KEY_MATCH_AUTODEF4MISS,
-            KEY_MATCH_AUTODEF4HIT,
-            KEY_MATCH_AUTODEF5MISS,
-            KEY_MATCH_AUTODEF5HIT,
             KEY_MATCH_AUTOLOWMISS,
             KEY_MATCH_AUTOLOWHIT,
             KEY_MATCH_AUTOHIGHMISS,
             KEY_MATCH_AUTOHIGHHIT,
-            KEY_MATCH_TELELOWMISS,
-            KEY_MATCH_TELELOWHIT,
-            KEY_MATCH_TELEHIGHMISS,
-            KEY_MATCH_TELEHIGHHIT,
-            KEY_MATCH_LOWBARMISS,
-            KEY_MATCH_LOWBARHIT,
-            KEY_MATCH_DRAWBRIDGEMISS,
-            KEY_MATCH_DRAWBRIDGEHIT,
-            KEY_MATCH_SALLYPORTMISS,
-            KEY_MATCH_SALLYPORTHIT,
-            KEY_MATCH_SAFESPOT,
-            KEY_MATCH_CLIMB,
+            KEY_MATCH_AUTOLOWBARMISS,
+            KEY_MATCH_AUTOLOWBARHIT,
+            KEY_MATCH_AUTOCMISS,
+            KEY_MATCH_AUTOCHIT,
+            KEY_MATCH_TELELOWBARMISS,
+            KEY_MATCH_TELELOWBARHIT,
+            KEY_MATCH_TELECMISS,
+            KEY_MATCH_TELECHIT,
+            KEY_MATCH_TELESECTOR1MISS,
+            KEY_MATCH_TELESECTOR1HIT,
+            KEY_MATCH_TELESECTOR2MISS,
+            KEY_MATCH_TELESECTOR2HIT,
+            KEY_MATCH_TELESECTOR3MISS,
+            KEY_MATCH_TELESECTOR3HIT,
+            KEY_MATCH_TELESECTOR4MISS,
+            KEY_MATCH_TELESECTOR4HIT,
+            KEY_MATCH_TELESECTOR5MISS,
+            KEY_MATCH_TELESECTOR5HIT,
+            KEY_MATCH_TELESECTOR6MISS,
+            KEY_MATCH_TELESECTOR6HIT,
+            KEY_MATCH_POSTCLIMB,
+            KEY_MATCH_POSTCOMMENTS,
             KEY_SYNCNUM};
 
     //Pit Table  keys
@@ -173,41 +173,41 @@ public class Helper extends SQLiteOpenHelper
     public static final String CREATE_TABLE_MATCH =
             "CREATE TABLE IF NOT EXISTS "
                     + TABLE_MATCHES + "("
-                    + KEY_MATCH_ID + " INT PRIMARY KEY NOT NULL, "
+                    + KEY_MATCH_ID + " INTEGER PRIMARY KEY NOT NULL, "
                     + KEY_MATCH_TEAMNUM + INTEGER
-                    + KEY_MATCH_AUTODEF1MISS + INTEGER
-                    + KEY_MATCH_AUTODEF1HIT + INTEGER
-                    + KEY_MATCH_AUTODEF2MISS + INTEGER
-                    + KEY_MATCH_AUTODEF2HIT + INTEGER
-                    + KEY_MATCH_AUTODEF3MISS + INTEGER
-                    + KEY_MATCH_AUTODEF3HIT + INTEGER
-                    + KEY_MATCH_AUTODEF4MISS + INTEGER
-                    + KEY_MATCH_AUTODEF4HIT + INTEGER
-                    + KEY_MATCH_AUTODEF5MISS + INTEGER
-                    + KEY_MATCH_AUTODEF5HIT + INTEGER
                     + KEY_MATCH_AUTOLOWMISS + INTEGER
                     + KEY_MATCH_AUTOLOWHIT + INTEGER
                     + KEY_MATCH_AUTOHIGHMISS + INTEGER
                     + KEY_MATCH_AUTOHIGHHIT + INTEGER
-                    + KEY_MATCH_TELELOWMISS + INTEGER
-                    + KEY_MATCH_TELELOWHIT + INTEGER
-                    + KEY_MATCH_TELEHIGHMISS + INTEGER
-                    + KEY_MATCH_TELEHIGHHIT + INTEGER
-                    + KEY_MATCH_LOWBARMISS + INTEGER
-                    + KEY_MATCH_LOWBARHIT + INTEGER
-                    + KEY_MATCH_DRAWBRIDGEMISS + INTEGER
-                    + KEY_MATCH_DRAWBRIDGEHIT + INTEGER
-                    + KEY_MATCH_SALLYPORTMISS + INTEGER
-                    + KEY_MATCH_SALLYPORTHIT + INTEGER
-                    + KEY_MATCH_SAFESPOT + INTEGER
-                    + KEY_MATCH_CLIMB + INTEGER
+                    + KEY_MATCH_AUTOLOWBARMISS + INTEGER
+                    + KEY_MATCH_AUTOLOWBARHIT + INTEGER
+                    + KEY_MATCH_AUTOCMISS + INTEGER
+                    + KEY_MATCH_AUTOCHIT + INTEGER
+                    + KEY_MATCH_TELELOWBARMISS + INTEGER
+                    + KEY_MATCH_TELELOWBARHIT + INTEGER
+                    + KEY_MATCH_TELECMISS + INTEGER
+                    + KEY_MATCH_TELECHIT + INTEGER
+                    + KEY_MATCH_TELESECTOR1MISS + INTEGER
+                    + KEY_MATCH_TELESECTOR1HIT + INTEGER
+                    + KEY_MATCH_TELESECTOR2MISS + INTEGER
+                    + KEY_MATCH_TELESECTOR2HIT + INTEGER
+                    + KEY_MATCH_TELESECTOR3MISS + INTEGER
+                    + KEY_MATCH_TELESECTOR3HIT + INTEGER
+                    + KEY_MATCH_TELESECTOR4MISS + INTEGER
+                    + KEY_MATCH_TELESECTOR4HIT + INTEGER
+                    + KEY_MATCH_TELESECTOR5MISS + INTEGER
+                    + KEY_MATCH_TELESECTOR5HIT + INTEGER
+                    + KEY_MATCH_TELESECTOR6MISS + INTEGER
+                    + KEY_MATCH_TELESECTOR6HIT + INTEGER
+                    + KEY_MATCH_POSTCLIMB + INTEGER
+                    + KEY_MATCH_POSTCOMMENTS + TEXT
                     + KEY_SYNCNUM + " INT NOT NULL"
                     + ");";
     //Pit Table  create statement
     public static final String CREATE_TABLE_PIT =
             "CREATE TABLE IF NOT EXISTS "
                     + TABLE_PIT + "("
-                    + KEY_PIT_ID + " INT PRIMARY KEY NOT NULL, "
+                    + KEY_PIT_ID + " INTEGER PRIMARY KEY NOT NULL, "
                     + KEY_PIT_DRIVER_XP + INTEGER
                     + KEY_PIT_OPERATOR_XP + INTEGER
                     + KEY_PIT_DRIVETRAIN + INTEGER
@@ -277,7 +277,7 @@ public class Helper extends SQLiteOpenHelper
      *
      * Static because helps with accessibility.
      */
-    public static void createDir() {
+    public void createDir() {
         File picDir = new File(picDirPath);
         if (!picDir.exists()) {
             if (!picDir.mkdirs()) {
@@ -337,18 +337,16 @@ public class Helper extends SQLiteOpenHelper
         if(db!=null) {
             db.execSQL(updateStatement + " INTO " + TABLE_MATCHES +
                     "(_id, teamNum, " +
-                    "autoDef1Miss, autoDef1Hit, autoDef2Miss, autoDef2Hit, autoDef3Miss, autoDef3Hit, autoDef4Miss, autoDef4Hit, autoDef5Miss, autoDef5Hit, " +
-                    "autoLowMiss, autoLowHit, autoHighMiss, autoHighHit, " +
-                    "teleLowMiss, teleLowHit, teleHighMiss, teleHighHit, " +
-                    "lowBarMiss, lowBarHit, drawbridgeMiss, drawbridgeHit, sallyPortMiss, sallyPortHit, safeSpot, " +
-                    "climb, syncNum)" +
+                    "autoLowMiss, autoLowHit, autoHighMiss, autoHighHit, autoLowBarMiss, autoLowBarHit, autoCMiss, autoCHit, " +
+                    "teleLowBarMiss, teleLowBarHit, teleCMiss, teleCMiss, " +
+                    "teleSector1Miss, teleSector1Hit, teleSector2Miss, teleSector2Hit, teleSector3Miss, teleSector3Hit, teleSector4Miss, teleSector4Hit, teleSector5Miss, teleSector5Hit, teleSector6Miss, teleSector6Hit, " +
+                    "postClimb, postComments, syncNum)" +
                     " VALUES(" +
                     matchObject.get_id() + ", " + matchObject.getTeamNum() + ", " +
-                    matchObject.getAutoDef1Miss() + ", " + matchObject.getAutoDef1Hit() + ", " + matchObject.getAutoDef2Miss() + ", " + matchObject.getAutoDef2Hit() + ", " + matchObject.getAutoDef3Miss() + ", " + matchObject.getAutoDef3Hit() + ", " + matchObject.getAutoDef4Miss() + ", " + matchObject.getAutoDef4Hit() + ", " + matchObject.getAutoDef5Miss() + ", " + matchObject.getAutoDef5Hit() + ", " +
-                    matchObject.getAutoLowMiss() + ", " + matchObject.getAutoLowHit() + ", " + matchObject.getAutoHighMiss() + ", " + matchObject.getAutoHighHit() + ", " +
-                    matchObject.getTeleLowMiss() + ", " + matchObject.getTeleLowHit() + ", " + matchObject.getTeleHighMiss() + ", " + matchObject.getTeleHighHit() + ", " +
-                    matchObject.getTeleLowBarMiss() + ", " + matchObject.getTeleLowBarHit() + ", " + matchObject.getTeleDrawbridgeMiss() + ", " + matchObject.getTeleDrawbridgeHit() + ", " + matchObject.getTeleSallyPortMiss() + ", " + matchObject.getTeleSallyPortHit() + ", " + matchObject.getSafeSpot() + ", " +
-                    matchObject.getClimb() + ", " + matchObject.getSyncNum() + ")");
+                    matchObject.getAutoLowMiss() + ", " + matchObject.getAutoLowHit() + ", " + matchObject.getAutoHighMiss() + ", " + matchObject.getAutoHighHit() + ", " + matchObject.getAutoLowBarMiss() + ", " + matchObject.getAutoLowBarHit() + ", " + matchObject.getAutoCMiss() + ", " + matchObject.getAutoCHit() + ", " +
+                    matchObject.getTeleLowBarMiss() + ", " + matchObject.getTeleLowBarHit() + ", " + matchObject.getTeleCMiss() + ", " + matchObject.getTeleCMiss() + ", " +
+                    matchObject.getTeleSector1Miss() + ", " + matchObject.getTeleSector1Hit() + ", " + matchObject.getTeleSector2Miss() + ", " + matchObject.getTeleSector2Hit() + ", " + matchObject.getTeleSector3Miss() + ", " + matchObject.getTeleSector3Hit() + ", " + matchObject.getTeleSector4Miss() + ", " + matchObject.getTeleSector4Hit() + ", " + matchObject.getTeleSector5Miss() + ", " + matchObject.getTeleSector5Hit() + ", " + matchObject.getTeleSector6Miss() + ", " + matchObject.getTeleSector6Hit() + ", " +
+                    matchObject.getPostClimb() + ", '" + matchObject.getPostComments() + "', " + matchObject.getSyncNum() + ")");
             db.close();
         }
 
@@ -425,14 +423,17 @@ public class Helper extends SQLiteOpenHelper
     {
         SQLiteDatabase db = getReadableDatabase();
 
-        if(db == null) return null;
+        if(db == null) {
+            Toast.makeText(MainActivity.context,"I failed to load the database!",Toast.LENGTH_SHORT).show();
+            return null;
+        }
 
-        Cursor c = db.query(TABLE_MATCHES, ARRAY_MATCH, KEY_MATCH_ID + " =? AND " + KEY_MATCH_TEAMNUM + " =? ",
-                new String[]{String.valueOf(_id), String.valueOf(teamNum)}, null, null, null, null);
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_MATCHES + " WHERE _id =? AND teamNum =? ", new String[]{_id + "", teamNum + ""});
         Model_Match model;
 
-        if(c!=null)
-        {
+        if(c.getCount() > 0) {
+            c.moveToFirst();
+
             model = new Model_Match(
                     c.getInt(0),
                     c.getInt(1),
@@ -461,16 +462,13 @@ public class Helper extends SQLiteOpenHelper
                     c.getInt(24),
                     c.getInt(25),
                     c.getInt(26),
-                    c.getInt(27),
+                    c.getString(27),
                     c.getInt(28)
             );
 
-
-            db.close();
             c.close();
             return model;
         }
-
         return null;
     }
 
@@ -482,6 +480,8 @@ public class Helper extends SQLiteOpenHelper
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
+        createDir();
+
         db.execSQL(CREATE_TABLE_MATCH);
         db.execSQL(CREATE_TABLE_PIT);
         db.execSQL(CREATE_TABLE_SCHEDULE);
@@ -510,24 +510,27 @@ public class Helper extends SQLiteOpenHelper
      *          Whether or not you really want to delete all associated files with the app.
      */
     public void resetData(File dir, boolean areYouSure)
-    {if(areYouSure){
-        if( dir.exists() ) {
+    {if(areYouSure)
+    {
+        if(dir.exists())
+        {
             File[] files = dir.listFiles();
-            for(int i=0; i<files.length; i++) {
-                if(files[i].isDirectory()) {
-                    resetData(files[i], true);
+            for(File file : files)
+            {
+                if(file.isDirectory())
+                {
+                    resetData(file, true);
                 }
-                else {
-                    files[i].delete();
+                else
+                {
+                    file.delete();
                 }
             }
         }
-        if(dir.delete())
-            Toast.makeText(MainActivity.context, "Success!", Toast.LENGTH_SHORT).show();
+        if(dir.delete()) Toast.makeText(MainActivity.context, "Success!", Toast.LENGTH_SHORT).show();
 
-        createDir();
-
-        Helper helper = new Helper();
+        onCreate(getWritableDatabase());
+        doRestart(MainActivity.context);
     }}
 
     /**
@@ -567,7 +570,7 @@ public class Helper extends SQLiteOpenHelper
         Cursor c = getWritableDatabase().rawQuery("SELECT * FROM "+ table, null);
         int rowcount = 0;
         int colcount = 0;
-        String filename = "export_" + table + "_.csv";
+        String filename = table + "_export.csv";
         try{
             File saveFile = new File(new File(Helper.mainDirPath), filename);
             FileWriter fw = new FileWriter(saveFile);
@@ -599,6 +602,8 @@ public class Helper extends SQLiteOpenHelper
         } catch (Exception ex) {
             Toast.makeText(MainActivity.context, "Error exporting " + table, Toast.LENGTH_LONG).show();
         }
+
+        c.close();
     }
 
     public void doRestart(Context c) {

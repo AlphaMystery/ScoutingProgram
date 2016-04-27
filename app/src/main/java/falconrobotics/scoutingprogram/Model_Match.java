@@ -8,93 +8,93 @@ package falconrobotics.scoutingprogram;
 public class Model_Match {
     private int _id,
             teamNum,
-            autoDef1Miss,
-            autoDef1Hit,
-            autoDef2Miss,
-            autoDef2Hit,
-            autoDef3Miss,
-            autoDef3Hit,
-            autoDef4Miss,
-            autoDef4Hit,
-            autoDef5Miss,
-            autoDef5Hit,
             autoLowMiss,
             autoLowHit,
             autoHighMiss,
             autoHighHit,
-            teleLowMiss,
-            teleLowHit,
-            teleHighMiss,
-            teleHighHit,
+            autoLowBarMiss,
+            autoLowBarHit,
+            autoCMiss,
+            autoCHit,
             teleLowBarMiss,
             teleLowBarHit,
-            teleDrawbridgeMiss,
-            teleDrawbridgeHit,
-            teleSallyPortMiss,
-            teleSallyPortHit,
-            safeSpot,
-            climb,
+            teleCMiss,
+            teleCHit,
+            teleSector1Miss,
+            teleSector1Hit,
+            teleSector2Miss,
+            teleSector2Hit,
+            teleSector3Miss,
+            teleSector3Hit,
+            teleSector4Miss,
+            teleSector4Hit,
+            teleSector5Miss,
+            teleSector5Hit,
+            teleSector6Miss,
+            teleSector6Hit,
+            postClimb,
             syncNum;
+    private String postComments;
 
     public Model_Match(
-            int _id,            //1
-            int teamNum,        //2
-            int autoDef1Miss,   //3
-            int autoDef1Hit,    //4
-            int autoDef2Miss,   //5
-            int autoDef2Hit,    //6
-            int autoDef3Miss,   //7
-            int autoDef3Hit,    //8
-            int autoDef4Miss,   //9
-            int autoDef4Hit,    //10
-            int autoDef5Miss,   //11
-            int autoDef5Hit,    //12
-            int autoLowMiss,    //13
-            int autoLowHit,     //14
-            int autoHighMiss,   //15
-            int autoHighHit,    //16
-            int teleLowMiss,    //17
-            int teleLowHit,     //18
-            int teleHighMiss,   //19
-            int teleHighHit,    //20
-            int teleLowBarMiss,     //21
+            int _id,
+            int teamNum,
+            int autoLowMiss,
+            int autoLowHit,
+            int autoHighMiss,
+            int autoHighHit,
+            int autoLowBarMiss,
+            int autoLowBarHit,
+            int autoCMiss,
+            int autoCHit,
+            int teleLowBarMiss,
             int teleLowBarHit,
-            int teleDrawbridgeMiss, //22
-            int teleDrawbridgeHit,
-            int teleSallyPortMiss,  //23
-            int teleSallyPortHit,
-            int safeSpot,
-            int climb,          //25
-            int syncNum)        //27
+            int teleCMiss,
+            int teleCHit,
+            int teleSector1Miss,
+            int teleSector1Hit,
+            int teleSector2Miss,
+            int teleSector2Hit,
+            int teleSector3Miss,
+            int teleSector3Hit,
+            int teleSector4Miss,
+            int teleSector4Hit,
+            int teleSector5Miss,
+            int teleSector5Hit,
+            int teleSector6Miss,
+            int teleSector6Hit,
+            int postClimb,
+            String postComments,
+            int syncNum)
     {
-        this._id = _id;
+        this._id =  _id;
         this.teamNum = teamNum;
-        this.autoDef1Miss = autoDef1Miss;
-        this.autoDef1Hit = autoDef1Hit;
-        this.autoDef2Miss = autoDef2Miss;
-        this.autoDef2Hit = autoDef2Hit;
-        this.autoDef3Miss = autoDef3Miss;
-        this.autoDef3Hit = autoDef3Hit;
-        this.autoDef4Miss = autoDef4Miss;
-        this.autoDef4Hit = autoDef4Hit;
-        this.autoDef5Miss = autoDef5Miss;
-        this.autoDef5Hit = autoDef5Hit;
         this.autoLowMiss = autoLowMiss;
         this.autoLowHit = autoLowHit;
         this.autoHighMiss = autoHighMiss;
         this.autoHighHit = autoHighHit;
-        this.teleLowMiss = teleLowMiss;
-        this.teleLowHit = teleLowHit;
-        this.teleHighMiss = teleHighMiss;
-        this.teleHighHit = teleHighHit;
+        this.autoLowBarMiss = autoLowBarMiss;
+        this.autoLowBarHit = autoLowBarHit;
+        this.autoCMiss = autoCMiss;
+        this.autoCHit = autoCHit;
         this.teleLowBarMiss = teleLowBarMiss;
         this.teleLowBarHit = teleLowBarHit;
-        this.teleDrawbridgeMiss = teleDrawbridgeMiss;
-        this.teleDrawbridgeHit = teleDrawbridgeHit;
-        this.teleSallyPortMiss = teleSallyPortMiss;
-        this.teleSallyPortHit = teleSallyPortHit;
-        this.safeSpot = safeSpot;
-        this.climb = climb;
+        this.teleCMiss = teleCMiss;
+        this.teleCHit = teleCHit;
+        this.teleSector1Miss = teleSector1Miss;
+        this.teleSector1Hit = teleSector1Hit;
+        this.teleSector2Miss = teleSector2Miss;
+        this.teleSector2Hit = teleSector2Hit;
+        this.teleSector3Miss = teleSector3Miss;
+        this.teleSector3Hit = teleSector3Hit;
+        this.teleSector4Miss = teleSector4Miss;
+        this.teleSector4Hit = teleSector4Hit;
+        this.teleSector5Miss = teleSector5Miss;
+        this.teleSector5Hit = teleSector5Hit;
+        this.teleSector6Miss = teleSector6Miss;
+        this.teleSector6Hit = teleSector6Hit;
+        this.postClimb =  postClimb;
+        this.postComments = postComments;
         this.syncNum = syncNum;
     }
 
@@ -104,46 +104,6 @@ public class Model_Match {
 
     public int getTeamNum() {
         return teamNum;
-    }
-
-    public int getAutoDef1Miss() {
-        return autoDef1Miss;
-    }
-
-    public int getAutoDef1Hit() {
-        return autoDef1Hit;
-    }
-
-    public int getAutoDef2Miss() {
-        return autoDef2Miss;
-    }
-
-    public int getAutoDef2Hit() {
-        return autoDef2Hit;
-    }
-
-    public int getAutoDef3Miss() {
-        return autoDef3Miss;
-    }
-
-    public int getAutoDef3Hit() {
-        return autoDef3Hit;
-    }
-
-    public int getAutoDef4Miss() {
-        return autoDef4Miss;
-    }
-
-    public int getAutoDef4Hit() {
-        return autoDef4Hit;
-    }
-
-    public int getAutoDef5Miss() {
-        return autoDef5Miss;
-    }
-
-    public int getAutoDef5Hit() {
-        return autoDef5Hit;
     }
 
     public int getAutoLowMiss() {
@@ -162,20 +122,20 @@ public class Model_Match {
         return autoHighHit;
     }
 
-    public int getTeleLowMiss() {
-        return teleLowMiss;
+    public int getAutoLowBarMiss() {
+        return autoLowBarMiss;
     }
 
-    public int getTeleLowHit() {
-        return teleLowHit;
+    public int getAutoLowBarHit() {
+        return autoLowBarHit;
     }
 
-    public int getTeleHighMiss() {
-        return teleHighMiss;
+    public int getAutoCMiss() {
+        return autoCMiss;
     }
 
-    public int getTeleHighHit() {
-        return teleHighHit;
+    public int getAutoCHit() {
+        return autoCHit;
     }
 
     public int getTeleLowBarMiss() {
@@ -186,147 +146,71 @@ public class Model_Match {
         return teleLowBarHit;
     }
 
-    public int getTeleDrawbridgeMiss() {
-        return teleDrawbridgeMiss;
+    public int getTeleCMiss() {
+        return teleCMiss;
     }
 
-    public int getTeleDrawbridgeHit() {
-        return teleDrawbridgeHit;
+    public int getTeleCHit() {
+        return teleCHit;
     }
 
-    public int getTeleSallyPortMiss() {
-        return teleSallyPortMiss;
+    public int getTeleSector1Miss() {
+        return teleSector1Miss;
     }
 
-    public int getTeleSallyPortHit() {
-        return teleSallyPortHit;
+    public int getTeleSector1Hit() {
+        return teleSector1Hit;
     }
 
-    public int getSafeSpot() {
-        return safeSpot;
+    public int getTeleSector2Miss() {
+        return teleSector2Miss;
     }
 
-    public int getClimb() {
-        return climb;
+    public int getTeleSector2Hit() {
+        return teleSector2Hit;
+    }
+
+    public int getTeleSector3Miss() {
+        return teleSector3Miss;
+    }
+
+    public int getTeleSector3Hit() {
+        return teleSector3Hit;
+    }
+
+    public int getTeleSector4Miss() {
+        return teleSector4Miss;
+    }
+
+    public int getTeleSector4Hit() {
+        return teleSector4Hit;
+    }
+
+    public int getTeleSector5Miss() {
+        return teleSector5Miss;
+    }
+
+    public int getTeleSector5Hit() {
+        return teleSector5Hit;
+    }
+
+    public int getTeleSector6Miss() {
+        return teleSector6Miss;
+    }
+
+    public int getTeleSector6Hit() {
+        return teleSector6Hit;
+    }
+
+    public int getPostClimb() {
+        return postClimb;
     }
 
     public int getSyncNum() {
         return syncNum;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
-    }
-
-    public void setTeamNum(int teamNum) {
-        this.teamNum = teamNum;
-    }
-
-    public void setAutoDef1Miss(int autoDef1Miss) {
-        this.autoDef1Miss = autoDef1Miss;
-    }
-
-    public void setAutoDef1Hit(int autoDef1Hit) {
-        this.autoDef1Hit = autoDef1Hit;
-    }
-
-    public void setAutoDef2Miss(int autoDef2Miss) {
-        this.autoDef2Miss = autoDef2Miss;
-    }
-
-    public void setAutoDef2Hit(int autoDef2Hit) {
-        this.autoDef2Hit = autoDef2Hit;
-    }
-
-    public void setAutoDef3Miss(int autoDef3Miss) {
-        this.autoDef3Miss = autoDef3Miss;
-    }
-
-    public void setAutoDef3Hit(int autoDef3Hit) {
-        this.autoDef3Hit = autoDef3Hit;
-    }
-
-    public void setAutoDef4Miss(int autoDef4Miss) {
-        this.autoDef4Miss = autoDef4Miss;
-    }
-
-    public void setAutoDef4Hit(int autoDef4Hit) {
-        this.autoDef4Hit = autoDef4Hit;
-    }
-
-    public void setAutoDef5Miss(int autoDef5Miss) {
-        this.autoDef5Miss = autoDef5Miss;
-    }
-
-    public void setAutoDef5Hit(int autoDef5Hit) {
-        this.autoDef5Hit = autoDef5Hit;
-    }
-
-    public void setAutoLowMiss(int autoLowMiss) {
-        this.autoLowMiss = autoLowMiss;
-    }
-
-    public void setAutoLowHit(int autoLowHit) {
-        this.autoLowHit = autoLowHit;
-    }
-
-    public void setAutoHighMiss(int autoHighMiss) {
-        this.autoHighMiss = autoHighMiss;
-    }
-
-    public void setAutoHighHit(int autoHighHit) {
-        this.autoHighHit = autoHighHit;
-    }
-
-    public void setTeleLowMiss(int teleLowMiss) {
-        this.teleLowMiss = teleLowMiss;
-    }
-
-    public void setTeleLowHit(int teleLowHit) {
-        this.teleLowHit = teleLowHit;
-    }
-
-    public void setTeleHighMiss(int teleHighMiss) {
-        this.teleHighMiss = teleHighMiss;
-    }
-
-    public void setTeleHighHit(int teleHighHit) {
-        this.teleHighHit = teleHighHit;
-    }
-
-    public void setTeleLowBarMiss(int teleLowBarMiss) {
-        this.teleLowBarMiss = teleLowBarMiss;
-    }
-
-    public void setTeleLowBarHit(int teleLowBarHit) {
-        this.teleLowBarHit = teleLowBarHit;
-    }
-
-    public void setTeleDrawbridgeMiss(int teleDrawbridgeMiss) {
-        this.teleDrawbridgeMiss = teleDrawbridgeMiss;
-    }
-
-    public void setTeleDrawbridgeHit(int teleDrawbridgeHit) {
-        this.teleDrawbridgeHit = teleDrawbridgeHit;
-    }
-
-    public void setTeleSallyPortMiss(int teleSallyPortMiss) {
-        this.teleSallyPortMiss = teleSallyPortMiss;
-    }
-
-    public void setTeleSallyPortHit(int teleSallyPortHit) {
-        this.teleSallyPortHit = teleSallyPortHit;
-    }
-
-    public void setSafeSpot(int safeSpot) {
-        this.safeSpot = safeSpot;
-    }
-
-    public void setClimb(int climb) {
-        this.climb = climb;
-    }
-
-    public void setSyncNum(int syncNum) {
-        this.syncNum = syncNum;
+    public String getPostComments() {
+        return postComments;
     }
 }

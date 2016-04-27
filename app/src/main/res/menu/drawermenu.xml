@@ -7,7 +7,6 @@
     <item
         android:id="@+id/nav_item_pit_scout"
         android:title="Pit Scouting" />
-
     <group android:id="@+id/group_sharing">
         <item
             android:id="@+id/nav_item_share"

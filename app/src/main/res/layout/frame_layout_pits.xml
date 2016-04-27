@@ -11,9 +11,6 @@
         android:layout_height="wrap_content"
         android:stretchColumns="*">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
             <RelativeLayout android:layout_column="0">
                 <TextView
                     android:id="@+id/pitCreate_robot_cap"
@@ -33,7 +30,6 @@
                     android:layout_centerHorizontal="true"
                     android:layout_margin="5dp"/>
             </RelativeLayout>
-        </TableRow>
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
@@ -41,11 +37,11 @@
             android:layout_height="wrap_content"
             android:progressDrawable="@drawable/divider_bar"/>
 
-        <TableLayout android:background="@color/colorPrimaryDark2">
+        <TableLayout android:background="@color/switcher">
             <TableRow>
                 <TextView android:text="Driver Experience:"/>
                 <Spinner android:id="@+id/pitCreate_spinner_driver_xp"/>
-                <TextView android:text="years"/>
+                <TextView android:text="year"/>
             </TableRow>
         </TableLayout>
 
@@ -53,11 +49,11 @@
             <TableRow>
                 <TextView android:text="Operator Experience:"/>
                 <Spinner android:id="@+id/pitCreate_spinner_operator_xp"/>
-                <TextView android:text="years"/>
+                <TextView android:text="year"/>
             </TableRow>
         </TableLayout>
 
-        <TableLayout android:background="@color/colorPrimaryDark2">
+        <TableLayout android:background="@color/switcher">
             <TableRow>
                 <TextView android:text="Drivetrain: "/>
                 <Spinner android:id="@+id/pitCreate_spinner_drivetrain"/>
@@ -71,7 +67,7 @@
             </TableRow>
         </TableLayout>
 
-        <TableLayout android:background="@color/colorPrimaryDark2">
+        <TableLayout android:background="@color/switcher">
             <TableRow>
                 <TextView android:text="Climbs Tower:"/>
                 <Spinner android:id="@+id/pitCreate_spinner_tower_climb"/>
@@ -86,7 +82,7 @@
             </TableRow>
         </TableLayout>
 
-        <TableLayout android:background="@color/colorPrimaryDark2">
+        <TableLayout android:background="@color/switcher">
             <TableRow>
                 <TextView android:text="Shooter Type:"/>
                 <Spinner android:id="@+id/pitCreate_shooter_type"/>
@@ -100,7 +96,7 @@
             </TableRow>
         </TableLayout>
 
-        <TableLayout android:background="@color/colorPrimaryDark2">
+        <TableLayout android:background="@color/switcher">
             <TableRow>
                 <TextView android:text="Weight: "/>
                 <Spinner android:id="@+id/pitCreate_spinner_weight"/>
@@ -129,7 +125,7 @@
         <TextView android:text="Defenses"/>
 
         <TableLayout>
-            <TableRow android:background="@color/colorPrimaryDark2">
+            <TableRow android:background="@color/switcher">
                 <TextView android:text="Portcullis"/>
                 <Spinner android:id="@+id/pitCreate_spinner_portcullis"/>
             </TableRow>
@@ -143,7 +139,7 @@
         </TableLayout>
 
         <TableLayout>
-            <TableRow android:background="@color/colorPrimaryDark2">
+            <TableRow android:background="@color/switcher">
                 <TextView android:text="Moat"/>
                 <Spinner android:id="@+id/pitCreate_spinner_moat"/>
             </TableRow>
@@ -157,7 +153,7 @@
         </TableLayout>
 
         <TableLayout>
-            <TableRow android:background="@color/colorPrimaryDark2">
+            <TableRow android:background="@color/switcher">
                 <TextView android:text="Drawbridge"/>
                 <Spinner android:id="@+id/pitCreate_spinner_drawbridge"/>
             </TableRow>
@@ -173,7 +169,7 @@
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent"
-                android:background="@color/colorPrimaryDark2">
+                android:background="@color/switcher">
                 <TextView android:text="Rock Wall"/>
                 <Spinner android:id="@+id/pitCreate_spinner_rock_wall"/>
             </TableRow>
@@ -189,7 +185,7 @@
         <TableLayout>
             <TableRow
                 android:layout_width="match_parent"
-                android:background="@color/colorPrimaryDark2">
+                android:background="@color/switcher">
                 <TextView android:text="Low Bar"/>
                 <Spinner android:id="@+id/pitCreate_spinner_low_bar"/>
             </TableRow>

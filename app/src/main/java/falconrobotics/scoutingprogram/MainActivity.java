@@ -1,6 +1,7 @@
 package falconrobotics.scoutingprogram;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -9,6 +10,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+
+import java.util.Arrays;
 
 
 /**
@@ -28,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static String season = "2016",
             eventCode = "AZFL",
-            tournamentLevel = "qual";	// qual OR playoff
+            tournamentLevel = "qual";
 
     public static String eventName = "champsDATA.db";
-
+    private Helper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         Helper.createDir();
 
-        Helper myHelper = new Helper();
+        helper = new Helper();
 
         /**
          *Setup the DrawerLayout and NavigationView

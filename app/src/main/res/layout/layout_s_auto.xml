@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:scrollbarAlwaysDrawHorizontalTrack="true"
-    android:fillViewport="false">
+    android:fillViewport="true">
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -29,22 +29,22 @@
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark2">
+            android:background="@color/switcher">
 
             <Button
-                android:id="@+id/matchCreate_auto_auto_high_goal_miss_sub"
+                android:id="@+id/matchCreate_auto_high_miss_sub"
                 android:layout_width="25dip"
                 android:layout_column="0"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/matchCreate_auto_auto_high_goal_miss_score"
+                android:id="@+id/matchCreate_auto_high_miss_score"
                 android:layout_column="1"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_auto_high_goal_miss_add"
+                android:id="@+id/matchCreate_auto_high_miss_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
@@ -55,19 +55,19 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_auto_high_goal_hit_sub"
+                android:id="@+id/matchCreate_auto_high_hit_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/matchCreate_auto_auto_high_goal_hit_score"
+                android:id="@+id/matchCreate_auto_high_hit_score"
                 android:layout_column="5"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_auto_high_goal_hit_add"
+                android:id="@+id/matchCreate_auto_high_hit_add"
                 android:layout_width="25dip"
                 android:layout_column="6"
                 android:text="+" />
@@ -78,19 +78,19 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/matchCreate_auto_auto_low_goal_miss_sub"
+                android:id="@+id/matchCreate_auto_low_miss_sub"
                 android:layout_width="25dip"
                 android:layout_column="0"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/matchCreate_auto_auto_low_goal_miss_score"
+                android:id="@+id/matchCreate_auto_low_miss_score"
                 android:layout_column="1"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_auto_low_goal_miss_add"
+                android:id="@+id/matchCreate_auto_low_miss_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
@@ -101,19 +101,19 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_auto_low_goal_hit_sub"
+                android:id="@+id/matchCreate_auto_low_hit_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/matchCreate_auto_auto_low_goal_hit_score"
+                android:id="@+id/matchCreate_auto_low_hit_score"
                 android:layout_column="5"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_auto_low_goal_hit_add"
+                android:id="@+id/matchCreate_auto_low_hit_add"
                 android:layout_width="25dip"
                 android:layout_column="6"
                 android:text="+" />
@@ -144,45 +144,45 @@
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark2">
+            android:background="@color/switcher">
 
             <Button
-                android:id="@+id/matchCreate_auto_autodef1_attempt_sub"
+                android:id="@+id/matchCreate_auto_lowbar_miss_sub"
                 android:layout_width="25dip"
                 android:layout_column="0"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/matchCreate_auto_autodef1_attempt_score"
+                android:id="@+id/matchCreate_auto_lowbar_miss_score"
                 android:layout_column="1"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_autodef1_attempt_add"
+                android:id="@+id/matchCreate_auto_lowbar_miss_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
 
             <TextView
                 android:layout_column="3"
-                android:text="Defence 1"
+                android:text="Low Bar"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_autodef1_cross_sub"
+                android:id="@+id/matchCreate_auto_lowbar_hit_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/matchCreate_auto_autodef1_cross_score"
+                android:id="@+id/matchCreate_auto_lowbar_hit_score"
                 android:layout_column="5"
                 android:text="0"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_autodef1_cross_add"
+                android:id="@+id/matchCreate_auto_lowbar_hit_add"
                 android:layout_width="25dip"
                 android:layout_column="6"
                 android:text="+" />
@@ -193,182 +193,43 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/matchCreate_auto_autodef2_attempt_sub"
+                android:id="@+id/matchCreate_auto_c_miss_sub"
                 android:layout_width="25dip"
                 android:layout_column="0"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/matchCreate_auto_autodef2_attempt_score"
+                android:id="@+id/matchCreate_auto_c_miss_score"
                 android:layout_column="1"
-                android:text="0"
+                android:text="-1"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_autodef2_attempt_add"
+                android:id="@+id/matchCreate_auto_c_miss_add"
                 android:layout_width="25dip"
                 android:layout_column="2"
                 android:text="+" />
 
             <TextView
                 android:layout_column="3"
-                android:text="Defence 2"
+                android:layout_height="match_parent"
+                android:text="Sally Port\nDrawbridge"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_autodef2_cross_sub"
+                android:id="@+id/matchCreate_auto_c_hit_sub"
                 android:layout_width="25dip"
                 android:layout_column="4"
                 android:text="-" />
 
             <TextView
-                android:id="@+id/matchCreate_auto_autodef2_cross_score"
+                android:id="@+id/matchCreate_auto_c_hit_score"
                 android:layout_column="5"
-                android:text="0"
+                android:text="-1"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/matchCreate_auto_autodef2_cross_add"
-                android:layout_width="25dip"
-                android:layout_column="6"
-                android:text="+" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark2">
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef3_attempt_sub"
-                android:layout_width="25dip"
-                android:layout_column="0"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/matchCreate_auto_autodef3_attempt_score"
-                android:layout_column="1"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef3_attempt_add"
-                android:layout_width="25dip"
-                android:layout_column="2"
-                android:text="+" />
-
-            <TextView
-                android:layout_column="3"
-                android:text="Defence 3"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef3_cross_sub"
-                android:layout_width="25dip"
-                android:layout_column="4"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/matchCreate_auto_autodef3_cross_score"
-                android:layout_column="5"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef3_cross_add"
-                android:layout_width="25dip"
-                android:layout_column="6"
-                android:text="+" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef4_attempt_sub"
-                android:layout_width="25dip"
-                android:layout_column="0"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/matchCreate_auto_autodef4_attempt_score"
-                android:layout_column="1"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef4_attempt_add"
-                android:layout_width="25dip"
-                android:layout_column="2"
-                android:text="+" />
-
-            <TextView
-                android:layout_column="3"
-                android:text="Defence 4"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef4_cross_sub"
-                android:layout_width="25dip"
-                android:layout_column="4"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/matchCreate_auto_autodef4_cross_score"
-                android:layout_column="5"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef4_cross_add"
-                android:layout_width="25dip"
-                android:layout_column="6"
-                android:text="+" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark2">
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef5_attempt_sub"
-                android:layout_width="25dip"
-                android:layout_column="0"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/matchCreate_auto_autodef5_attempt_score"
-                android:layout_column="1"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef5_attempt_add"
-                android:layout_width="25dip"
-                android:layout_column="2"
-                android:text="+" />
-
-            <TextView
-                android:layout_column="3"
-                android:text="Defence 5"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef5_cross_sub"
-                android:layout_width="25dip"
-                android:layout_column="4"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/matchCreate_auto_autodef5_cross_score"
-                android:layout_column="5"
-                android:text="0"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/matchCreate_auto_autodef5_cross_add"
+                android:id="@+id/matchCreate_auto_c_hit_add"
                 android:layout_width="25dip"
                 android:layout_column="6"
                 android:text="+" />
